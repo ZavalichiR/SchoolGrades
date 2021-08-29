@@ -7,3 +7,17 @@
 # Visual studio cache
 .vs/
 *.cache
+SchoolGrades/.vs/SchoolGrades/v16/.suo
+SchoolGrades/bin/Debug/SchoolGrades.exe
+SchoolGrades/bin/Debug/SchoolGrades.pdb
+SchoolGrades/obj/Debug/SchoolGrades.csproj.AssemblyReference.cache
+SchoolGrades/obj/Debug/SchoolGrades.csproj.CoreCompileInputs.cache
+SchoolGrades/obj/Debug/SchoolGrades.csproj.FileListAbsolute.txt
+SchoolGrades/obj/Debug/SchoolGrades.csproj.GenerateResource.cache
+SchoolGrades/obj/Debug/SchoolGrades.exe
+SchoolGrades/obj/Debug/SchoolGrades.g.resources
+SchoolGrades/obj/Debug/SchoolGrades.pdb
+SchoolGrades/obj/Debug/SchoolGrades_MarkupCompile.cache
+SchoolGrades/obj/Debug/SchoolGrades_MarkupCompile.i.cache
+SchoolGrades/obj/Debug/Views/MainWindow.baml
+SchoolGrades/obj/Debug/Views/MainWindow.g.cs
