@@ -20,5 +20,20 @@ namespace SchoolGrades.Views
         {
 
         }
+
+        private void TextBox_TextChanged_2(object sender, System.Windows.Controls.TextChangedEventArgs e)
+        {
+
+        }
+
+        private void Close_Click(object sender, System.Windows.RoutedEventArgs e)
+        {
+
+        }
+
+        private void Close_MouseLeftButtonDown(object sender, System.Windows.Input.MouseButtonEventArgs e)
+        {
+            System.Windows.Application.Current.Shutdown();
+        }
     }
 }

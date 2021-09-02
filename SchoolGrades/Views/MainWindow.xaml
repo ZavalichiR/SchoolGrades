@@ -5,13 +5,12 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         mc:Ignorable="d"
         xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes"
-        Title="Login_Form" Height="314.4" Width="500.8" ResizeMode="NoResize" WindowStartupLocation="CenterScreen" WindowStyle="None">
+        Title="Login_Form" Height="314.4" Width="500.8" ResizeMode="NoResize" WindowStartupLocation="CenterScreen" WindowStyle="None" AllowsTransparency="True" Foreground="{x:Null}" Background="{x:Null}">
 
-    <Grid>
-        
-        <Rectangle Fill="White" Effect="{DynamicResource MaterialDesignShadowDepth5}" RadiusX="13.667" RadiusY="13.667" Margin="116,0,104.8,0.4" />
-
-        <Image Source="C:\Users\casia\Documents\School Grades\login\login.png" Margin="126,11,296.8,230.4" Effect="{DynamicResource MaterialDesignShadowDepth3}" RenderTransformOrigin="0.5,0.5">
+    <Grid Margin="32,0,-0.2,10.4">
+        <Rectangle Fill="White" Effect="{DynamicResource MaterialDesignShadowDepth5}" RadiusX="13.667" RadiusY="13.667" Margin="106,0,67,0"  />
+        <Image Source="C:\Users\casia\Documents\School Grades\login\close.png" Margin="351,16,73,269" x:Name="Close" RenderTransformOrigin="0.5,0.5" Stretch="None" MouseLeftButtonDown="Close_MouseLeftButtonDown"/>
+        <Image Source="C:\Users\casia\Documents\School Grades\login\login.png" Margin="117,1,306,240" Effect="{DynamicResource MaterialDesignShadowDepth3}" RenderTransformOrigin="0.5,0.5">
             <Image.RenderTransform>
                 <TransformGroup>
                     <ScaleTransform/>
@@ -21,16 +20,28 @@
                 </TransformGroup>
             </Image.RenderTransform>
         </Image>
-
         <Grid Width="280" Height="200" VerticalAlignment="Top" Margin="116,62,104,0">
-            <TextBlock Text="CONECTEAZA-TE"  HorizontalAlignment="Center" Height="31" Margin="67,32,67,137" FontWeight="Bold" FontSize="17" Foreground="#333399" Width="146" />
-            <StackPanel VerticalAlignment="Center" Margin="15,0,15,0" Height="100">
-                <TextBox materialDesign:HintAssist.Hint="Numele utilizatorului" Style="{StaticResource MaterialDesignFloatingHintTextBox}" Height="37" Margin="10,0,-0.4,0" />
-                <PasswordBox materialDesign:HintAssist.Hint="Parola" Style="{StaticResource MaterialDesignFloatingHintPasswordBox}" Margin="10,0,-0.4,0" />
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="7*"/>
+                <ColumnDefinition Width="33*"/>
+            </Grid.ColumnDefinitions>
+            <TextBlock Text="CONECTEAZA-TE"  HorizontalAlignment="Center" Height="31" Margin="10.2,24,75,145" FontWeight="Bold" FontSize="17" Foreground="#333399" Width="146" Grid.Column="1" />
+            <StackPanel VerticalAlignment="Center" Margin="15,50" Height="100" Grid.ColumnSpan="2">
+                <TextBox materialDesign:HintAssist.Hint="Numele utilizatorului" Style="{StaticResource MaterialDesignFloatingHintTextBox}" Height="37" Margin="8,0,21.6,0" RenderTransformOrigin="0.5,0.5" TextChanged="TextBox_TextChanged_2" Foreground="Black" >
+                    <TextBox.RenderTransform>
+                        <TransformGroup>
+                            <ScaleTransform/>
+                            <SkewTransform/>
+                            <RotateTransform Angle="-0.034"/>
+                            <TranslateTransform/>
+                        </TransformGroup>
+                    </TextBox.RenderTransform>
+                </TextBox>
+                <PasswordBox materialDesign:HintAssist.Hint="Parola" Style="{StaticResource MaterialDesignFloatingHintPasswordBox}" Margin="10,0,23.6,0" Foreground="Black" />
 
             </StackPanel>
-            <Button FontSize="15" VerticalAlignment="Top" Content="Login" Margin="76,155,89,0" Height="29" Effect="{DynamicResource MaterialDesignShadowDepth2}" Background="#FF7C38F5" />
-            <Button FontSize="15" VerticalAlignment="Top" Content="Reset Password" Margin="68,202,76,-31" Height="29" Effect="{DynamicResource MaterialDesignShadowDepth2}" Background="#FF7C38F5" RenderTransformOrigin="0.5,0.5" >
+            <Button FontSize="15" VerticalAlignment="Top" Content="Login" Margin="21.2,150,95,0" Height="29" Effect="{DynamicResource MaterialDesignShadowDepth2}" Background="#FF7C38F5" Grid.Column="1" />
+            <Button FontSize="15" VerticalAlignment="Top" Content="Reset Password" Margin="9.2,185,86,-14" Height="29" Effect="{DynamicResource MaterialDesignShadowDepth2}" Background="#FF7C38F5" RenderTransformOrigin="0.5,0.5" Grid.Column="1" >
                 <Button.RenderTransform>
                     <TransformGroup>
                         <ScaleTransform/>
