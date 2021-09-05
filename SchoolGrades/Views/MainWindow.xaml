@@ -5,52 +5,24 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         mc:Ignorable="d"
         xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes"
-        Title="Login_Form" Height="314.4" Width="500.8" ResizeMode="NoResize" WindowStartupLocation="CenterScreen" WindowStyle="None" AllowsTransparency="True" Foreground="{x:Null}" Background="{x:Null}">
+        Title="Login_Form" Height="350" Width="300" AllowsTransparency="True" WindowStyle="None" Background="{x:Null}" IsEnabled="False" ResizeMode="NoResize">
 
-    <Grid Margin="32,0,-0.2,10.4">
-        <Rectangle Fill="White" Effect="{DynamicResource MaterialDesignShadowDepth5}" RadiusX="13.667" RadiusY="13.667" Margin="106,0,67,0"  />
-        <Image Source="C:\Users\casia\Documents\School Grades\login\close.png" Margin="351,16,73,269" x:Name="Close" RenderTransformOrigin="0.5,0.5" Stretch="None" MouseLeftButtonDown="Close_MouseLeftButtonDown"/>
-        <Image Source="C:\Users\casia\Documents\School Grades\login\login.png" Margin="117,1,306,240" Effect="{DynamicResource MaterialDesignShadowDepth3}" RenderTransformOrigin="0.5,0.5">
-            <Image.RenderTransform>
-                <TransformGroup>
-                    <ScaleTransform/>
-                    <SkewTransform/>
-                    <RotateTransform Angle="0.416"/>
-                    <TranslateTransform/>
-                </TransformGroup>
-            </Image.RenderTransform>
-        </Image>
-        <Grid Width="280" Height="200" VerticalAlignment="Top" Margin="116,62,104,0">
-            <Grid.ColumnDefinitions>
-                <ColumnDefinition Width="7*"/>
-                <ColumnDefinition Width="33*"/>
-            </Grid.ColumnDefinitions>
-            <TextBlock Text="CONECTEAZA-TE"  HorizontalAlignment="Center" Height="31" Margin="10.2,24,75,145" FontWeight="Bold" FontSize="17" Foreground="#333399" Width="146" Grid.Column="1" />
-            <StackPanel VerticalAlignment="Center" Margin="15,50" Height="100" Grid.ColumnSpan="2">
-                <TextBox materialDesign:HintAssist.Hint="Numele utilizatorului" Style="{StaticResource MaterialDesignFloatingHintTextBox}" Height="37" Margin="8,0,21.6,0" RenderTransformOrigin="0.5,0.5" TextChanged="TextBox_TextChanged_2" Foreground="Black" >
-                    <TextBox.RenderTransform>
-                        <TransformGroup>
-                            <ScaleTransform/>
-                            <SkewTransform/>
-                            <RotateTransform Angle="-0.034"/>
-                            <TranslateTransform/>
-                        </TransformGroup>
-                    </TextBox.RenderTransform>
-                </TextBox>
-                <PasswordBox materialDesign:HintAssist.Hint="Parola" Style="{StaticResource MaterialDesignFloatingHintPasswordBox}" Margin="10,0,23.6,0" Foreground="Black" />
+    <Grid Width="300" Height="350" Background="White">
+        <Rectangle Height="175" VerticalAlignment="Top">
+            <Rectangle.Fill>
+                <LinearGradientBrush>
+                    <GradientStop Color="#FF2281D1"/>
+                    <GradientStop Color="#FF6463D8" Offset="1"/>
+                    <GradientStop Color="#FF22CCD1" Offset="0.5"/>
+                </LinearGradientBrush>
+            </Rectangle.Fill>
+        </Rectangle>
+        <Image Source="C:\Users\casia\Desktop\Github Project Casian Amihaiesei\SchoolGrades\SchoolGrades\Imagini\casa.png" Margin="98,10,100,257" RenderTransformOrigin="0.356,0.114"/>
+        <Rectangle Width="280" Margin="10,98,10,17" HorizontalAlignment="Center" Fill="White">
+            <Rectangle.Effect>
+                <DropShadowEffect Color="#FFBBBBBB" Direction="0" BlurRadius="15" RenderingBias="Quality"/>
+            </Rectangle.Effect>
+        </Rectangle>
 
-            </StackPanel>
-            <Button FontSize="15" VerticalAlignment="Top" Content="Login" Margin="21.2,150,95,0" Height="29" Effect="{DynamicResource MaterialDesignShadowDepth2}" Background="#FF7C38F5" Grid.Column="1" />
-            <Button FontSize="15" VerticalAlignment="Top" Content="Reset Password" Margin="9.2,185,86,-14" Height="29" Effect="{DynamicResource MaterialDesignShadowDepth2}" Background="#FF7C38F5" RenderTransformOrigin="0.5,0.5" Grid.Column="1" >
-                <Button.RenderTransform>
-                    <TransformGroup>
-                        <ScaleTransform/>
-                        <SkewTransform AngleY="0.008"/>
-                        <RotateTransform/>
-                        <TranslateTransform/>
-                    </TransformGroup>
-                </Button.RenderTransform>
-            </Button>
-        </Grid>
     </Grid>
 </Window>
