@@ -5,24 +5,17 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         mc:Ignorable="d"
         xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes"
-        Title="Login_Form" Height="350" Width="300" AllowsTransparency="True" WindowStyle="None" Background="{x:Null}" IsEnabled="False" ResizeMode="NoResize">
+        Title="Login_Form" Height="300" Width="300" WindowStyle="None" Background="{x:Null}" ResizeMode="NoResize">
 
-    <Grid Width="300" Height="350" Background="White">
-        <Rectangle Height="175" VerticalAlignment="Top">
-            <Rectangle.Fill>
-                <LinearGradientBrush>
-                    <GradientStop Color="#FF2281D1"/>
-                    <GradientStop Color="#FF6463D8" Offset="1"/>
-                    <GradientStop Color="#FF22CCD1" Offset="0.5"/>
-                </LinearGradientBrush>
-            </Rectangle.Fill>
-        </Rectangle>
-        <Image Source="C:\Users\casia\Desktop\Github Project Casian Amihaiesei\SchoolGrades\SchoolGrades\Imagini\casa.png" Margin="98,10,100,257" RenderTransformOrigin="0.356,0.114"/>
-        <Rectangle Width="280" Margin="10,98,10,17" HorizontalAlignment="Center" Fill="White">
-            <Rectangle.Effect>
-                <DropShadowEffect Color="#FFBBBBBB" Direction="0" BlurRadius="15" RenderingBias="Quality"/>
-            </Rectangle.Effect>
-        </Rectangle>
 
-    </Grid>
+    <Border Background="White" CornerRadius="23">
+        <Grid>
+            <TextBlock Text="Conecteaza-te" HorizontalAlignment="Center" Height="27" Width="162" Foreground="#333399" FontSize="23" FontWeight="ExtraBold" Margin="66,68,72,200.5" RenderTransformOrigin="0.439,0.877"/>
+            <TextBox materialDesign:HintAssist.Hint="Numele utilizatorului" Style="{StaticResource MaterialDesignFloatingHintTextBox}" Margin="51,100,51,158.5" Foreground="Black"/>
+            <PasswordBox materialDesign:HintAssist.Hint="Parola" Style="{StaticResource MaterialDesignFilledPasswordBox}" Margin="51,154,51,99.5" Foreground="Black"/>
+            <Button x:Name="Login" FontSize="15" VerticalAlignment="Top" Content="Login" Margin="59,207,57,0" Height="29" Effect="{DynamicResource MaterialDesignShadowDepth2}" Background="#FF7C38F5" Opacity="0.995"/>
+            <Button x:Name="Reset_Password" FontSize="15" VerticalAlignment="Top" Content="Reset Password" Margin="59,251,57,0" Height="29" Effect="{DynamicResource MaterialDesignShadowDepth2}" Background="#FF7C38F5" RenderTransformOrigin="0.5,0.5" Opacity="1"/>
+            <Ellipse x:Name="Close_APP" Fill="Red" Grid.Row="0" Height="19" Width="19" HorizontalAlignment="Right" VerticalAlignment="Top" Margin="0,6,10,0" MouseLeftButtonDown="CloseApplication" ToolTip="Close" />
+        </Grid>
+    </Border>
 </Window>
