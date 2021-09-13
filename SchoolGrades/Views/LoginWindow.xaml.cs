@@ -13,13 +13,13 @@ namespace SchoolGrades.Views
         {
             if (e.LeftButton == System.Windows.Input.MouseButtonState.Pressed)
             {
-            DragMove();
+                DragMove();
             }
         }
 
 
         //Shutdown
-        private void Button_Click(object sender, System.Windows.RoutedEventArgs e)
+        private void Close_Application(object sender, System.Windows.RoutedEventArgs e)
         {
             System.Windows.Application.Current.Shutdown();
         }
