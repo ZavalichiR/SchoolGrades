@@ -9,12 +9,74 @@
 
     <Border Background="White" CornerRadius="23" MouseMove="Move_Window">
         <Grid>
-            <Button Content="X" FontSize="19" FontWeight="Bold" Background= "{  x:Null}" BorderBrush="{x:Null}" Foreground="Black" HorizontalAlignment="Left" VerticalAlignment="Top" Height="32" Width="45" MouseLeftButtonDown="Close" Margin="245,10,0,0" ToolTipService.ShowDuration="2000" ToolTipService.BetweenShowDelay="10000" ToolTip="Exit Button"/>
-            <TextBlock Text="Login" HorizontalAlignment="Center" Width="65" Foreground="#333399" FontSize="23" FontWeight="ExtraBold" Margin="112,53,123,213" RenderTransformOrigin="0.439,0.877"/>
-            <TextBox materialDesign:HintAssist.Hint="User Name" Style="{StaticResource MaterialDesignFloatingHintTextBox}" Margin="51,87,51,178" Foreground="Black"/>
-            <TextBox materialDesign:HintAssist.Hint="Password" Style="{StaticResource MaterialDesignFloatingHintTextBox}" Margin="51,127,51,133" Foreground="Black"/>
-            <Button x:Name="Login_Button" FontSize="15" VerticalAlignment="Top" Content="Login" Margin="59,183,57,0" Height="29" Effect="{DynamicResource MaterialDesignShadowDepth2}" Background="#FF7C38F5" Opacity="0.995"/>
-            <Button x:Name="Reset_Password" FontSize="15" VerticalAlignment="Top" Content="Reset Password" Margin="59,223,57,0" Height="29" Effect="{DynamicResource MaterialDesignShadowDepth2}" Background="#FF7C38F5" RenderTransformOrigin="0.5,0.5" Opacity="1"/>
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="27*"/>
+                <ColumnDefinition Width="73*"/>
+            </Grid.ColumnDefinitions>
+            <Button Content="X"
+                    FontSize="19" 
+                    FontWeight="Bold" 
+                    Background="{x:Null}"
+                    BorderBrush="{x:Null}"
+                    Foreground="Black"
+                    HorizontalAlignment="Left"
+                    VerticalAlignment="Top"
+                    Height="30"
+                    Width="46"
+                    Margin="171.667,0,0,0"
+                    ToolTipService.ShowDuration="2000"
+                    ToolTipService.BetweenShowDelay="10000"
+                    ToolTip="Exit Button" 
+                    Click="Button_Click" 
+                    Grid.Column="1"/>
+            
+            <TextBlock Text="Login" 
+                       HorizontalAlignment="Center" 
+                       Width="65" Foreground="#333399" 
+                       FontSize="23" 
+                       FontWeight="ExtraBold" 
+                       Margin="35.667,56,118,210" 
+                       RenderTransformOrigin="0.439,0.877" 
+                       Grid.Column="1"/>
+            
+            <TextBox materialDesign:HintAssist.Hint="User Name"
+                     Style="{StaticResource MaterialDesignFloatingHintTextBox}"
+                     Margin="51,95,51,170"
+                     Foreground="Black" 
+                     Grid.ColumnSpan="2"/>
+            
+            <PasswordBox x:Name="passwordbox" 
+                         materialDesign:HintAssist.Hint="Password" 
+                         Style="{StaticResource MaterialDesignPasswordBox}"
+                         HorizontalAlignment="Center" 
+                         Margin="52,143,50,129" 
+                         Grid.ColumnSpan="2" 
+                         Width="198"
+                         PasswordChar="*" 
+                         Foreground="Black"/>
+            
+            <Button x:Name="Login_Button" 
+                    FontSize="15"
+                    VerticalAlignment="Top" 
+                    Content="Login"
+                    Margin="59,189,57,0" 
+                    Height="29"
+                    Effect="{DynamicResource MaterialDesignShadowDepth2}" 
+                    Background="#FF7C38F5" 
+                    Opacity="0.995" 
+                    Grid.ColumnSpan="2"/>
+            
+            <Button x:Name="Reset_Password" 
+                    FontSize="15" 
+                    VerticalAlignment="Top" 
+                    Content="Reset Password" 
+                    Margin="59,228,57,0" 
+                    Height="29" 
+                    Effect="{DynamicResource MaterialDesignShadowDepth2}"
+                    Background="#FF7C38F5"
+                    RenderTransformOrigin="0.5,0.5"
+                    Opacity="1" 
+                    Grid.ColumnSpan="2"/>
         </Grid>
     </Border>
 </Window>

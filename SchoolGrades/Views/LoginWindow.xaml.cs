@@ -8,19 +8,20 @@ namespace SchoolGrades.Views
             InitializeComponent();
         }
 
-        // Application ShutDown
-        private void Close( object sender, System.Windows.Input.MouseButtonEventArgs e)
-        {
-            System.Windows.Application.Current.Shutdown();
-        }
-
         // Movable Window
         private void Move_Window(object sender, System.Windows.Input.MouseEventArgs e)
         {
-            if(e.LeftButton == System.Windows.Input.MouseButtonState.Pressed )
+            if (e.LeftButton == System.Windows.Input.MouseButtonState.Pressed)
             {
-                this.DragMove();
+            DragMove();
             }
+        }
+
+
+        //Shutdown
+        private void Button_Click(object sender, System.Windows.RoutedEventArgs e)
+        {
+            System.Windows.Application.Current.Shutdown();
         }
     }
 }
