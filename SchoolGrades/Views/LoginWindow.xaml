@@ -37,38 +37,57 @@
             <TextBox materialDesign:HintAssist.Hint="User Name"
                      Margin="20, 20, 20, 0"
                      Grid.Row="2"
-                     Style="{StaticResource MaterialDesignFloatingHintTextBox}"
+                     Style="{StaticResource MaterialDesignTextBox}"
+                     Width="300"
                      Foreground="Black"/>
 
-            <PasswordBox x:Name="passwordbox" 
+            <PasswordBox x:Name="PasswordHidden" 
                          Margin="20, 5, 20, 0"
                          Grid.Row="3"
                          materialDesign:HintAssist.Hint="Password" 
-                         Style="{StaticResource MaterialDesignPasswordBox}" 
-                         PasswordChar="*" 
-                         Foreground="Black"/>
+                         Width="300"
+                         PasswordChar="*"
+                         Foreground="Black"
+                         />
+
+            <TextBox Name="PasswordUnmask" 
+                     Visibility="Hidden"
+                     Grid.Row="3"
+                     Width="300"
+                     Margin="20, 5, 20, 0"
+                     Foreground="Black"/>
+
+            <CheckBox x:Name="ShowPassword"
+                      Grid.Row="3"
+                      HorizontalAlignment="Right"
+                      Margin="0,2.333,1.333,48.667" Width="23" 
+                      Grid.RowSpan="2"
+                      Checked="MyCheckBox_Checked"
+                      Unchecked="MyCheckBox_UnChecked"
+                      ToolTipService.ShowDuration="2000" ToolTipService.BetweenShowDelay="10000"
+                      ToolTip="Show Password" 
+                      />
+
 
             <Button x:Name="Login_Button" 
-                    Margin="0, 20, 0, 0"
+                    Margin="131,17.333,130.333,3"
                     Grid.Row="4"
                     FontSize="15" 
                     Content="Login"
                     Width="100" Height="29"
                     Effect="{DynamicResource MaterialDesignShadowDepth2}" 
                     Background="#FF7C38F5" 
-                    Opacity="0.995" 
-                    Grid.ColumnSpan="2" HorizontalAlignment="Center"/>
+                    Opacity="0.995" HorizontalAlignment="Center" RenderTransformOrigin="0.373,0.123"/>
 
             <Button x:Name="Reset_Password" 
-                    Margin="0, 5, 0, 0"
+                    Margin="108,0.333,108.333,6"
                     Grid.Row="5"
                     FontSize="12" 
-                    Content="Reset Password" 
-                    Width="150" Height="30"
+                    Content="Reset Password" Height="Auto"
                     Effect="{DynamicResource MaterialDesignShadowDepth2}"
                     Background="{x:Null}"
                     RenderTransformOrigin="0.5,0.5"
-                    Opacity="1" BorderBrush="{x:Null}" Foreground="Black"/>
+                    Opacity="1" BorderBrush="{x:Null}" Foreground="#333377"/>
 
         </Grid>
     </Border>

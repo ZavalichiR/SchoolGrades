@@ -23,5 +23,24 @@ namespace SchoolGrades.Views
         {
             System.Windows.Application.Current.Shutdown();
         }
+
+
+        // Show Password    
+        private void MyCheckBox_Checked(object sender, System.Windows.RoutedEventArgs e)
+        {
+            if (ShowPassword.IsChecked == true)
+            {
+                PasswordUnmask.Visibility = System.Windows.Visibility.Visible;
+                PasswordHidden.Visibility = System.Windows.Visibility.Hidden;
+                PasswordUnmask.Text = PasswordHidden.Password;
+            }
+        }
+
+        // Return the password to passwordchar
+        private void MyCheckBox_UnChecked(object sender, System.Windows.RoutedEventArgs e)
+        {
+            PasswordUnmask.Visibility = System.Windows.Visibility.Hidden;
+            PasswordHidden.Visibility = System.Windows.Visibility.Visible;
+        }
     }
 }
