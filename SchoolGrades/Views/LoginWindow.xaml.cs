@@ -18,7 +18,7 @@ namespace SchoolGrades.Views
         }
 
 
-        //Shutdown
+        //Shutdown Application
         private void Close_Application(object sender, System.Windows.RoutedEventArgs e)
         {
             System.Windows.Application.Current.Shutdown();
@@ -41,6 +41,8 @@ namespace SchoolGrades.Views
         {
             PasswordUnmask.Visibility = System.Windows.Visibility.Hidden;
             PasswordHidden.Visibility = System.Windows.Visibility.Visible;
+            PasswordHidden.Visibility = System.Windows.Visibility.Visible;
+            PasswordHidden.Password = PasswordUnmask.Text;
         }
     }
 }

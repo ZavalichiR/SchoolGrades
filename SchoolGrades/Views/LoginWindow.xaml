@@ -4,10 +4,14 @@
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         mc:Ignorable="d"
-        xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes"
-        Title="Login_Form" WindowStyle="None" 
+    xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes"
+        Title="Login_Form" WindowStyle="None"
+        xmlns:local="clr-namespace:SchoolGrades" xmlns:mvvm="clr-namespace:SchoolGrades.MVVM" d:DataContext="{d:DesignInstance Type=mvvm:LoginViewModel}"
         Foreground="{x:Null}" Background="{x:Null}"
         ResizeMode="NoResize" AllowsTransparency="True" Height="235.6" Width="361.6">
+    <Window.Resources>
+        <local:App x:Key="loginViewModel"/>
+    </Window.Resources>
 
     <Border Background="White" CornerRadius="23" MouseMove="Move_Window">
         <Grid>
@@ -19,7 +23,8 @@
                 <RowDefinition Height="Auto"/>
                 <RowDefinition Height="Auto"/>
             </Grid.RowDefinitions>
-            <Button Content="X"
+
+                <Button Content="X"
                     Grid.Row="0"
                     FontSize="19" 
                     FontWeight="Bold" Background="{x:Null}" BorderBrush="{x:Null}"
@@ -39,24 +44,27 @@
                      Grid.Row="2"
                      Style="{StaticResource MaterialDesignTextBox}"
                      Width="300"
+                     Text="{Binding Username, UpdateSourceTrigger=PropertyChanged}"
                      Foreground="Black"/>
 
             <PasswordBox x:Name="PasswordHidden" 
+                         materialDesign:HintAssist.Hint="Password" 
                          Margin="20, 5, 20, 0"
                          Grid.Row="3"
-                         materialDesign:HintAssist.Hint="Password" 
                          Width="300"
                          PasswordChar="*"
+                         
                          Foreground="Black"
                          />
 
             <TextBox Name="PasswordUnmask" 
+                     materialDesign:HintAssist.Hint="Password" 
                      Visibility="Hidden"
                      Grid.Row="3"
                      Width="300"
                      Margin="20, 5, 20, 0"
                      Foreground="Black"/>
-
+            
             <CheckBox x:Name="ShowPassword"
                       Grid.Row="3"
                       HorizontalAlignment="Right"
@@ -70,7 +78,7 @@
 
 
             <Button x:Name="Login_Button" 
-                    Margin="131,17.333,130.333,3"
+                    Margin="131,3.667,130.333,16.667"
                     Grid.Row="4"
                     FontSize="15" 
                     Content="Login"
@@ -80,15 +88,14 @@
                     Opacity="0.995" HorizontalAlignment="Center" RenderTransformOrigin="0.373,0.123"/>
 
             <Button x:Name="Reset_Password" 
-                    Margin="108,0.333,108.333,6"
-                    Grid.Row="5"
+                    Margin="112,40.667,104.333,16.333"
+                    Grid.Row="4"
                     FontSize="12" 
                     Content="Reset Password" Height="Auto"
                     Effect="{DynamicResource MaterialDesignShadowDepth2}"
                     Background="{x:Null}"
                     RenderTransformOrigin="0.5,0.5"
-                    Opacity="1" BorderBrush="{x:Null}" Foreground="#333377"/>
-
+                    Opacity="1" BorderBrush="{x:Null}" Foreground="#333377" Grid.RowSpan="2"/>
         </Grid>
     </Border>
 </Window>
