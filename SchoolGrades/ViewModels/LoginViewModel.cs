@@ -1,38 +1,30 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using System.Windows;
-using System.Windows.Input;
-using System.ComponentModel;
-using System.IO;
+﻿using GenericUi.Commands;
+using SchoolGrades.MVVM;
+using System;
 using System.Security;
+using System.Windows.Input;
 
-
-namespace SchoolGrades.MVVM
+namespace SchoolGrades.ViewModels
 {
     public class LoginViewModel : ViewModelBase
     {
-        // failed login attempt
+        #region Attributes
+
         private bool _loginFailed;
         public bool LoginFailed
         {
-            get { return _loginFailed; }
+            get => _loginFailed;
             set
             {
                 _loginFailed = value;
                 OnPropertyChanged("Login Failed");
             }
         }
-        // constructor
-        public LoginViewModel()
-        { }
-        // error message to be displayed
+
         private string _errorMessage;
         public string ErrorMessage
         {
-            get { return _errorMessage; }
+            get => _errorMessage;
             set
             {
                 if (value != _errorMessage)
@@ -43,20 +35,16 @@ namespace SchoolGrades.MVVM
             }
         }
 
-        // specified username and password
-
-        private string _username;
-        public string username
+        private string _userName;
+        public string UserName
         {
-            get { return _username; }
+            get => _userName;
             set
             {
+                if (!string.Equals(value.ToString(), _userName, StringComparison.OrdinalIgnoreCase))
                 {
-                    if (!string.Equals(value.ToString(), _username, StringComparison.OrdinalIgnoreCase))
-                    {
-                        _username = value;
-                        OnPropertyChanged("Username");
-                    }
+                    _userName = value;
+                    OnPropertyChanged("Username");
                 }
             }
         }
@@ -64,7 +52,7 @@ namespace SchoolGrades.MVVM
         private SecureString _password;
         public SecureString PasswordSecureString
         {
-            get { return _password; }
+            get => _password;
             set
             {
                 if (value != null)
@@ -74,6 +62,28 @@ namespace SchoolGrades.MVVM
                 }
             }
         }
-    }
 
+        #endregion
+
+        #region Commands
+
+        public ICommand LoginCommand { get; }
+
+
+        #endregion
+
+        public LoginViewModel()
+        {
+            LoginCommand = new RelayCommand(_ => Login());
+        }
+
+        #region Private Methods
+
+        private void Login()
+        {
+            throw new NotImplementedException();
+        }
+
+        #endregion
+    }
 }

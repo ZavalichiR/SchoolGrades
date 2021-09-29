@@ -86,10 +86,8 @@
       <DependentUpon>App.xaml</DependentUpon>
       <SubType>Code</SubType>
     </Compile>
-    <Compile Include="MVVM\LoginViewModel.cs" />
-    <Compile Include="MVVM\PasswordBoxMVVM.cs" />
-    <Compile Include="MVVM\PasswordBoxMVVMAttachedProperties.cs" />
     <Compile Include="MVVM\ViewModelBase.cs" />
+    <Compile Include="ViewModels\LoginViewModel.cs" />
     <Compile Include="Views\LoginWindow.xaml.cs">
       <DependentUpon>LoginWindow.xaml</DependentUpon>
       <SubType>Code</SubType>

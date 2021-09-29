@@ -1,13 +1,9 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using System.Security;
+﻿using System.Security;
 using System.Windows;
-namespace SchoolGrades
+
+namespace SchoolGrades.Helpers
 {
-    public static class PasswordBoxMVVMAttachedProperties
+    public static class PasswordBoxAttachedProperties
     {
         public static SecureString GetEncryptedPassword(DependencyObject obj)
         {
@@ -21,6 +17,6 @@ namespace SchoolGrades
 
         // Using a DependencyProperty as the backing store for EncryptedPassword.  This enables animation, styling, binding, etc...
         public static readonly DependencyProperty EncryptedPasswordProperty =
-            DependencyProperty.RegisterAttached("EncryptedPassword", typeof(SecureString), typeof(PasswordBoxMVVMAttachedProperties));
+            DependencyProperty.RegisterAttached("EncryptedPassword", typeof(SecureString), typeof(PasswordBoxAttachedProperties));
     }
 }

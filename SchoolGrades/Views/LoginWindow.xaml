@@ -4,9 +4,11 @@
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         mc:Ignorable="d"
-    xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes"
+        xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes"
         Title="Login_Form" WindowStyle="None"
-        xmlns:local="clr-namespace:SchoolGrades" xmlns:mvvm="clr-namespace:SchoolGrades.MVVM" d:DataContext="{d:DesignInstance Type=mvvm:LoginViewModel}"
+        xmlns:local="clr-namespace:SchoolGrades" 
+        xmlns:viewmodels="clr-namespace:SchoolGrades.ViewModels" 
+        d:DataContext="{d:DesignInstance Type=viewmodels:LoginViewModel}"
         Foreground="{x:Null}" Background="{x:Null}"
         ResizeMode="NoResize" AllowsTransparency="True" Height="235.6" Width="361.6">
     <Window.Resources>
@@ -75,7 +77,6 @@
                       ToolTipService.ShowDuration="2000" ToolTipService.BetweenShowDelay="10000"
                       ToolTip="Show Password" 
                       />
-
 
             <Button x:Name="Login_Button" 
                     Margin="131,3.667,130.333,16.667"
