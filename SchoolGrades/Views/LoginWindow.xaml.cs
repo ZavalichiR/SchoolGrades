@@ -1,4 +1,5 @@
-﻿
+﻿using System.Windows;
+
 namespace SchoolGrades.Views
 {
     public partial class MainWindow
@@ -19,19 +20,19 @@ namespace SchoolGrades.Views
 
 
         //Shutdown Application
-        private void Close_Application(object sender, System.Windows.RoutedEventArgs e)
+        private void Close_Application(object sender, RoutedEventArgs e)
         {
             System.Windows.Application.Current.Shutdown();
         }
 
 
         // Show Password    
-        private void MyCheckBox_Checked(object sender, System.Windows.RoutedEventArgs e)
+        private void MyCheckBox_Checked(object sender, RoutedEventArgs e)
         {
             if (ShowPassword.IsChecked == true)
             {
-                PasswordUnmask.Visibility = System.Windows.Visibility.Visible;
-                PasswordHidden.Visibility = System.Windows.Visibility.Hidden;
+                PasswordUnmask.Visibility = Visibility.Visible;
+                PasswordHidden.Visibility = Visibility.Hidden;
                 PasswordUnmask.Text = PasswordHidden.Password;
             }
         }
@@ -39,9 +40,9 @@ namespace SchoolGrades.Views
         // Return the password to passwordchar
         private void MyCheckBox_UnChecked(object sender, System.Windows.RoutedEventArgs e)
         {
-            PasswordUnmask.Visibility = System.Windows.Visibility.Hidden;
-            PasswordHidden.Visibility = System.Windows.Visibility.Visible;
-            PasswordHidden.Visibility = System.Windows.Visibility.Visible;
+            PasswordUnmask.Visibility = Visibility.Hidden;
+            PasswordHidden.Visibility = Visibility.Visible;
+            PasswordHidden.Visibility = Visibility.Visible;
             PasswordHidden.Password = PasswordUnmask.Text;
         }
     }

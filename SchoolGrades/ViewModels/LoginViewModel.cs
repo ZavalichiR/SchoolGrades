@@ -3,11 +3,13 @@ using SchoolGrades.MVVM;
 using System;
 using System.Security;
 using System.Windows.Input;
+using System.Windows;
 
 namespace SchoolGrades.ViewModels
 {
     public class LoginViewModel : ViewModelBase
     {
+        // LoginPasswordViewModel
         #region Attributes
 
         private bool _loginFailed;
@@ -84,6 +86,29 @@ namespace SchoolGrades.ViewModels
             throw new NotImplementedException();
         }
 
+
+        #region Command
+        private RelayCommand resetPasswordCommand;
+        #endregion
+
+        public ICommand ResetPasswordCommand
+        {
+            get
+            {
+                if (resetPasswordCommand == null)
+                {
+                    resetPasswordCommand = new RelayCommand(ResetPassword);
+                }
+
+                return resetPasswordCommand;
+            }
+        }
+
+        // ResetPasswordViewModel
+        private void ResetPassword()
+        {
+            throw new NotImplementedException();
+        }
         #endregion
     }
 }
