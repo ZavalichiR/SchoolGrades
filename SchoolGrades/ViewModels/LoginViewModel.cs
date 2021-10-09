@@ -85,30 +85,28 @@ namespace SchoolGrades.ViewModels
         {
             throw new NotImplementedException();
         }
-
-
-        #region Command
-        private RelayCommand resetPasswordCommand;
         #endregion
 
-        public ICommand ResetPasswordCommand
+
+        #region PasswordViewModel
+        public class ResetPasswordViewModel : ViewModelBase
         {
-            get
+            #region Command
+            public ICommand ResetPasswordCommand { get; }
+            #endregion
+
+            public ResetPasswordViewModel()
             {
-                if (resetPasswordCommand == null)
-                {
-                    resetPasswordCommand = new RelayCommand(ResetPassword);
-                }
-
-                return resetPasswordCommand;
+                ResetPasswordCommand = new RelayCommand(_ => ResetPassword());
             }
-        }
 
-        // ResetPasswordViewModel
-        private void ResetPassword()
-        {
-            throw new NotImplementedException();
+            #region Private Methods
+            private void ResetPassword()
+            {
+                throw new NotImplementedException();
+            }
+            #endregion
+            #endregion
         }
-        #endregion
     }
 }
