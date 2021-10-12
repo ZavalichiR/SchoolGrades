@@ -1,15 +1,14 @@
 ﻿using GenericUi.Commands;
 using SchoolGrades.MVVM;
 using System;
-using System.Security;
 using System.Windows.Input;
-using System.Windows;
 
 namespace SchoolGrades.ViewModels
 {
     public class LoginViewModel : ViewModelBase
     {
         #region Commands
+
         public ICommand LoginCommand { get; }
         public ICommand ResetPasswordCommand { get; }
 
@@ -27,11 +26,11 @@ namespace SchoolGrades.ViewModels
         {
             throw new NotImplementedException();
         }
-        #endregion
-
         private void Reset()
         {
             throw new NotImplementedException();
         }
+
+        #endregion
     }
 }
