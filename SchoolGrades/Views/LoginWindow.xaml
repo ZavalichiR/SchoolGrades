@@ -44,7 +44,8 @@
                        RenderTransformOrigin="0.439,0.877" HorizontalAlignment="Center" Foreground="#FF7D39F5"/>
 
             <!--Username TextBOX-->
-            <TextBox materialDesign:HintAssist.Hint="User Name"
+            <TextBox x:Name="UserName_TextBOX"
+                materialDesign:HintAssist.Hint="User Name"
                      Margin="20, 20, 20, 0"
                      Grid.Row="2"
                      Style="{StaticResource MaterialDesignTextBox}"
@@ -90,7 +91,7 @@
                     Effect="{DynamicResource MaterialDesignShadowDepth2}" 
                     Background="#FF7C38F5"
                     Command="{Binding LoginCommand}"
-                    Opacity="0.995" HorizontalAlignment="Center" RenderTransformOrigin="0.373,0.123"/>
+                    Opacity="0.995" HorizontalAlignment="Center" RenderTransformOrigin="0.373,0.123" Click="Button_Click"/>
 
             <!--Reset Password Button-->
             <Button x:Name="Reset_Password" 

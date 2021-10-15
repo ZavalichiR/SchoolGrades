@@ -18,13 +18,11 @@ namespace SchoolGrades.Views
             }
         }
 
-
         //Shutdown Application
         private void Close_Application(object sender, RoutedEventArgs e)
         {
             System.Windows.Application.Current.Shutdown();
         }
-
 
         // Show Password    
         private void MyCheckBox_Checked(object sender, RoutedEventArgs e)
@@ -44,6 +42,23 @@ namespace SchoolGrades.Views
             PasswordHidden.Visibility = Visibility.Visible;
             PasswordHidden.Visibility = Visibility.Visible;
             PasswordHidden.Password = PasswordUnmask.Text;
+        }
+
+        // Validate UserName and Password with field
+        private void Button_Click(object sender, RoutedEventArgs e)
+        {
+            string user, pass;
+            user = UserName_TextBOX.Text;
+            pass = PasswordHidden.Password;
+            PasswordUnmask.Text = PasswordHidden.Password;
+            if (user == "student" && pass == "student_password")
+            {
+                User_Window sw = new User_Window();
+                sw.Show();
+                this.Close();
+            } else {
+                MessageBox.Show("You'r UserName/Password is invalid or ShowPassword is activated!");
+            }
         }
     }
 }
