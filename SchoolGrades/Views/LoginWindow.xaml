@@ -43,15 +43,25 @@
                        FontSize="40" FontWeight="ExtraBold" 
                        RenderTransformOrigin="0.439,0.877" HorizontalAlignment="Center" Foreground="#FF7D39F5"/>
 
+            <!--Error TextBlock-->
+            <TextBlock Text="{Binding ErrorText}"
+                       Foreground="Red"
+                       FontSize="15"
+                       FontStyle="Italic"
+                       Grid.Row="2"
+                       HorizontalAlignment="Center"
+                       VerticalAlignment="Top" Margin="147,0,156.6,0"/>
+
             <!--Username TextBOX-->
-            <TextBox x:Name="UserName_TextBOX"
-                materialDesign:HintAssist.Hint="User Name"
+            <TextBox x:Name="StudentName_TextBox"
+                     Text="{Binding Path=Username, UpdateSourceTrigger=PropertyChanged}"
+                     materialDesign:HintAssist.Hint="Student Name"
                      Margin="20, 20, 20, 0"
                      Grid.Row="2"
                      Style="{StaticResource MaterialDesignTextBox}"
                      Width="300"
-                     Text="{Binding Username, UpdateSourceTrigger=PropertyChanged}"
                      Foreground="Black"/>
+
             <!--PasswordBOX-Hidden-->
             <PasswordBox x:Name="PasswordHidden" 
                          materialDesign:HintAssist.Hint="Password" 
@@ -59,11 +69,11 @@
                          Grid.Row="3"
                          Width="300"
                          PasswordChar="*"
-                         Localization.Attributes="{Binding PasswordSecureString, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}"
                          Foreground="Black"
                          />
             <!--Password-Unmask-->
-            <TextBox Name="PasswordUnmask" 
+            <TextBox Name="PasswordUnmask"
+                     Text="{Binding Path=Password, UpdateSourceTrigger=PropertyChanged}"
                      materialDesign:HintAssist.Hint="Password" 
                      Visibility="Hidden"
                      Grid.Row="3"
@@ -71,7 +81,7 @@
                      Margin="20, 5, 20, 0"
                      Foreground="Black"/>
             <!--Show Password - CHECKBOX-->
-            <CheckBox x:Name="ShowPassword"
+            <CheckBox x:Name="ShowPassword_Checkbox"
                       Grid.Row="3"
                       HorizontalAlignment="Right"
                       Margin="0,30.333,316.333,51.667" Width="17" 
@@ -79,10 +89,11 @@
                       Checked="MyCheckBox_Checked"
                       Unchecked="MyCheckBox_UnChecked"
                       ToolTipService.ShowDuration="2000" ToolTipService.BetweenShowDelay="10000"
-                      ToolTip="Show" 
-                      />
+                      ToolTip="Show Password"/>
+            
             <!--Login Button-->
-            <Button x:Name="Login_Button" 
+            <Button x:Name="Login_Button"
+                    Command="{Binding Path=LoginCommand}"
                     Margin="130,18.667,131.333,25.667"
                     Grid.Row="4"
                     FontSize="15" 
@@ -90,12 +101,11 @@
                     Width="100" Height="29"
                     Effect="{DynamicResource MaterialDesignShadowDepth2}" 
                     Background="#FF7C38F5"
-                    Command="{Binding LoginCommand}"
-                    Opacity="0.995" HorizontalAlignment="Center" RenderTransformOrigin="0.373,0.123" Click="Button_Click"/>
+                    Opacity="0.995" HorizontalAlignment="Center" RenderTransformOrigin="0.373,0.123"/>
 
             <!--Reset Password Button-->
             <Button x:Name="Reset_Password" 
-                    Margin="106,45.667,110.333,11.667"
+                    Margin="104,50.6,112.6,4.6"
                     Grid.Row="4"
                     FontSize="12" 
                     Content="Reset Password" Height="Auto"
@@ -103,7 +113,7 @@
                     Background="{x:Null}"
                     RenderTransformOrigin="0.5,0.5"
                     Command="{Binding ResetPasswordCommand}"
-                    Opacity="1" BorderBrush="{x:Null}" Foreground="#333377" Grid.RowSpan="2"/>
+                    Opacity="1" BorderBrush="{x:Null}" Foreground="#333377"/>
             <Label Content="Show password" HorizontalAlignment="Left" Margin="43,0.667,0,0" Grid.Row="4" VerticalAlignment="Top" Width="89" FontWeight="ExtraLight" FontSize="10"/>
         </Grid>
     </Border>
