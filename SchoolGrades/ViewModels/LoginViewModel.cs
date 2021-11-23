@@ -1,16 +1,15 @@
 ﻿using GenericUi.Commands;
 using SchoolGrades.MVVM;
 using System;
+using System.Windows;
 using System.Windows.Input;
-using static SchoolGrades.Views.SecondWindow;
+using SchoolGrades.Views;
+
 namespace SchoolGrades.ViewModels
 {
+    
     public class LoginViewModel : ViewModelBase
     {
-        #region ErrorText Message
-        public string ErrorText { get; set; }
-        #endregion
-
         #region Login Credentials
         public string Username { get; set; }
         public string Password { get; set; }
@@ -23,6 +22,7 @@ namespace SchoolGrades.ViewModels
         public ICommand ResetPasswordCommand { get; }
 
         #endregion
+   
         public LoginViewModel()
         {
             LoginCommand = new RelayCommand(_ => Login());
@@ -31,23 +31,23 @@ namespace SchoolGrades.ViewModels
 
         #region Private Methods
 
-        public void Login()
+        private void Login()
         {
-            if(Username == "student" && Password == "password")
+            
+            if (Username == "student" && Password == "password") {
+                AppMainWindow nw = new AppMainWindow();
+                nw.Show();
+                Application.Current.MainWindow.Close();
+            }
+            else
             {
-                NewWindow();
-                ErrorText = "Connection successful!";
-            } else
-            {
-                ErrorText = "Username or password is incorrect!";
+                MessageBox.Show("Username or password is incorect!");
             }
         }
         private void Reset()
         {
-            throw new NotImplementedException();
-            /*...Some Code*/
+            throw  new NotImplementedException();
         }
-
         #endregion
     }
 }

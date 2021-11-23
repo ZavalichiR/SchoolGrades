@@ -4,10 +4,11 @@ namespace SchoolGrades.Views
 {
     public partial class MainWindow
     {
-
         public MainWindow()
         {
             InitializeComponent();
+            ViewModels.LoginViewModel obj = new ViewModels.LoginViewModel();
+            DataContext = obj;
         }
 
         // Movable Window
@@ -19,7 +20,7 @@ namespace SchoolGrades.Views
             }
         }
 
-        // Shutdown Application
+        //Shutdown Application
         private void Close_Application(object sender, RoutedEventArgs e)
         {
             Application.Current.Shutdown();
@@ -28,7 +29,7 @@ namespace SchoolGrades.Views
         // Show Password    
         private void MyCheckBox_Checked(object sender, RoutedEventArgs e)
         {
-            if (ShowPassword_Checkbox.IsChecked == true)
+            if (ShowPassword.IsChecked == true)
             {
                 PasswordUnmask.Visibility = Visibility.Visible;
                 PasswordHidden.Visibility = Visibility.Hidden;
@@ -44,5 +45,7 @@ namespace SchoolGrades.Views
             PasswordHidden.Visibility = Visibility.Visible;
             PasswordHidden.Password = PasswordUnmask.Text;
         }
+
+
     }
 }
