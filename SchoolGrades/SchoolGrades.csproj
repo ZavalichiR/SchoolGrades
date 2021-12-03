@@ -78,6 +78,10 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </ApplicationDefinition>
+    <Page Include="UserControlItem.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="Views\AppMainWindow.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
@@ -92,7 +96,12 @@
     </Compile>
     <Compile Include="MVVM\RelayCommand.cs" />
     <Compile Include="MVVM\ViewModelBase.cs" />
+    <Compile Include="UserControlItem.xaml.cs">
+      <DependentUpon>UserControlItem.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="ViewModels\ItemMenu.cs" />
     <Compile Include="ViewModels\LoginViewModel.cs" />
+    <Compile Include="ViewModels\SubItem.cs" />
     <Compile Include="Views\AppMainWindow.xaml.cs">
       <DependentUpon>AppMainWindow.xaml</DependentUpon>
     </Compile>

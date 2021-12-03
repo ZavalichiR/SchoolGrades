@@ -5,8 +5,49 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:SchoolGrades.Views"
         mc:Ignorable="d"
-        Title="AppMainWindow" Height="450" Width="800">
+        xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes"
+        Title="SchoolGrades" Height="500" Width="900" WindowStartupLocation="CenterScreen" WindowState="Normal" ResizeMode="NoResize">
     <Grid>
-        <Label Content="AppMainWindow" HorizontalAlignment="Center" VerticalAlignment="Center" FontSize="40" FontWeight="Bold"/>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="40"/>
+            <RowDefinition Height="*"/>
+        </Grid.RowDefinitions>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="250"/>
+            <ColumnDefinition Width="*"/>
+        </Grid.ColumnDefinitions>
+
+        <materialDesign:ColorZone Mode="PrimaryMid" Grid.ColumnSpan="2" HorizontalAlignment="Stretch">
+            <Grid Background="#FF7D39F5">
+                <materialDesign:PopupBox HorizontalAlignment="Right" Margin="10"/>
+            </Grid>
+        </materialDesign:ColorZone>
+        <Grid HorizontalAlignment="Stretch" Grid.Row="1" Background="#FF7D39F5">
+            <Grid.RowDefinitions>
+                <RowDefinition Height="140"/>
+                <RowDefinition/>
+            </Grid.RowDefinitions>
+            <!--Welcome Text-->
+            <TextBlock Text="Welcome"
+                       VerticalAlignment="Top"
+                       FontSize="20"
+                       HorizontalAlignment="Center"
+                       Height="24" Width="115" Margin="81,71,54.4,0" />
+            <!--Student Name-->
+            <TextBlock Text="Student Name"
+                       VerticalAlignment="Top"
+                       FontSize="18"
+                       FontWeight="Light"
+                       HorizontalAlignment="Center"
+                       Margin="66,95,69.4,0" Height="24" Width="115" RenderTransformOrigin="0.533,1.736"/>
+            <!--Student Image-->
+            <Image Grid.Column="0" 
+                   Source="https://cdn2.iconfinder.com/data/icons/school-flat-circle/512/Boy_child_kid_school_boy_student-512.png"
+                   VerticalAlignment="Top" Height="81" Margin="66,-9,83.4,0"/>
+        </Grid>
+        <!--Menu-->
+        <ScrollViewer HorizontalAlignment="Stretch" HorizontalScrollBarVisibility="Disabled" VerticalScrollBarVisibility="Auto" Grid.Row="1" Margin="0,128.4,0,0.4">
+            <StackPanel x:Name="Menu" Margin="2"/>
+        </ScrollViewer>
     </Grid>
 </Window>
