@@ -10,7 +10,7 @@
         xmlns:viewmodels="clr-namespace:SchoolGrades.ViewModels" 
         d:DataContext="{d:DesignInstance Type=viewmodels:LoginViewModel}"
         Foreground="{x:Null}" Background="{x:Null}"
-        ResizeMode="NoResize" AllowsTransparency="True" Height="235.6" Width="361.6">
+        ResizeMode="NoResize" AllowsTransparency="True" Height="236" Width="361.6">
     <Window.Resources>
         <local:App x:Key="LoginViewModel"/>
     </Window.Resources>
@@ -18,11 +18,12 @@
     <Border Background="White" CornerRadius="23" MouseMove="Move_Window">
         <Grid>
             <Grid.RowDefinitions>
-                <RowDefinition Height="Auto"/>
-                <RowDefinition Height="Auto"/>
-                <RowDefinition Height="Auto"/>
-                <RowDefinition Height="Auto"/>
-                <RowDefinition Height="Auto"/>
+                <RowDefinition Height="Auto" MinHeight="34"/>
+                <RowDefinition Height="Auto" MinHeight="47.203"/>
+                <RowDefinition Height="31.397"/>
+                <RowDefinition Height="41"/>
+                <RowDefinition Height="46"/>
+
             </Grid.RowDefinitions>
 
             <!--Exit Button -->
@@ -31,75 +32,82 @@
                     FontSize="19" 
                     FontWeight="Bold" Background="{x:Null}" BorderBrush="{x:Null}"
                     Height="30" Width="49"
-                    Margin="0,-1,4.6,0"
+                    Margin="0,0,4,0"
                     ToolTipService.ShowDuration="2000" ToolTipService.BetweenShowDelay="10000"
                     ToolTip="Close" 
                     Click="Close_Application" HorizontalAlignment="Right" VerticalAlignment="Top" Foreground="#FF1A1A1A" />
 
             <!--Login Title-->
             <TextBlock Text="Login" 
-                       Grid.Row="1" 
                        FontSize="40" FontWeight="ExtraBold" 
-                       RenderTransformOrigin="0.439,0.877" HorizontalAlignment="Center" Foreground="#FF7D39F5" Margin="126,0.4,125.6,0" Width="110"/>
+                       RenderTransformOrigin="0.439,0.877" HorizontalAlignment="Left" Foreground="#FF7D39F5" Margin="129,27,0,1" Width="110" Grid.RowSpan="2"/>
 
             <!--Username TextBOX-->
             <TextBox x:Name="UserName_TextBOX"
+                     
                 materialDesign:HintAssist.Hint="User Name"
-                     Margin="31,22,30.6,0.2"
+                     Margin="31,5,31,1"
                      Grid.Row="2"
                      Style="{StaticResource MaterialDesignTextBox}"
                      Text="{Binding Path=Username}"
                      Foreground="Black"/>
+
             <!--PasswordBOX-Hidden-->
             <PasswordBox x:Name="PasswordHidden" 
                          materialDesign:HintAssist.Hint="Password" 
-                         Margin="31,4.8,32.6,0.6"
+                         Margin="31,9,33,4"
                          Grid.Row="3"
+                         Visibility="Visible"
                          PasswordChar="*"
                          Foreground="Black"
                          />
+
             <!--Password-Unmask-->
             <TextBox Name="PasswordUnmask"
                      Text="{Binding Path=Password}"
                      materialDesign:HintAssist.Hint="Password" 
-                     Visibility="Hidden"
+                     Visibility="Collapsed"
                      Grid.Row="3"
-                     Margin="31,4.8,30.6,73"
-                     Foreground="Black" Grid.RowSpan="2"/>
+                     Margin="31,9,33,4"
+                     Foreground="Black"/>
+
+
             <!--Show Password - CHECKBOX-->
-            <CheckBox x:Name="ShowPassword"
-                      Grid.Row="4"
-                      HorizontalAlignment="Right"
-                      Margin="0,5.4,315.6,48" Width="17"
-                      Checked="MyCheckBox_Checked"
-                      Unchecked="MyCheckBox_UnChecked"
-                      ToolTipService.ShowDuration="2000" ToolTipService.BetweenShowDelay="10000"
-                      ToolTip="Show" 
-                      />
+            <ToggleButton
+             x:Name="ShowPassword"
+             Grid.Row="4"
+             HorizontalAlignment="Left"
+             Checked="MyCheckBox_Checked"
+             Unchecked="MyCheckBox_UnChecked"
+             Style="{StaticResource MaterialDesignSwitchDarkToggleButton}"
+             ToolTipService.ShowDuration="2000" ToolTipService.BetweenShowDelay="10000"
+             ToolTip="Show"
+             IsChecked="False" Margin="28,6,0,18" RenderTransformOrigin="-0.454,1.033" Width="41" />
+
             <!--Login Button-->
             <Button x:Name="Login_Button" 
-                    Margin="126,31.4,142.6,14"
+                    Margin="235,35,0,-21"
                     Grid.Row="4"
                     FontSize="15" 
-                    Content="Login"
-                    Width="93" Height="Auto"
+                    Content="Sign In"
+                    Width="92" Height="Auto"
                     Effect="{DynamicResource MaterialDesignShadowDepth2}" 
                     Background="#FF7C38F5"
                     Command="{Binding LoginCommand}"
-                    Opacity="0.995" HorizontalAlignment="Center" RenderTransformOrigin="0.373,0.123"/>
+                    Opacity="0.995" HorizontalAlignment="Left" RenderTransformOrigin="0.373,0.123"/>
 
             <!-- ResetPassword Button -->
             <Button x:Name="ResetPassword_Button" 
-                    Margin="225,31.4,16.6,14"
+                    Margin="109,35,0,-21"
                     Grid.Row="4"
                     FontSize="12" 
                     Content="Reset Password"
-                    Width="120" Height="Auto"
+                    Width="116" Height="Auto"
                     Effect="{DynamicResource MaterialDesignShadowDepth1}" 
                     Background="#FF7C38F5"
                     Command="{Binding ResetPasswordCommand}"
-                    Opacity="0.995" HorizontalAlignment="Center" RenderTransformOrigin="0.373,0.123"/>
-            <Label Content="Show password" HorizontalAlignment="Left" Margin="47,4.4,0,0" Grid.Row="4" VerticalAlignment="Top" Width="73" FontWeight="ExtraLight" FontSize="10" Height="21"/>
+                    Opacity="0.995" HorizontalAlignment="Left" RenderTransformOrigin="0.373,0.123"/>
+            <Label Content="Show password" HorizontalAlignment="Left" Margin="67,4,0,19" Grid.Row="4" Width="72" FontWeight="ExtraLight" FontSize="10" RenderTransformOrigin="0.499,1.2" VerticalContentAlignment="Center"/>
         </Grid>
     </Border>
 </Window>

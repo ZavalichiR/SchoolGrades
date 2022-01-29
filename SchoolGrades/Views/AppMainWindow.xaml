@@ -6,48 +6,66 @@
         xmlns:local="clr-namespace:SchoolGrades.Views"
         mc:Ignorable="d"
         xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes"
-        Title="SchoolGrades" Height="500" Width="900" WindowStartupLocation="CenterScreen" WindowState="Normal" ResizeMode="NoResize">
+        Title="SchoolGrades" Height="500" Width="900" WindowStartupLocation="CenterScreen">
+
     <Grid>
         <Grid.RowDefinitions>
-            <RowDefinition Height="40"/>
+            <RowDefinition Height="45"/>
             <RowDefinition Height="*"/>
         </Grid.RowDefinitions>
         <Grid.ColumnDefinitions>
-            <ColumnDefinition Width="250"/>
+            <ColumnDefinition x:Name="ColumnMenu" Width="250"/>
             <ColumnDefinition Width="*"/>
         </Grid.ColumnDefinitions>
 
-        <materialDesign:ColorZone Mode="PrimaryMid" Grid.ColumnSpan="2" HorizontalAlignment="Stretch">
-            <Grid Background="#FF7D39F5">
-                <materialDesign:PopupBox HorizontalAlignment="Right" Margin="10"/>
-            </Grid>
+        <materialDesign:ColorZone
+            Mode="PrimaryMid"
+            Grid.ColumnSpan="2"
+            HorizontalAlignment="Stretch">
+            <StackPanel x:Name="HorizontalMenu"
+                Orientation="Horizontal">
+                <ToggleButton x:Name="BtnMenu" Style="{DynamicResource MaterialDesignHamburgerToggleButton}" Width="52" Click="BtnMenu_Click"/>
+                <TextBlock Text="Welcome to SchoolGrades!"
+                           Height="20"
+                           Margin="15"
+                           Width="158"
+                           FontFamily="Dosis"
+
+                           FontSize="14"/>
+            </StackPanel>
         </materialDesign:ColorZone>
-        <Grid HorizontalAlignment="Stretch" Grid.Row="1" Background="#FF7D39F5">
+
+        <Grid x:Name="GridRow1" Grid.Row="1" Background="{StaticResource PrimaryHueMidBrush}" Margin="0,1,0,0">
             <Grid.RowDefinitions>
-                <RowDefinition Height="140"/>
-                <RowDefinition/>
+                <RowDefinition Height="90"/>
+                <RowDefinition Height="321"/>
             </Grid.RowDefinitions>
-            <!--Welcome Text-->
-            <TextBlock Text="Welcome"
-                       VerticalAlignment="Top"
-                       FontSize="20"
-                       HorizontalAlignment="Center"
-                       Height="24" Width="115" Margin="81,71,54.4,0" />
-            <!--Student Name-->
-            <TextBlock Text="Student Name"
-                       VerticalAlignment="Top"
-                       FontSize="18"
-                       FontWeight="Light"
-                       HorizontalAlignment="Center"
-                       Margin="66,95,69.4,0" Height="24" Width="115" RenderTransformOrigin="0.533,1.736"/>
-            <!--Student Image-->
-            <Image Grid.Column="0" 
-                   Source="https://cdn2.iconfinder.com/data/icons/school-flat-circle/512/Boy_child_kid_school_boy_student-512.png"
-                   VerticalAlignment="Top" Height="81" Margin="66,-9,83.4,0"/>
+            <Grid Grid.Row="0" Background="{StaticResource PrimaryHueMidBrush}" Margin="2,-12,0,280" RenderTransformOrigin="0.5,0.5" Grid.RowSpan="2">
+                <Grid.RenderTransform>
+                    <TransformGroup>
+                        <ScaleTransform/>
+                        <SkewTransform/>
+                        <RotateTransform Angle="0.359"/>
+                        <TranslateTransform/>
+                    </TransformGroup>
+                </Grid.RenderTransform>
+                <Image x:Name="Frame" Source="G:\SchoolGrades\SchoolGrades\Assets\Images\Student_Avatar.png" Margin="22,31,0,6" HorizontalAlignment="Left" Width="88"/>
+                <Image x:Name="Avatar" Source="G:\SchoolGrades\SchoolGrades\Assets\Images\Avatar_Frame.png" Margin="15,23,132,-1"/>
+
+                <TextBlock x:Name="text_Student_Name" Text="Teacher name" FontFamily="Dosis" FontSize="15"
+                           Width="103" Foreground="White" Margin="139,64,0,54" HorizontalAlignment="Left" />
+
+                <TextBlock x:Name="Student_Class_Name" Text="Role: Administrator" FontFamily="Dosis" FontSize="15"
+                           Width="123" Foreground="White" Margin="125,92,0,30" HorizontalAlignment="Left" RenderTransformOrigin="0.51,-0.275" />
+
+            </Grid>
         </Grid>
-        <!--Menu-->
-        <ScrollViewer HorizontalAlignment="Stretch" HorizontalScrollBarVisibility="Disabled" VerticalScrollBarVisibility="Auto" Grid.Row="1" Margin="0,128.4,0,0.4">
-            <StackPanel x:Name="Menu" Margin="2"/>
+
+
+        <ScrollViewer HorizontalScrollBarVisibility="Disabled" VerticalScrollBarVisibility="Auto" Grid.Row="1" Margin="3,149,7,2" x:Name="ScrollViewerMenu">
+            <StackPanel x:Name="Menu" Grid.Row="1"/>
         </ScrollViewer>
+        <StackPanel x:Name="StackPanelMain" Grid.Row="1" Grid.Column="1" HorizontalAlignment="Stretch"/>
+
     </Grid>
 </Window>

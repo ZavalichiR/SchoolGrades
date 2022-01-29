@@ -12,22 +12,17 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
-using SchoolGrades.ViewModels;
+
 namespace SchoolGrades
 {
     /// <summary>
-    /// Interaction logic for UserControlItem.xaml
+    /// Interaction logic for UserControlDashBoard.xaml
     /// </summary>
-    public partial class UserControlItem : UserControl
+    public partial class UserControlDashBoard : UserControl
     {
-        public UserControlItem(ItemMenu itemMenu)
+        public UserControlDashBoard()
         {
             InitializeComponent();
-
-            ExpanderMenu.Visibility = itemMenu.SubItems == null ? Visibility.Collapsed : Visibility.Visible;
-            ListViewItemMenu.Visibility = itemMenu.SubItems == null ? Visibility.Visible : Visibility.Collapsed;
-
-            this.DataContext = itemMenu;
         }
     }
 }

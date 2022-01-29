@@ -7,12 +7,28 @@ using SchoolGrades.Views;
 
 namespace SchoolGrades.ViewModels
 {
-    
+
     public class LoginViewModel : ViewModelBase
     {
         #region Login Credentials
-        public string Username { get; set; }
-        public string Password { get; set; }
+
+        private string _userName;
+        public string Username
+        {
+            get { return _userName; }
+            set { _userName = value;
+                OnPropertyChanged();}
+            
+        }
+
+        private string _password;
+        public string Password
+        {
+            get { return _password; }
+            set { _password = value;
+                OnPropertyChanged();}
+        }
+
 
         #endregion
 
@@ -33,15 +49,16 @@ namespace SchoolGrades.ViewModels
 
         private void Login()
         {
-            
-            if (Username == "student" && Password == "password") {
+
+            if (Username == "student" && Password == "password")
+            {
                 AppMainWindow nw = new AppMainWindow();
                 nw.Show();
                 Application.Current.MainWindow.Close();
             }
             else
             {
-                MessageBox.Show("Username or password is incorect!");
+                MessageBox.Show("Invalid username or password! Retry!");
             }
         }
         private void Reset()
