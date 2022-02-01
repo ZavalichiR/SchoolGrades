@@ -10,6 +10,7 @@
         xmlns:viewmodels="clr-namespace:SchoolGrades.ViewModels" 
         d:DataContext="{d:DesignInstance Type=viewmodels:LoginViewModel}"
         Foreground="{x:Null}" Background="{x:Null}"
+        xmlns:utils="clr-namespace:SchoolGrades.Models"
         ResizeMode="NoResize" AllowsTransparency="True" Height="236" Width="361.6">
     <Window.Resources>
         <local:App x:Key="LoginViewModel"/>
@@ -43,9 +44,8 @@
                        RenderTransformOrigin="0.439,0.877" HorizontalAlignment="Left" Foreground="#FF7D39F5" Margin="129,27,0,1" Width="110" Grid.RowSpan="2"/>
 
             <!--Username TextBOX-->
-            <TextBox x:Name="UserName_TextBOX"
-                     
-                materialDesign:HintAssist.Hint="User Name"
+            <TextBox x:Name="UserName_TextBOX" 
+                     materialDesign:HintAssist.Hint="User Name"
                      Margin="31,5,31,1"
                      Grid.Row="2"
                      Style="{StaticResource MaterialDesignTextBox}"
@@ -60,6 +60,8 @@
                          Visibility="Visible"
                          PasswordChar="*"
                          Foreground="Black"
+                         utils:PasswordHelper.Attach="True"
+                         utils:PasswordHelper.Password="{Binding Path=Password, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}"
                          />
 
             <!--Password-Unmask-->
@@ -70,7 +72,6 @@
                      Grid.Row="3"
                      Margin="31,9,33,4"
                      Foreground="Black"/>
-
 
             <!--Show Password - CHECKBOX-->
             <ToggleButton

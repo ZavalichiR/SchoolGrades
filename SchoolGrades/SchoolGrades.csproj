@@ -123,6 +123,7 @@
       <SubType>Code</SubType>
     </Compile>
     <Compile Include="Models\ItemMenu.cs" />
+    <Compile Include="Models\PasswordHelper.cs" />
     <Compile Include="Models\SubItem.cs" />
     <Compile Include="MVVM\RelayCommand.cs" />
     <Compile Include="MVVM\ViewModelBase.cs" />
@@ -200,16 +201,7 @@
     </BootstrapperPackage>
   </ItemGroup>
   <ItemGroup>
-    <Resource Include="Assests\2643380-200.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <Resource Include="Assests\teachers.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <Resource Include="Assests\attendance.jpg" />
-  </ItemGroup>
-  <ItemGroup>
-    <Resource Include="Assests\catalog-icon-22.png" />
+    <Folder Include="Assests\" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <Import Project="packages\MaterialDesignThemes.4.1.0\build\MaterialDesignThemes.targets" Condition="Exists('packages\MaterialDesignThemes.4.1.0\build\MaterialDesignThemes.targets')" />

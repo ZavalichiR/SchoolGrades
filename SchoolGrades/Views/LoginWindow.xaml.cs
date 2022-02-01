@@ -46,7 +46,6 @@ namespace SchoolGrades.Views
             PasswordHidden.Visibility = Visibility.Visible;
             PasswordHidden.Password = PasswordUnmask.Text;
         }
-
-
+    
     }
 }

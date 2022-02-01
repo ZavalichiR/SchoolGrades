@@ -8,17 +8,23 @@ using SchoolGrades.Views;
 namespace SchoolGrades.ViewModels
 {
 
-    public class LoginViewModel : ViewModelBase
+    public class LoginViewModel : ViewModelBase 
     {
         #region Login Credentials
+
+        public string Error { get { return null; } }
+
+
 
         private string _userName;
         public string Username
         {
             get { return _userName; }
-            set { _userName = value;
-                OnPropertyChanged();}
-            
+            set
+            {
+                _userName = value;
+                OnPropertyChanged();
+            }
         }
 
         private string _password;
@@ -49,7 +55,7 @@ namespace SchoolGrades.ViewModels
 
         private void Login()
         {
-
+            
             if (Username == "student" && Password == "password")
             {
                 AppMainWindow nw = new AppMainWindow();
