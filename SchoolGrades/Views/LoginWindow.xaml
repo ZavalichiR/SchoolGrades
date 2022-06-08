@@ -41,7 +41,9 @@
             <!--Login Title-->
             <TextBlock Text="Login" 
                        FontSize="40" FontWeight="ExtraBold" 
-                       RenderTransformOrigin="0.439,0.877" HorizontalAlignment="Left" Foreground="#FF7D39F5" Margin="129,27,0,1" Width="110" Grid.RowSpan="2"/>
+                       RenderTransformOrigin="0.439,0.877" HorizontalAlignment="Center" Foreground="#47b1f0" Margin="0,28,0,0" Width="110" Grid.RowSpan="2"/>
+
+            <!-- #FF7D39F5 - PURPLE -->
 
             <!--Username TextBOX-->
             <TextBox x:Name="UserName_TextBOX" 
@@ -83,32 +85,34 @@
              Style="{StaticResource MaterialDesignSwitchDarkToggleButton}"
              ToolTipService.ShowDuration="2000" ToolTipService.BetweenShowDelay="10000"
              ToolTip="Show"
-             IsChecked="False" Margin="28,6,0,18" RenderTransformOrigin="-0.454,1.033" Width="41" />
+             IsChecked="False" Margin="30,10,0,14" RenderTransformOrigin="-0.454,1.033" Width="41" />
 
             <!--Login Button-->
             <Button x:Name="Login_Button" 
-                    Margin="235,35,0,-21"
+                    Margin="239,40,0,-26"
                     Grid.Row="4"
                     FontSize="15" 
                     Content="Sign In"
                     Width="92" Height="Auto"
                     Effect="{DynamicResource MaterialDesignShadowDepth2}" 
-                    Background="#FF7C38F5"
+                    Background="#47b1f0"
+                    BorderBrush="Transparent"
                     Command="{Binding LoginCommand}"
                     Opacity="0.995" HorizontalAlignment="Left" RenderTransformOrigin="0.373,0.123"/>
 
             <!-- ResetPassword Button -->
             <Button x:Name="ResetPassword_Button" 
-                    Margin="109,35,0,-21"
+                    Margin="109,40,0,-26"
                     Grid.Row="4"
                     FontSize="12" 
                     Content="Reset Password"
                     Width="116" Height="Auto"
                     Effect="{DynamicResource MaterialDesignShadowDepth1}" 
-                    Background="#FF7C38F5"
+                    Background="#47b1f0"
+                    BorderBrush="Transparent"
                     Command="{Binding ResetPasswordCommand}"
                     Opacity="0.995" HorizontalAlignment="Left" RenderTransformOrigin="0.373,0.123"/>
-            <Label Content="Show password" HorizontalAlignment="Left" Margin="67,4,0,19" Grid.Row="4" Width="72" FontWeight="ExtraLight" FontSize="10" RenderTransformOrigin="0.499,1.2" VerticalContentAlignment="Center"/>
+            <Label Content="Show password" HorizontalAlignment="Left" Margin="68,9,0,14" Grid.Row="4" Width="72" FontWeight="ExtraLight" FontSize="10" RenderTransformOrigin="0.499,1.2" VerticalContentAlignment="Center"/>
         </Grid>
     </Border>
 </Window>

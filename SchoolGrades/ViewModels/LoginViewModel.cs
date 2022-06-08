@@ -12,9 +12,6 @@ namespace SchoolGrades.ViewModels
     {
         #region Login Credentials
 
-        public string Error { get { return null; } }
-
-
 
         private string _userName;
         public string Username
@@ -58,13 +55,13 @@ namespace SchoolGrades.ViewModels
             
             if (Username == "student" && Password == "password")
             {
-                AppMainWindow nw = new AppMainWindow();
+                ApplicationMainWindow nw = new ApplicationMainWindow();
                 nw.Show();
                 Application.Current.MainWindow.Close();
             }
             else
             {
-                MessageBox.Show("Invalid username or password! Retry!");
+                MessageBox.Show("Your username or password is incorrect! Try again!");
             }
         }
         private void Reset()
