@@ -5,73 +5,60 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes"
         xmlns:local="clr-namespace:SchoolGrades.Views"
+        xmlns:me="clr-namespace:SchoolGrades.MyUserController"
         mc:Ignorable="d"
         Title="ApplicationMainWindow" Height="450" Width="800" WindowStartupLocation="CenterScreen">
     <Grid>
         <Grid.RowDefinitions>
             <!--0 -->
-            <RowDefinition Height="26"/>
+            <RowDefinition Height="17"/>
             <!--1 -->
             <RowDefinition Height="55"/>
             <!--2 -->
             <RowDefinition/>
             <!--3 -->
-            <RowDefinition Height="60.04"/>
+            <RowDefinition Height="0"/>
+            <RowDefinition Height="60"/>
         </Grid.RowDefinitions>
 
-        <Grid Grid.Row="0" Background="#47b1f0">
-            <TextBlock Text="Contact us" FontSize="14"
-                       Foreground="White" 
-                       Margin="674,2,33,4" FontWeight="Bold" RenderTransformOrigin="0.5,0.5">
-                <TextBlock.RenderTransform>
-                    <TransformGroup>
-                        <ScaleTransform/>
-                        <SkewTransform/>
-                        <RotateTransform Angle="-7.091"/>
-                        <TranslateTransform/>
-                    </TransformGroup>
-                </TextBlock.RenderTransform>
-            </TextBlock>
-            <Image Source="D:\GitHub\SchoolGrades\Assets\Images\Social Logo\facebook.png" Width="50" Margin="622,0,128,0"/>
-            <Image Source="D:\GitHub\SchoolGrades\Assets\Images\Social Logo\instagram.png" Margin="749,-1,1,-1"/>
-        </Grid>
+        <Grid Grid.Row="0" Background="#47b1f0"/>
 
         <Grid Grid.Row="1" Margin="0,0,0,5">
-            <Image x:Name="LOGO" 
-                   Source="D:\GitHub\SchoolGrades\Assets\Images\Logo-uri\Logo_without_text2.png" 
-                   HorizontalAlignment="Left" Width="86" Stretch="Uniform" Margin="10,0,0,-5" RenderTransformOrigin="0.52,0.704"/>
 
             <TextBlock Text="SCHOOL" 
                        Foreground="#47b1f0" FontSize="22" FontWeight="Bold" 
-                       Margin="80,13,620,13" RenderTransformOrigin="0.26,0.485"/>
+                       Margin="31,14,674,7" RenderTransformOrigin="0.26,0.485"/>
             <TextBlock Text="GRADES" 
                        Foreground="#164378" FontSize="22" FontWeight="Bold" 
-                       Margin="172,13,526,7"/>
+                       Margin="126,14,572,6"/>
         </Grid>
 
         <Grid Grid.Row="2" Background="WhiteSmoke">
-            <TextBlock Text="Grid 2 content" VerticalAlignment="Center" HorizontalAlignment="Left" FontSize="26" Margin="303,0,0,0"/>
+            <me:MyUserControl>
+                <me:MyUserControl.Content>
+                    <Button x:Name="Gigel" Content="Gigel"/>
+                </me:MyUserControl.Content>
+            </me:MyUserControl>
+            
         </Grid>
 
-        <Grid Grid.Row="3" Background="#47b1f0" Margin="0,1,0,0">
+        <Grid Grid.Row="4" Background="#47b1f0" Margin="0,1,0,0">
             <Button Content="Dashboard" HorizontalAlignment="Left" 
                     BorderThickness="0"
                     Height="60" Width="200"
-                    Background="#47b1f0
-"/>
+                    Background="#47b1f0" Margin="0,0,0,-1"/>
 
             <Button Content="Classes" HorizontalAlignment="Left" 
                     BorderThickness="0"
-                    Height="60" Width="200" Margin="200,1,0,0"
+                    Height="60" Width="200" Margin="200,-1,0,0"
                     Background="#164378"/>
 
             <Button Content="Students" HorizontalAlignment="Left"
                     BorderThickness="0"
                     Height="60" Width="200" Margin="400,1,0,0"
-                    Background="#47b1f0
-"/>
+                    Background="#47b1f0"/>
 
-            <Button Content="Login OUT" HorizontalAlignment="Left" 
+            <Button Content="Log out" HorizontalAlignment="Left" 
                     BorderThickness="0"
                     Height="60" Width="200" Margin="600,1,0,0" 
                     Background="#164378" Click="Button_Click"/>
