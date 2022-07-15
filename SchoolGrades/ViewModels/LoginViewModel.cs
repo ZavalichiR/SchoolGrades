@@ -19,8 +19,8 @@ namespace SchoolGrades.ViewModels
             get { return _userName; }
             set
             {
-                _userName = value;
-                OnPropertyChanged();
+            _userName = value;
+            OnPropertyChanged();
             }
         }
 
@@ -29,7 +29,7 @@ namespace SchoolGrades.ViewModels
         {
             get { return _password; }
             set { _password = value;
-                OnPropertyChanged();}
+            OnPropertyChanged();}
         }
 
 
@@ -61,7 +61,7 @@ namespace SchoolGrades.ViewModels
             }
             else
             {
-                MessageBox.Show("Your username or password is incorrect! Try again!");
+                MessageBox.Show("Your username or password is incorrect!", "Try again!", MessageBoxButton.OK);
             }
         }
         private void Reset()

@@ -24,14 +24,10 @@ namespace SchoolGrades.Views
             InitializeComponent();
         }
 
-        private void Button_Click(object sender, RoutedEventArgs e)
+        private void Window_Loaded(object sender, RoutedEventArgs e)
         {
-            Application.Current.Shutdown();
-        }
-
-        private void Button_Click_1(object sender, RoutedEventArgs e)
-        {
-
+            RenderPage.Children.Clear();
+            RenderPage.Children.Add(new MyUserController.Dashboard());
         }
     }
 }

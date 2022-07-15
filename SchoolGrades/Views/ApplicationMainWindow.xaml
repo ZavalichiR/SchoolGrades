@@ -5,9 +5,8 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes"
         xmlns:local="clr-namespace:SchoolGrades.Views"
-        xmlns:me="clr-namespace:SchoolGrades.MyUserController"
         mc:Ignorable="d"
-        Title="ApplicationMainWindow" Height="450" Width="800" WindowStartupLocation="CenterScreen">
+        Title="ApplicationMainWindow" Height="450" Width="800" WindowStartupLocation="CenterScreen" Loaded="Window_Loaded">
     <Grid>
         <Grid.RowDefinitions>
             <!--0 -->
@@ -24,7 +23,6 @@
         <Grid Grid.Row="0" Background="#47b1f0"/>
 
         <Grid Grid.Row="1" Margin="0,0,0,5">
-
             <TextBlock Text="SCHOOL" 
                        Foreground="#47b1f0" FontSize="22" FontWeight="Bold" 
                        Margin="31,14,674,7" RenderTransformOrigin="0.26,0.485"/>
@@ -33,35 +31,51 @@
                        Margin="126,14,572,6"/>
         </Grid>
 
-        <Grid Grid.Row="2" Background="WhiteSmoke">
-            <me:MyUserControl>
-                <me:MyUserControl.Content>
-                    <Button x:Name="Gigel" Content="Gigel"/>
-                </me:MyUserControl.Content>
-            </me:MyUserControl>
+        <Grid Grid.Row="2" Background="#f6f5f8" Name="RenderPage">
             
+
         </Grid>
 
         <Grid Grid.Row="4" Background="#47b1f0" Margin="0,1,0,0">
-            <Button Content="Dashboard" HorizontalAlignment="Left" 
+            <Button x:Name="btn_dashboard"
+                    Content="Dashboard"
+                    Foreground="White"
+                    FontWeight="Bold"
+                    materialDesign:ShadowAssist.ShadowDepth="Depth0"
+                    HorizontalAlignment="Left" 
                     BorderThickness="0"
                     Height="60" Width="200"
                     Background="#47b1f0" Margin="0,0,0,-1"/>
 
-            <Button Content="Classes" HorizontalAlignment="Left" 
+            <Button x:Name="btn_Students"
+                    Content="Students"
+                    Foreground="White"
+                    FontWeight="Bold"
+                    materialDesign:ShadowAssist.ShadowDepth="Depth0"
+                    HorizontalAlignment="Left" 
                     BorderThickness="0"
-                    Height="60" Width="200" Margin="200,-1,0,0"
-                    Background="#164378"/>
+                    Height="60" Width="200"
+                    Background="#42D9C8" Margin="200,0,0,-1"/>
 
-            <Button Content="Students" HorizontalAlignment="Left"
-                    BorderThickness="0"
-                    Height="60" Width="200" Margin="400,1,0,0"
-                    Background="#47b1f0"/>
-
-            <Button Content="Log out" HorizontalAlignment="Left" 
-                    BorderThickness="0"
-                    Height="60" Width="200" Margin="600,1,0,0" 
-                    Background="#164378" Click="Button_Click"/>
+            <Button x:Name="btn_classes"
+                Content="Classes"
+                Foreground="White"
+                FontWeight="Bold"
+                materialDesign:ShadowAssist.ShadowDepth="Depth0"
+                HorizontalAlignment="Left" 
+                BorderThickness="0"
+                Height="60" Width="200"
+                Background="#47b1f0" Margin="400,0,0,-1"/>
+            
+            <Button x:Name="btn_Log_out"
+                Content="Log out"
+                Foreground="White"
+                FontWeight="Bold"
+                materialDesign:ShadowAssist.ShadowDepth="Depth0"
+                HorizontalAlignment="Left" 
+                BorderThickness="0"
+                Height="60" Width="200"
+                Background="#42D9C8" Margin="600,0,0,-1"/>
         </Grid>
     </Grid>
 </Window>

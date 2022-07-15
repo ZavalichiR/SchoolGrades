@@ -1,0 +1,80 @@
+﻿<UserControl x:Class="SchoolGrades.MyUserController.Dashboard"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             xmlns:local="clr-namespace:SchoolGrades.MyUserController"
+             mc:Ignorable="d" 
+             d:DesignHeight="302.04" d:DesignWidth="800">
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="*"/>
+            <RowDefinition Height="*"/>
+        </Grid.RowDefinitions>
+
+        <Grid Grid.Row="0">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="*"/>
+                <ColumnDefinition Width="*"/>
+                <ColumnDefinition Width="*"/>
+            </Grid.ColumnDefinitions>
+
+            <!--Grid Column 0-->
+            <Grid Grid.Column="0">
+                <TextBlock Text="My Dashboard" FontSize="12" FontWeight="Bold" Margin="10,5,24,6"/>
+
+                <Border Background="#47b1f0" CornerRadius="17" Height="100" Margin="10,15,10,0">
+                    <Grid>
+                        <Image Source="https://i.imgur.com/JHDv0Wc.png" HorizontalAlignment="Left" Margin="12,21,0,22">
+                            <Image.Effect>
+                                <DropShadowEffect Direction="25" Color="#FFB6C2CB" ShadowDepth="7" BlurRadius="4" />
+                            </Image.Effect>
+                        </Image>
+                        <TextBlock Text="We are" Foreground="White" FontWeight="Bold" Margin="83,29,72,52" />
+                        <TextBlock Text="3000+ Students" Foreground="White" Margin="83,52,27,26" FontWeight="Bold" />
+                    </Grid>
+                </Border>
+            </Grid>
+            <!--Grid Column 1-->
+
+            <Grid Grid.Column="1">
+                <Border Background="#42D9C8" CornerRadius="17" Height="100" Margin="10,15,10,0">
+                    <Grid>
+                        <Image Source="https://i.imgur.com/ezkdK9M.png" HorizontalAlignment="Left" Margin="16,16,0,9" Width="58">
+                            <Image.Effect>
+                                <DropShadowEffect Direction="25" Color="#FFB6C2CB" ShadowDepth="7" BlurRadius="4" />
+                            </Image.Effect>
+                        </Image>
+                        <TextBlock Text="We have" Foreground="White" FontWeight="Bold" Margin="90,29,66,52" />
+                        <TextBlock Text="250+ Teachers" Foreground="White" Margin="90,52,20,26" FontWeight="Bold" />
+                    </Grid>
+                </Border>
+            </Grid>
+            
+            <!--Grid Column 2-->
+            <Grid Grid.Column="2">
+                <Border Background="#47b1f0" CornerRadius="17" Height="100" Margin="10,15,10,0">
+                    <Grid>
+                        <Image Source="https://i.imgur.com/HMjzPZb.png" HorizontalAlignment="Left" Margin="12,21,0,22">
+                            <Image.Effect>
+                                <DropShadowEffect Direction="25" Color="#FFB6C2CB" ShadowDepth="1" BlurRadius="4" />
+                            </Image.Effect>
+                        </Image>
+                        <TextBlock Text="We have" Foreground="White" FontWeight="Bold" Margin="83,29,72,52" />
+                        <TextBlock Text="2+ Staffs" Foreground="White" Margin="83,52,27,26" FontWeight="Bold" />
+                    </Grid>
+                </Border>
+            </Grid>
+        </Grid>
+
+        <Grid Grid.Row="1">
+            <DataGrid x:Name="MyDataGrid">
+                
+            </DataGrid>
+            
+        </Grid>
+        
+
+    </Grid>
+</UserControl>
