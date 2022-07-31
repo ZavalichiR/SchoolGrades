@@ -27,7 +27,34 @@ namespace SchoolGrades.Views
         private void Window_Loaded(object sender, RoutedEventArgs e)
         {
             RenderPage.Children.Clear();
-            RenderPage.Children.Add(new MyUserController.Dashboard());
+            RenderPage.Children.Add(new MyUserController.Dashboard_UserControl());
+        }
+
+        /*Button - Dashboard */
+        private void Button_Click(object sender, RoutedEventArgs e)
+        {
+            RenderPage.Children.Clear();
+            RenderPage.Children.Add(new MyUserController.Dashboard_UserControl());
+        }
+
+        /*Button - Classes*/
+        private void Button_Click_1(object sender, RoutedEventArgs e)
+        {
+            RenderPage.Children.Clear();
+            RenderPage.Children.Add(new MyUserController.Classes_UserControl());
+        }
+
+        /*Button - Students*/
+        private void Button_Click_2(object sender, RoutedEventArgs e)
+        {
+            RenderPage.Children.Clear();
+            RenderPage.Children.Add(new MyUserController.Students_UserControl());
+        }
+
+        /*Button - Log OUT */
+        private void Button_Click_3(object sender, RoutedEventArgs e)
+        {
+            Application.Current.Shutdown();
         }
     }
 }

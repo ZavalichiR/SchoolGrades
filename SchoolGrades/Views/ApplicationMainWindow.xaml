@@ -16,7 +16,8 @@
             <!--2 -->
             <RowDefinition/>
             <!--3 -->
-            <RowDefinition Height="0"/>
+            <RowDefinition Height="auto"/>
+            <!--4 -->
             <RowDefinition Height="60"/>
         </Grid.RowDefinitions>
 
@@ -25,57 +26,64 @@
         <Grid Grid.Row="1" Margin="0,0,0,5">
             <TextBlock Text="SCHOOL" 
                        Foreground="#47b1f0" FontSize="22" FontWeight="Bold" 
-                       Margin="31,14,674,7" RenderTransformOrigin="0.26,0.485"/>
+                       Margin="25,13,666,8" RenderTransformOrigin="0.26,0.485"/>
             <TextBlock Text="GRADES" 
                        Foreground="#164378" FontSize="22" FontWeight="Bold" 
-                       Margin="126,14,572,6"/>
+                       Margin="126,13,572,7"/>
         </Grid>
 
-        <Grid Grid.Row="2" Background="#f6f5f8" Name="RenderPage">
+        <Grid Grid.Row="2" Background="#f6f5f8" x:Name="RenderPage">
             
-
+            
         </Grid>
 
         <Grid Grid.Row="4" Background="#47b1f0" Margin="0,1,0,0">
-            <Button x:Name="btn_dashboard"
-                    Content="Dashboard"
-                    Foreground="White"
-                    FontWeight="Bold"
-                    materialDesign:ShadowAssist.ShadowDepth="Depth0"
-                    HorizontalAlignment="Left" 
-                    BorderThickness="0"
-                    Height="60" Width="200"
-                    Background="#47b1f0" Margin="0,0,0,-1"/>
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="*"/>
+                <ColumnDefinition Width="*"/>
+                <ColumnDefinition Width="*"/>
+                <ColumnDefinition Width="*"/>
+            </Grid.ColumnDefinitions>
 
-            <Button x:Name="btn_Students"
-                    Content="Students"
-                    Foreground="White"
-                    FontWeight="Bold"
-                    materialDesign:ShadowAssist.ShadowDepth="Depth0"
-                    HorizontalAlignment="Left" 
-                    BorderThickness="0"
-                    Height="60" Width="200"
-                    Background="#42D9C8" Margin="200,0,0,-1"/>
-
-            <Button x:Name="btn_classes"
-                Content="Classes"
-                Foreground="White"
-                FontWeight="Bold"
-                materialDesign:ShadowAssist.ShadowDepth="Depth0"
-                HorizontalAlignment="Left" 
-                BorderThickness="0"
-                Height="60" Width="200"
-                Background="#47b1f0" Margin="400,0,0,-1"/>
             
-            <Button x:Name="btn_Log_out"
-                Content="Log out"
-                Foreground="White"
-                FontWeight="Bold"
-                materialDesign:ShadowAssist.ShadowDepth="Depth0"
-                HorizontalAlignment="Left" 
-                BorderThickness="0"
-                Height="60" Width="200"
-                Background="#42D9C8" Margin="600,0,0,-1"/>
+            <!--Dashboard - Button -->
+            <Grid Grid.Column="0">
+                <Button Content="Dashboard" 
+                        Height="60"
+                        materialDesign:ShadowAssist.ShadowDepth="Depth0"
+                        BorderThickness="0"
+                        Foreground="White"
+                        Background="#47b1f0" Click="Button_Click" />
+            </Grid>
+            <!-- Classes - Button-->
+            <Grid Grid.Column="1">
+                <Button Content="Classes" 
+                        Height="60"
+                        materialDesign:ShadowAssist.ShadowDepth="Depth0"
+                        BorderThickness="0"
+                        Foreground="White"
+                        Background="#42D9C8" Click="Button_Click_1"  />
+            </Grid>
+            <!-- Students Button-->
+            <Grid Grid.Column="2">
+                <Button Content="Students" 
+                        Height="60"
+                        materialDesign:ShadowAssist.ShadowDepth="Depth0"
+                        BorderThickness="0"
+                        Foreground="White"
+                        Background="#47b1f0" Click="Button_Click_2"  />
+            </Grid>
+            <!-- Log out Button-->
+            <Grid Grid.Column="3">
+                <Button Content="Log out" 
+                        Height="60"
+                        materialDesign:ShadowAssist.ShadowDepth="Depth0"
+                        BorderThickness="0"
+                        Foreground="White"
+                        Background="#42D9C8" Click="Button_Click_3" />
+            </Grid>
+            
+            
         </Grid>
     </Grid>
 </Window>

@@ -81,7 +81,15 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </ApplicationDefinition>
-    <Page Include="MyUserController\Dashboard.xaml">
+    <Page Include="MyUserController\Classes_UserControl.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="MyUserController\Dashboard_UserControl.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="MyUserController\Students_UserControl.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
@@ -100,8 +108,14 @@
     <Compile Include="Helpers\PasswordHelper.cs" />
     <Compile Include="MVVM\RelayCommand.cs" />
     <Compile Include="MVVM\ViewModelBase.cs" />
-    <Compile Include="MyUserController\Dashboard.xaml.cs">
-      <DependentUpon>Dashboard.xaml</DependentUpon>
+    <Compile Include="MyUserController\Classes_UserControl.xaml.cs">
+      <DependentUpon>Classes_UserControl.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="MyUserController\Dashboard_UserControl.xaml.cs">
+      <DependentUpon>Dashboard_UserControl.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="MyUserController\Students_UserControl.xaml.cs">
+      <DependentUpon>Students_UserControl.xaml</DependentUpon>
     </Compile>
     <Compile Include="ViewModels\LoginViewModel.cs" />
     <Compile Include="ViewModels\StudentModel.cs" />
