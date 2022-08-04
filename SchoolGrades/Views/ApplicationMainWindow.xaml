@@ -33,8 +33,6 @@
         </Grid>
 
         <Grid Grid.Row="2" Background="#f6f5f8" x:Name="RenderPage">
-            
-            
         </Grid>
 
         <Grid Grid.Row="4" Background="#47b1f0" Margin="0,1,0,0">

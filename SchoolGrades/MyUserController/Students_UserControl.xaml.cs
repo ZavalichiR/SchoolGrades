@@ -32,8 +32,20 @@ namespace SchoolGrades.MyUserController
             StudentModel __student = new StudentModel();
             __student.Name = Student_Name.Text;
             __student.Class = Student_Class.Text;
-            __student.Grade = Student_Grade.Text;
 
+            if (Student_Grade.Text.Trim() == "") return;
+            for (int i = 0; i < Student_Grade.Text.Trim().Length; i++)
+            {
+                if (!char.IsNumber(Student_Grade.Text[i]))
+                {
+                    MessageBox.Show("Please enter a valid number");
+                    Student_Grade.Text = "";
+                    return;
+                } else
+                {
+                    __student.Grade = int.Parse(Student_Grade.Text);
+                }
+            } 
             DataGrid_Students.Items.Add(__student);
         }
     }
