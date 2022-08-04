@@ -48,7 +48,7 @@
         </Grid>
 
         <Grid Grid.Column="1">
-            <DataGrid x:Name="DataGrid_Students_List">
+            <DataGrid x:Name="DataGrid_Students">
                 <DataGrid.Resources>
                     <Style TargetType="{x:Type DataGridColumnHeader}">
                         <Setter Property="Background" Value="Cyan"/>

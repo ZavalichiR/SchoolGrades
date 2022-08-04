@@ -12,6 +12,7 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
+using SchoolGrades.ViewModels;
 
 namespace SchoolGrades.MyUserController
 {
@@ -23,26 +24,17 @@ namespace SchoolGrades.MyUserController
         public Students_UserControl()
         {
             InitializeComponent();
-            Employee student = new Employee();
+            StudentModel __student = new StudentModel();
         }
-
-        public class Employee
-        {
-
-             public string Name { get; set; }
-             public string Class { get; set; }
-             public string Grade { get; set; }
-
-            }
-
+        
         private void Button_Click(object sender, RoutedEventArgs e)
         {
-            Employee student = new Employee();
-            student.Name = Student_Name.Text;
-            student.Class = Student_Class.Text;
-            student.Grade = Student_Grade.Text;
+            StudentModel __student = new StudentModel();
+            __student.Name = Student_Name.Text;
+            __student.Class = Student_Class.Text;
+            __student.Grade = Student_Grade.Text;
 
-            DataGrid_Students_List.Items.Add(student);
+            DataGrid_Students.Items.Add(__student);
         }
     }
 }

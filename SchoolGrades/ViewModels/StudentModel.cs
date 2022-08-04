@@ -12,10 +12,26 @@ namespace SchoolGrades.ViewModels
         ObservableCollection<StudentModel> Students { get; set; }
 
         private string _student;
-        public string Student_name
+        public string Name
         {
             get { return _student; }
             set { _student = value; }
         }
+
+        private string _student_class;
+
+        public string Class
+        {
+            get { return _student_class; }
+            set { _student_class = value; }
+        }
+
+        private string _grade;
+        public string Grade
+        {
+            get { return _grade; } 
+            set { _grade = value; }
+        }
+
     }
 }
