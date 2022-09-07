@@ -4,12 +4,16 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Collections.ObjectModel;
+using SchoolGrades.MyUserController;
+using SchoolGrades.MVVM;
 
 namespace SchoolGrades.ViewModels
 {
     public class StudentModel
     {
+
         ObservableCollection<StudentModel> Students { get; set; }
+
 
         private string _student;
         public string Name
@@ -31,6 +35,21 @@ namespace SchoolGrades.ViewModels
         {
             get { return _grade; } 
             set { _grade = value; }
+        }
+
+
+        private int _absent;
+        public int Absent
+        {
+            get { return _absent; }
+            set { _absent = value; }
+        }
+
+        private int _id;
+        public int ID
+        {
+            get { return _id; }
+            set { _id = value; }
         }
 
     }

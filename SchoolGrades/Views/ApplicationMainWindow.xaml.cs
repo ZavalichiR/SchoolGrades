@@ -56,5 +56,29 @@ namespace SchoolGrades.Views
         {
             Application.Current.Shutdown();
         }
+
+        /*Application Move*/
+        private void Grid_PreviewMouseLeftButtonDown(object sender, MouseButtonEventArgs e)
+        {
+            DragMove();
+        }
+
+        /*Application Exit*/
+        private void Application_Exit(object sender, RoutedEventArgs e)
+        {
+            this.Close();
+        }
+
+        /*Maximize*/
+        private void Maximize(object sender, RoutedEventArgs e)
+        {
+            this.WindowState = WindowState.Maximized;
+        }
+        /*Minimize*/
+        private void Minimize(object sender, RoutedEventArgs e)
+        {
+            this.WindowState = WindowState.Minimized;
+        }
+
     }
 }

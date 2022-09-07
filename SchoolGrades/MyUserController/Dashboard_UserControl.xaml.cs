@@ -12,7 +12,7 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
-
+using SchoolGrades.Views;
 namespace SchoolGrades.MyUserController
 {
     /// <summary>
@@ -23,6 +23,8 @@ namespace SchoolGrades.MyUserController
         public Dashboard_UserControl()
         {
             InitializeComponent();
+            
+
         }
     }
 }

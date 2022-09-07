@@ -4,6 +4,7 @@ using System;
 using System.Windows;
 using System.Windows.Input;
 using SchoolGrades.Views;
+using System.Collections.Generic;
 
 namespace SchoolGrades.ViewModels
 {
@@ -12,6 +13,7 @@ namespace SchoolGrades.ViewModels
     {
         #region Login Credentials
 
+        
 
         private string _userName;
         public string Username
@@ -52,16 +54,15 @@ namespace SchoolGrades.ViewModels
 
         private void Login()
         {
-            
+
             if (Username == "student" && Password == "password")
             {
                 ApplicationMainWindow nw = new ApplicationMainWindow();
                 nw.Show();
                 Application.Current.MainWindow.Close();
-            }
-            else
+            } else
             {
-                MessageBox.Show("Your username or password is incorrect!", "Try again!", MessageBoxButton.OK);
+                Console.WriteLine("Username or password is invalid!", "Try again!", MessageBoxButton.OK, MessageBoxImage.Error);
             }
         }
         private void Reset()

@@ -6,11 +6,12 @@
         xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes"
         xmlns:local="clr-namespace:SchoolGrades.Views"
         mc:Ignorable="d"
-        Title="ApplicationMainWindow" Height="450" Width="800" WindowStartupLocation="CenterScreen" Loaded="Window_Loaded">
+        Title="ApplicationMainWindow" MinHeight="450" MinWidth="800" WindowStartupLocation="CenterScreen" Loaded="Window_Loaded"
+        WindowStyle="None" ResizeMode="CanResizeWithGrip">
     <Grid>
         <Grid.RowDefinitions>
             <!--0 -->
-            <RowDefinition Height="17"/>
+            <RowDefinition Height="25"/>
             <!--1 -->
             <RowDefinition Height="55"/>
             <!--2 -->
@@ -21,15 +22,61 @@
             <RowDefinition Height="60"/>
         </Grid.RowDefinitions>
 
-        <Grid Grid.Row="0" Background="#47b1f0"/>
+        <Grid Grid.Row="0" Background="#47b1f0" 
+              MouseLeftButtonDown="Grid_PreviewMouseLeftButtonDown">
+
+            <Grid.RowDefinitions>
+                <RowDefinition Height="*"/>
+            </Grid.RowDefinitions>
+
+            <Grid Grid.Row="0" HorizontalAlignment="Right">
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="50"/>
+                    <ColumnDefinition Width="50"/>
+                    <ColumnDefinition Width="50"/>
+                </Grid.ColumnDefinitions>
+
+
+                <Grid Grid.Column="0">
+                    <Button Height="25"
+                            materialDesign:ShadowAssist.ShadowDepth="Depth0"
+                            BorderThickness="0"
+                            Foreground="White"
+                            Background="#47b1f0" Content="☰" Click="Minimize"/>
+                </Grid>
+
+                <Grid Grid.Column="1">
+                    <Button Height="25"
+                            materialDesign:ShadowAssist.ShadowDepth="Depth0"
+                            BorderThickness="0"
+                            Foreground="White"
+                            Background="#47b1f0" Content="▢" Click="Maximize" 
+                            />
+                </Grid>
+
+                <Grid Grid.Column="2">
+                    <Button Height="25"
+                            materialDesign:ShadowAssist.ShadowDepth="Depth0"
+                            BorderThickness="0"
+                            Foreground="White"
+                            Background="#47b1f0"
+                            Content="X" FontSize="15" Click="Application_Exit" x:Name="Exit"
+                            />
+                </Grid>
+            </Grid>
+        </Grid>
 
         <Grid Grid.Row="1" Margin="0,0,0,5">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="673*"/>
+                <ColumnDefinition Width="127*"/>
+            </Grid.ColumnDefinitions>
             <TextBlock Text="SCHOOL" 
                        Foreground="#47b1f0" FontSize="22" FontWeight="Bold" 
-                       Margin="25,13,666,8" RenderTransformOrigin="0.26,0.485"/>
+                       Margin="25,13,539,8" RenderTransformOrigin="0.26,0.485"/>
             <TextBlock Text="GRADES" 
                        Foreground="#164378" FontSize="22" FontWeight="Bold" 
-                       Margin="126,13,572,7"/>
+                       Margin="126,13,445,7"/>
         </Grid>
 
         <Grid Grid.Row="2" Background="#f6f5f8" x:Name="RenderPage">
@@ -43,7 +90,7 @@
                 <ColumnDefinition Width="*"/>
             </Grid.ColumnDefinitions>
 
-            
+
             <!--Dashboard - Button -->
             <Grid Grid.Column="0">
                 <Button Content="Dashboard" 
@@ -80,8 +127,8 @@
                         Foreground="White"
                         Background="#42D9C8" Click="Button_Click_3" />
             </Grid>
-            
-            
+
+
         </Grid>
     </Grid>
 </Window>

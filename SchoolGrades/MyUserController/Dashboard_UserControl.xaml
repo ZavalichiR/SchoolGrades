@@ -4,8 +4,11 @@
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
              xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
              xmlns:local="clr-namespace:SchoolGrades.MyUserController"
+             xmlns:viewmodels="clr-namespace:SchoolGrades.ViewModels" 
+             d:DataContext="{d:DesignInstance Type=viewmodels:LoginViewModel}"
              mc:Ignorable="d" 
              d:DesignHeight="302.04" d:DesignWidth="800">
+   
     <Grid>
         <Grid.RowDefinitions>
             <RowDefinition Height="*"/>
@@ -75,9 +78,10 @@
         <Grid Grid.Row="1">
             <Border Background="#0bdbb6" CornerRadius="30" BorderThickness="20,20,20,20">
                 <Grid>
-                    <TextBlock Foreground="IndianRed" FontSize="20" FontWeight="Bold" Text="Welcome to Admin Dashboard!" HorizontalAlignment="Center" VerticalAlignment="Center" Margin="0,60,10,0"/>
                     <Image Source="https://i.imgur.com/XoTvdkP.png" HorizontalAlignment="Right" VerticalAlignment="Bottom" Width="236" Stretch="Fill" Margin="0,0,8,1"/>
                     <Image Source="https://i.imgur.com/35GuwwF.png" HorizontalAlignment="Left" VerticalAlignment="Bottom" Width="218" Stretch="Fill"/>
+                    <TextBlock Text="Welcome back," FontSize="20" Foreground="White" FontWeight="Bold" HorizontalAlignment="Center" VerticalAlignment="Bottom" Margin="0,0,100,10"/>
+                    <TextBlock x:Name="StudentName_Text" Text="" Width="130" FontSize="20" Foreground="White" FontWeight="Bold" HorizontalAlignment="Center" VerticalAlignment="Bottom" Margin="190,0,0,10" />
                 </Grid>
             </Border>
 

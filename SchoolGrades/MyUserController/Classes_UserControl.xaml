@@ -14,23 +14,37 @@
         </Grid.ColumnDefinitions>
 
         <Grid Grid.Column="0" Margin="0,-1,0,0">
-            <Border Background="White" CornerRadius="10" Height="30" VerticalAlignment="Top" Margin="5,10,5,0">
+            <Border Background="White" CornerRadius="10" Height="30" VerticalAlignment="Top" Margin="5,20,5,0">
                 <TextBox x:Name="Class_name"
                           Style="{StaticResource MaterialDesignTextBox}"
                           materialDesign:HintAssist.Hint="Name of Class"/>
             </Border>
 
-            <Border Background="White" CornerRadius="10" Height="30" VerticalAlignment="Top" Margin="5,50,5,0">
+            <Border Background="White" CornerRadius="10" Height="30" VerticalAlignment="Top" Margin="5,60,5,0">
                 <TextBox  x:Name="Student_limit"
                           Style="{StaticResource MaterialDesignTextBox}"
                           materialDesign:HintAssist.Hint="Nr. of students limit" FontSize="11"/>
             </Border>
 
-            <Button x:Name="Submit" 
-                     Content="Submit"
+            <Button x:Name="Delete" 
+                     Content="Delete"
                     Foreground="White"
-                    VerticalAlignment="Top"  Margin="5,90,5,0"
+                    VerticalAlignment="Top"  Margin="5,140,5,0"
+                    BorderThickness="5,0,0,0" Height="32" RenderTransformOrigin="0.461,1.335" Click="Delete_Click"/>
+
+
+            <Button x:Name="Edit" 
+                     Content="Edit"
+                    Foreground="White"
+                    VerticalAlignment="Top"  Margin="5,100,5,0"
+                    BorderThickness="5,0,0,0" Height="32" RenderTransformOrigin="0.461,1.335" Click="Delete_Click"/>
+
+                <Button x:Name="Create" 
+                     Content="Create"
+                    Foreground="White"
+                    VerticalAlignment="Top"  Margin="5,180,5,0"
                     BorderThickness="5,0,0,0" Height="32" RenderTransformOrigin="0.461,1.335" Click="Submit_Click"/>
+           
         </Grid>
 
         <Grid Grid.Column="1">

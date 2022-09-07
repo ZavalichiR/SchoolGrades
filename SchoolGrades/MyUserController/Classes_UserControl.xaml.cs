@@ -30,5 +30,10 @@ namespace SchoolGrades.MyUserController
         {
             MessageBox.Show("Excellent! The class has been successfully added!");   
         }
+
+        private void Delete_Click(object sender, RoutedEventArgs e)
+        {
+
+        }
     }
 }
