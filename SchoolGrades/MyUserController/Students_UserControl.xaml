@@ -17,7 +17,17 @@
 
         <Grid Grid.Column="0">
 
-            <Border Background="White" CornerRadius="10" Height="30" VerticalAlignment="Top" Margin="5,10,5,0">
+            <Border>
+                <Border.Background>
+                    <LinearGradientBrush>
+                        <GradientStop Color="LightCyan" Offset="0.4"/>
+                        <GradientStop Color="#42D9C8" Offset="2"/>
+                        <GradientStop Color="#42D9C8" Offset="-0.1"/>
+                    </LinearGradientBrush>
+                </Border.Background>
+            </Border>
+            
+            <Border Background="White" CornerRadius="10" Height="30" VerticalAlignment="Top" Margin="5,7,5,0">
                 <Grid>
                     <TextBox x:Name="Student_ID" 
                              Style="{StaticResource MaterialDesignTextBox}"
@@ -26,7 +36,7 @@
             </Border>
 
 
-            <Border Background="White" CornerRadius="10" Height="30" VerticalAlignment="Top" Margin="5,45,5,0">
+            <Border Background="White" CornerRadius="10" Height="30" VerticalAlignment="Top" Margin="5,50,5,0">
                 <Grid>
                     <TextBox x:Name="Student_Name" 
                              Style="{StaticResource MaterialDesignTextBox}"
@@ -34,7 +44,7 @@
                 </Grid>
             </Border>
 
-            <Border Background="White" CornerRadius="10" Height="30" VerticalAlignment="Top" Margin="5,80,5,0">
+            <Border Background="White" CornerRadius="10" Height="30" VerticalAlignment="Top" Margin="5,90,5,0">
                 <Grid>
                     <TextBox x:Name="Student_Class" 
                              Style="{StaticResource MaterialDesignTextBox}"
@@ -42,7 +52,7 @@
                 </Grid>
             </Border>
 
-            <Border Background="White" CornerRadius="10" Height="30" VerticalAlignment="Top" Margin="5,115,5,0">
+            <Border Background="White" CornerRadius="10" Height="30" VerticalAlignment="Top" Margin="5,130,5,0">
                 <Grid>
                     <TextBox x:Name="Student_Grade" 
                              Style="{StaticResource MaterialDesignTextBox}"
@@ -50,7 +60,7 @@
                 </Grid>
             </Border>
 
-            <Border Background="White" CornerRadius="10" Height="30" VerticalAlignment="Top" Margin="5,150,5,0">
+            <Border Background="White" CornerRadius="10" Height="30" VerticalAlignment="Top" Margin="5,170,5,0">
                 <Grid>
                     <TextBox x:Name="Student_Absent" 
                              Style="{StaticResource MaterialDesignTextBox}"
@@ -63,13 +73,9 @@
                     VerticalAlignment="Top"
                     BorderThickness="0"
                     Foreground="White"
-                    Margin="5,185,5,0" Click="Button_Click"/>
+                    Margin="5,215,5,0" Click="Button_Click"/>
 
-            <Button Content="Update" 
-                    VerticalAlignment="Top"
-                    BorderThickness="0"
-                    Foreground="White"
-                    Margin="5,222,5,0" Click="Button_Update"/>
+            
 
             <Button Content="Remove" 
                     VerticalAlignment="Top"
@@ -79,15 +85,14 @@
         </Grid>
 
         <Grid Grid.Column="1">
-            <DataGrid x:Name="DataGrid_Students">
+            <DataGrid x:Name="DataGrid_Students" IsReadOnly="True" AutoGenerateColumns="False">
                 <DataGrid.Resources>
                     <Style TargetType="{x:Type DataGridColumnHeader}">
-                        <Setter Property="Background" Value="Cyan"/>
+                        <Setter Property="Background" Value="LightCyan"/>
                         <Setter Property="FontWeight" Value="SemiBold"/>
                         <Setter Property="BorderThickness" Value="0,0,1,2"/>
                     </Style>
                 </DataGrid.Resources>
-                
                 <DataGrid.Columns>
                     <DataGridTextColumn Header="ID" Width="*" Binding="{Binding ID}"/>
                     <DataGridTextColumn Header="Student name" Width="*" Binding="{Binding Name}"/>
@@ -95,6 +100,7 @@
                     <DataGridTextColumn Header="Grade" Width="*" Binding="{Binding Grade}"/>
                     <DataGridTextColumn Header="Absents" Width="*" Binding="{Binding Absent}"/>
                 </DataGrid.Columns>
+
             </DataGrid>
             
         </Grid>

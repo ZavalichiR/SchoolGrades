@@ -6,7 +6,7 @@
         xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes"
         xmlns:local="clr-namespace:SchoolGrades.Views"
         mc:Ignorable="d"
-        Title="ApplicationMainWindow" MinHeight="450" MinWidth="800" WindowStartupLocation="CenterScreen" Loaded="Window_Loaded"
+        Title="ApplicationMainWindow" Height="450" Width="800" WindowStartupLocation="CenterScreen" Loaded="Window_Loaded"
         WindowStyle="None" ResizeMode="CanResizeWithGrip">
     <Grid>
         <Grid.RowDefinitions>
@@ -53,7 +53,7 @@
                             Background="#47b1f0" Content="▢" Click="Maximize" 
                             />
                 </Grid>
-
+                
                 <Grid Grid.Column="2">
                     <Button Height="25"
                             materialDesign:ShadowAssist.ShadowDepth="Depth0"

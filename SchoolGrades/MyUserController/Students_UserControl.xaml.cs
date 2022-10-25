@@ -23,24 +23,24 @@ namespace SchoolGrades.MyUserController
     /// </summary>
     public partial class Students_UserControl : UserControl
     {
+        StudentModel __student = new StudentModel();
         public Students_UserControl()
         {
             InitializeComponent();
-            StudentModel __student = new StudentModel();
         }
 
         #region Insert_Rows
-        private void Button_Click(object sender, RoutedEventArgs e)
+        public void Button_Click(object sender, RoutedEventArgs e)
         {
-            StudentModel __student = new StudentModel();
             __student.Name = Student_Name.Text;
             __student.Class = Student_Class.Text;
 
-
-
+            var vm = new ViewModel();
+            DataContext = vm;
+            vm.Students.Add(__student);
 
             /*STUDENT GRADE*/
-        /*i*/
+            /*i*/
             if (Student_Grade.Text.Trim() == "") return;
             for (int i = 0; i < Student_Grade.Text.Trim().Length; i++)
             {
@@ -73,7 +73,8 @@ namespace SchoolGrades.MyUserController
             }
 
             /*STUDENT ID*/
-        /*k*/
+            /*k*/
+
             if (Student_ID.Text.Trim() == "") return;
             for (int k = 0; k < Student_ID.Text.Trim().Length; k++)
             {
@@ -92,19 +93,25 @@ namespace SchoolGrades.MyUserController
             DataGrid_Students.Items.Add(__student);
         }
         #endregion
-        /*  Update Row - Button */
-        #region Update_Row
-        private void Button_Update(object sender, RoutedEventArgs e)
-        {
-            
-
-        }
-        /*  Remove Button */
-        #endregion
+        
 
         #region Remove_Row
         private void Button_Remove(object sender, RoutedEventArgs e)
         {
+
+            if (MessageBox.Show("Are you sure you want to do this operation?",
+                    "You have selected the student " + "\"" + __student.Name + "\"",
+                    MessageBoxButton.YesNo,
+                    MessageBoxImage.Question) == MessageBoxResult.Yes)
+            {
+
+                DataGrid_Students.Items.Remove(__student);
+
+            }
+            else
+            {
+                MessageBox.Show("The operation was closed! Nothing has been changed!");
+            }
 
         }
         #endregion

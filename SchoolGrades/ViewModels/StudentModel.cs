@@ -6,15 +6,22 @@ using System.Threading.Tasks;
 using System.Collections.ObjectModel;
 using SchoolGrades.MyUserController;
 using SchoolGrades.MVVM;
+using System.Windows;
+using System.Windows.Input;
+using GenericUi.Commands;
 
 namespace SchoolGrades.ViewModels
 {
+
+    public class ViewModel
+    {
+        public ObservableCollection<StudentModel> Students { get; } = new ObservableCollection<StudentModel>();
+
+    }
+
+
     public class StudentModel
     {
-
-        ObservableCollection<StudentModel> Students { get; set; }
-
-
         private string _student;
         public string Name
         {
@@ -33,7 +40,7 @@ namespace SchoolGrades.ViewModels
         private int _grade;
         public int Grade
         {
-            get { return _grade; } 
+            get { return _grade; }
             set { _grade = value; }
         }
 
@@ -53,4 +60,6 @@ namespace SchoolGrades.ViewModels
         }
 
     }
+
 }
+

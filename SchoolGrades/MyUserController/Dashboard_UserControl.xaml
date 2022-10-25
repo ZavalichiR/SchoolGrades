@@ -80,8 +80,6 @@
                 <Grid>
                     <Image Source="https://i.imgur.com/XoTvdkP.png" HorizontalAlignment="Right" VerticalAlignment="Bottom" Width="236" Stretch="Fill" Margin="0,0,8,1"/>
                     <Image Source="https://i.imgur.com/35GuwwF.png" HorizontalAlignment="Left" VerticalAlignment="Bottom" Width="218" Stretch="Fill"/>
-                    <TextBlock Text="Welcome back," FontSize="20" Foreground="White" FontWeight="Bold" HorizontalAlignment="Center" VerticalAlignment="Bottom" Margin="0,0,100,10"/>
-                    <TextBlock x:Name="StudentName_Text" Text="" Width="130" FontSize="20" Foreground="White" FontWeight="Bold" HorizontalAlignment="Center" VerticalAlignment="Bottom" Margin="190,0,0,10" />
                 </Grid>
             </Border>
 
