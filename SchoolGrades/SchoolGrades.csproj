@@ -118,7 +118,8 @@
       <DependentUpon>Students_UserControl.xaml</DependentUpon>
     </Compile>
     <Compile Include="ViewModels\LoginViewModel.cs" />
-    <Compile Include="ViewModels\StudentModel.cs" />
+    <Compile Include="ViewModels\Student.cs" />
+    <Compile Include="ViewModels\StudentViewModel.cs" />
     <Compile Include="Views\ApplicationMainWindow.xaml.cs">
       <DependentUpon>ApplicationMainWindow.xaml</DependentUpon>
     </Compile>

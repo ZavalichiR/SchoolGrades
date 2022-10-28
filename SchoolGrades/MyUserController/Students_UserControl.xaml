@@ -5,9 +5,10 @@
              xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
              xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes"
              xmlns:local="clr-namespace:SchoolGrades.MyUserController"
+             xmlns:viewmodels="clr-namespace:SchoolGrades.ViewModels" 
+             d:DataContext="{d:DesignInstance Type=viewmodels:StudentViewModel}"
              mc:Ignorable="d" 
              d:DesignHeight="302.04" d:DesignWidth="800">
-
 
     <Grid>
         <Grid.ColumnDefinitions>
@@ -26,10 +27,10 @@
                     </LinearGradientBrush>
                 </Border.Background>
             </Border>
-            
+
             <Border Background="White" CornerRadius="10" Height="30" VerticalAlignment="Top" Margin="5,7,5,0">
                 <Grid>
-                    <TextBox x:Name="Student_ID" 
+                    <TextBox x:Name="Student_ID" Text="{Binding EditingStudent.ID}"
                              Style="{StaticResource MaterialDesignTextBox}"
                              materialDesign:HintAssist.Hint="ID Number"/>
                 </Grid>
@@ -38,7 +39,7 @@
 
             <Border Background="White" CornerRadius="10" Height="30" VerticalAlignment="Top" Margin="5,50,5,0">
                 <Grid>
-                    <TextBox x:Name="Student_Name" 
+                    <TextBox x:Name="Student_Name" Text="{Binding EditingStudent.Name}"
                              Style="{StaticResource MaterialDesignTextBox}"
                              materialDesign:HintAssist.Hint="Name of student"/>
                 </Grid>
@@ -46,7 +47,7 @@
 
             <Border Background="White" CornerRadius="10" Height="30" VerticalAlignment="Top" Margin="5,90,5,0">
                 <Grid>
-                    <TextBox x:Name="Student_Class" 
+                    <TextBox x:Name="Student_Class" Text="{Binding EditingStudent.Class}"
                              Style="{StaticResource MaterialDesignTextBox}"
                              materialDesign:HintAssist.Hint="Class"/>
                 </Grid>
@@ -54,38 +55,40 @@
 
             <Border Background="White" CornerRadius="10" Height="30" VerticalAlignment="Top" Margin="5,130,5,0">
                 <Grid>
-                    <TextBox x:Name="Student_Grade" 
+                    <TextBox x:Name="Student_Grade" Text="{Binding EditingStudent.Grade}"
                              Style="{StaticResource MaterialDesignTextBox}"
-                             materialDesign:HintAssist.Hint="Grade (1..10)"/>
+                             materialDesign:HintAssist.Hint="Grade (1..10)" />
                 </Grid>
             </Border>
 
             <Border Background="White" CornerRadius="10" Height="30" VerticalAlignment="Top" Margin="5,170,5,0">
                 <Grid>
-                    <TextBox x:Name="Student_Absent" 
+                    <TextBox x:Name="Student_Absent" Text="{Binding EditingStudent.Absent}"
                              Style="{StaticResource MaterialDesignTextBox}"
-                             materialDesign:HintAssist.Hint="Absent date"/>
+                             materialDesign:HintAssist.Hint="Absent Date"/>
                 </Grid>
             </Border>
-            
+
 
             <Button Content="Insert" 
                     VerticalAlignment="Top"
                     BorderThickness="0"
                     Foreground="White"
-                    Margin="5,215,5,0" Click="Button_Click"/>
+                    Command="{Binding AddCommand}"
+                    Margin="5,215,5,0"/>
 
-            
 
-            <Button Content="Remove" 
+
+            <Button Content="Update" 
                     VerticalAlignment="Top"
                     BorderThickness="0"
                     Foreground="White"
-                    Margin="5,260,5,0" Click="Button_Remove"/>
+                    Margin="5,260,5,0" 
+                    />
         </Grid>
 
-        <Grid Grid.Column="1">
-            <DataGrid x:Name="DataGrid_Students" IsReadOnly="True" AutoGenerateColumns="False">
+        <Grid  Grid.Column="1">
+            <DataGrid ItemsSource="{Binding Students}" x:Name="DataGrid_Students" AutoGenerateColumns="False" IsReadOnly="True">
                 <DataGrid.Resources>
                     <Style TargetType="{x:Type DataGridColumnHeader}">
                         <Setter Property="Background" Value="LightCyan"/>
@@ -99,11 +102,23 @@
                     <DataGridTextColumn Header="Class" Width="*" Binding="{Binding Class}"/>
                     <DataGridTextColumn Header="Grade" Width="*" Binding="{Binding Grade}"/>
                     <DataGridTextColumn Header="Absents" Width="*" Binding="{Binding Absent}"/>
+                    <DataGridTemplateColumn Header="Delete Students" Width="*">
+                        <DataGridTemplateColumn.CellTemplate>
+                            <DataTemplate >
+                                <Button Content="Delete"
+        Command="{Binding DataContext.RemoveCommand, ElementName=DataGrid_Students}"
+        CommandParameter="{Binding}"
+        Background="#42D9C8"
+        materialDesign:ShadowAssist.ShadowDepth="Depth0"
+        BorderThickness="0"/>
+                            </DataTemplate>
+                        </DataGridTemplateColumn.CellTemplate>
+                    </DataGridTemplateColumn>
                 </DataGrid.Columns>
 
             </DataGrid>
-            
+
         </Grid>
     </Grid>
-    
+
 </UserControl>
