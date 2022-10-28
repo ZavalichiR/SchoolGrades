@@ -62,7 +62,26 @@ namespace SchoolGrades.ViewModels
 
         private void Delete(Student student)
         {
-            Students.Remove(student);
+            // Students.Remove(student);
+
+            if (MessageBox.Show("Are you sure you want to do this operation?", "Security question",
+                    MessageBoxButton.YesNo,
+                    MessageBoxImage.Question) == MessageBoxResult.Yes)
+            {
+
+                Students.Remove(student);
+                MessageBox.Show("Student has been removed succesfully!");
+
+            }
+            else
+            {
+                MessageBox.Show("The operation was closed! Nothing has been changed!");
+            }
+        }
+
+        private void Update(Student student)
+        {
+            throw new NotImplementedException();
         }
        
 

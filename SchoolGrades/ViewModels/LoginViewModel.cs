@@ -62,7 +62,9 @@ namespace SchoolGrades.ViewModels
                 Application.Current.MainWindow.Close();
             } else
             {
-                Console.WriteLine("Username or password is invalid!", "Try again!", MessageBoxButton.OK, MessageBoxImage.Error);
+                MessageBox.Show("Username or password is invalid!", "Try again!", MessageBoxButton.OK, MessageBoxImage.Error);
+                Username = "";
+                Password = "";
             }
         }
         private void Reset()

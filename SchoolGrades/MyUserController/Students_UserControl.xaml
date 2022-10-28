@@ -84,7 +84,7 @@
                     BorderThickness="0"
                     Foreground="White"
                     Margin="5,260,5,0" 
-                    />
+                    Command="{Binding UpdateCommand}"/>
         </Grid>
 
         <Grid  Grid.Column="1">
