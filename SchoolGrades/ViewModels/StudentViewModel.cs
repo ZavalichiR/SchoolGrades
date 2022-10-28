@@ -11,6 +11,7 @@ using SchoolGrades.MyUserController;
 using System.Security.Claims;
 using System.Xml.Linq;
 using System.Windows;
+using System.Windows.Controls;
 
 namespace SchoolGrades.ViewModels
 {
@@ -46,32 +47,33 @@ namespace SchoolGrades.ViewModels
             AddCommand = new RelayCommand(_ => Add());
             RemoveCommand = new RelayCommand(x => Delete((Student)x));
 
+            Students.Add(new Student() { Name = "Ex. Razvan", Absent = 2, Class = "A", Grade = 10, ID = 2 });
             Students.Add(new Student() { Name = "Ex. Casian", Absent = 3, Class = "A", Grade = 10, ID = 0 });
             Students.Add(new Student() { Name = "Ex. Stefi", Absent = 1, Class = "A", Grade = 10, ID = 1 });
-            Students.Add(new Student() { Name = "Ex. Razvan", Absent = 2, Class = "A", Grade = 10, ID = 2 });
         }
 
+      
         private void Add()
         {
-
-            // You'll want some validation here...
+            if (!Students.Any(p => p.ID == EditingStudent.ID))
+            {
             Students.Add(EditingStudent);
             EditingStudent = new Student();
-            // Probably clear EditingStudent after
+
+            } else
+            {
+                MessageBox.Show("Is already a student with this id " + EditingStudent.ID + "!\n" + "Try another one!", "Error!");
+            }
         }
 
         private void Delete(Student student)
         {
-            // Students.Remove(student);
-
             if (MessageBox.Show("Are you sure you want to do this operation?", "Security question",
                     MessageBoxButton.YesNo,
                     MessageBoxImage.Question) == MessageBoxResult.Yes)
             {
-
                 Students.Remove(student);
-                MessageBox.Show("Student has been removed succesfully!");
-
+                //Student has been removed
             }
             else
             {
@@ -79,15 +81,5 @@ namespace SchoolGrades.ViewModels
             }
         }
 
-        private void Update(Student student)
-        {
-            throw new NotImplementedException();
-        }
-       
-
-
-
     }
-
-
 }

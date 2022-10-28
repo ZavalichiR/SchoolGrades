@@ -34,7 +34,7 @@
                            FontWeight="Bold" Margin="16,15,59,44"/>
 
                         <Image Source="https://i.imgur.com/6ixRCAt.png" HorizontalAlignment="Left" VerticalAlignment="Bottom" Height="70" Margin="19,0,0,7"/>
-                        <TextBlock Foreground="White" Text="0" FontWeight="Bold" FontSize="50" HorizontalAlignment="Right" VerticalAlignment="Bottom" Margin="0,0,30,20"/>
+                        <TextBlock x:Name="Number_of_students" Foreground="White" Text="0" FontWeight="Bold" FontSize="50" HorizontalAlignment="Right" VerticalAlignment="Bottom" Margin="0,0,30,20"/>
                     </Grid>
                 </Border>
             </Grid>
