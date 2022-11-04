@@ -72,7 +72,14 @@ namespace SchoolGrades.Views
         /*Maximize*/
         private void Maximize(object sender, RoutedEventArgs e)
         {
-            this.WindowState = WindowState.Maximized;
+            if (this.WindowState == System.Windows.WindowState.Normal)
+            {
+                this.WindowState = System.Windows.WindowState.Maximized;
+            }
+            else
+            {
+                this.WindowState = System.Windows.WindowState.Normal;
+            }
         }
         /*Minimize*/
         private void Minimize(object sender, RoutedEventArgs e)

@@ -12,6 +12,8 @@ using System.Security.Claims;
 using System.Xml.Linq;
 using System.Windows;
 using System.Windows.Controls;
+using System.ComponentModel;
+using System.Windows.Data;
 
 namespace SchoolGrades.ViewModels
 {
@@ -39,30 +41,42 @@ namespace SchoolGrades.ViewModels
             }
         }
 
-        public ICommand RemoveCommand { get; }
         public ICommand AddCommand { get; }
+        public ICommand RemoveCommand { get; }
+        public ICommand UpdateCommand { get; }
 
         public StudentViewModel()
         {
             AddCommand = new RelayCommand(_ => Add());
             RemoveCommand = new RelayCommand(x => Delete((Student)x));
+            UpdateCommand = new RelayCommand(_ => Update());
 
-            Students.Add(new Student() { Name = "Ex. Razvan", Absent = 2, Class = "A", Grade = 10, ID = 2 });
-            Students.Add(new Student() { Name = "Ex. Casian", Absent = 3, Class = "A", Grade = 10, ID = 0 });
-            Students.Add(new Student() { Name = "Ex. Stefi", Absent = 1, Class = "A", Grade = 10, ID = 1 });
+            Students.Add(new Student() { Name = "Ex. Razvan", Absent = 2, Class = "A", Grade = 10, ID = 1 });
+            Students.Add(new Student() { Name = "Ex. Casian", Absent = 3, Class = "A", Grade = 10, ID = 2 });
+            Students.Add(new Student() { Name = "Ex. Stefi", Absent = 1, Class = "A", Grade = 10, ID = 3});
         }
 
-      
+        public ICollectionView View;
         private void Add()
         {
+            Students_UserControl students_UserControl = new Students_UserControl();
+
             if (!Students.Any(p => p.ID == EditingStudent.ID))
             {
+            /* Adding new student*/
             Students.Add(EditingStudent);
             EditingStudent = new Student();
 
-            } else
+            /*Sort students by ID*/
+            View = CollectionViewSource.GetDefaultView(Students);
+            View.SortDescriptions.Add(new SortDescription("ID", ListSortDirection.Ascending));
+            View.Refresh();
+
+            }
+            else
             {
                 MessageBox.Show("Is already a student with this id " + EditingStudent.ID + "!\n" + "Try another one!", "Error!");
+                return;
             }
         }
 
@@ -80,6 +94,16 @@ namespace SchoolGrades.ViewModels
                 MessageBox.Show("The operation was closed! Nothing has been changed!");
             }
         }
+
+        private void Update()
+        {
+           
+
+            
+        }
+
+
+
 
     }
 }

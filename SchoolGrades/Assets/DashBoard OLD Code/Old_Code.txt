@@ -1,0 +1,74 @@
+<Grid.RowDefinitions>
+            <RowDefinition Height="*"/>
+            <RowDefinition Height="*"/>
+            <RowDefinition Height="auto"/>
+        </Grid.RowDefinitions>
+
+        <!--Start Grid 0-->
+        <Grid Grid.Row="0">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="*"/>
+                <ColumnDefinition Width="*"/>
+                <ColumnDefinition Width="*"/>
+            </Grid.ColumnDefinitions>
+
+            <!-- 1 - Purple -->
+            <Grid Grid.Column="0">
+                <Border Background="#00B6EC" CornerRadius="30" Margin="10,10,0,10">
+                    <Grid>
+                        <TextBlock Text="Total Students"
+                           Foreground="White"
+                           FontSize="22"
+                           FontWeight="Bold" Margin="16,15,59,44"/>
+
+                        <Image Source="https://i.imgur.com/6ixRCAt.png" HorizontalAlignment="Left" VerticalAlignment="Bottom" Height="70" Margin="19,0,0,7"/>
+                        <TextBlock x:Name="Number_of_students" Foreground="White" Text="0" FontWeight="Bold" FontSize="50" HorizontalAlignment="Right" VerticalAlignment="Bottom" Margin="0,0,30,20"/>
+                    </Grid>
+                </Border>
+            </Grid>
+
+            <!-- 2 - Red -->
+            <Grid Grid.Column="1">
+                <Border Background="#01FFFF" CornerRadius="30" Margin="10,10,10,10">
+                    <Grid>
+                        <TextBlock Text="Graduated students"
+                           Foreground="White"
+                           FontSize="20"
+                           FontWeight="Bold" Margin="13,14,33,31" />
+                        <Image Source="https://i.imgur.com/1DaC9ZJ.png" HorizontalAlignment="Left" VerticalAlignment="Bottom" Height="70" Margin="20,0,0,10"/>
+                        <TextBlock Foreground="White" Text="0" FontWeight="Bold" FontSize="50" HorizontalAlignment="Right" VerticalAlignment="Bottom" Margin="0,0,30,20" />
+                    </Grid>
+
+                </Border>
+            </Grid>
+
+            <!-- 3 - Violet -->
+
+            <Grid Grid.Column="2">
+                <Border Background="#019999" CornerRadius="23" Margin="0,10,10,10">
+                    
+                    <Grid>
+                        <TextBlock Text="Number of classes"
+                           Foreground="White"
+                           FontSize="20"
+                           FontWeight="Bold" Margin="12,14,68,31"/>
+                        <Image Source="https://i.imgur.com/ZuD1h93.png" HorizontalAlignment="Left" VerticalAlignment="Bottom" Width="70" Margin="20,0,0,10"/>
+                        <TextBlock Foreground="White" Text="0" FontWeight="Bold" FontSize="50" HorizontalAlignment="Right" VerticalAlignment="Bottom" Margin="0,0,30,20"/>
+                    </Grid>
+
+                </Border>
+            </Grid>
+
+
+            <!--End Grid Row 0-->
+        </Grid>
+
+        <Grid Grid.Row="1">
+            <Border Background="#0bdbb6" CornerRadius="30" BorderThickness="20,20,20,20">
+                <Grid>
+                    <Image Source="https://i.imgur.com/XoTvdkP.png" HorizontalAlignment="Right" VerticalAlignment="Bottom" Width="236" Stretch="Fill" Margin="0,0,8,1"/>
+                    <Image Source="https://i.imgur.com/35GuwwF.png" HorizontalAlignment="Left" VerticalAlignment="Bottom" Width="218" Stretch="Fill"/>
+                </Grid>
+            </Border>
+
+        </Grid>

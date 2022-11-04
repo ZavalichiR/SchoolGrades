@@ -21,31 +21,39 @@
             <Border>
                 <Border.Background>
                     <LinearGradientBrush>
-                        <GradientStop Color="LightCyan" Offset="0.4"/>
-                        <GradientStop Color="#42D9C8" Offset="2"/>
-                        <GradientStop Color="#42D9C8" Offset="-0.1"/>
+                        <GradientStop Color="#0bdbb6" Offset="0.4"/>
+                        <GradientStop Color="#00B6EC" Offset="1"/>
+                        <GradientStop Color="#00B6EC" Offset="-0.4"/>
                     </LinearGradientBrush>
                 </Border.Background>
             </Border>
 
-            <Border Background="White" CornerRadius="10" Height="30" VerticalAlignment="Top" Margin="5,7,5,0">
+            <TextBlock Text="ID" Foreground="White" FontWeight="Bold" HorizontalAlignment="Center" Height="20" Margin="-99,-277,0,0"/>
+            <Border Background="White" CornerRadius="10" Height="24" VerticalAlignment="Top" Margin="5,19,5,0">
                 <Grid>
                     <TextBox x:Name="Student_ID" Text="{Binding EditingStudent.ID}"
                              Style="{StaticResource MaterialDesignTextBox}"
-                             materialDesign:HintAssist.Hint="ID Number"/>
+                             materialDesign:HintAssist.Hint="ID"/>
                 </Grid>
             </Border>
 
-
-            <Border Background="White" CornerRadius="10" Height="30" VerticalAlignment="Top" Margin="5,50,5,0">
+            <Border Background="White" CornerRadius="10" Height="24" VerticalAlignment="Top" Margin="5,50,5,0">
                 <Grid>
                     <TextBox x:Name="Student_Name" Text="{Binding EditingStudent.Name}"
                              Style="{StaticResource MaterialDesignTextBox}"
-                             materialDesign:HintAssist.Hint="Name of student"/>
+                             materialDesign:HintAssist.Hint="Student name"/>
                 </Grid>
             </Border>
 
-            <Border Background="White" CornerRadius="10" Height="30" VerticalAlignment="Top" Margin="5,90,5,0">
+            <Border Background="White" CornerRadius="10" Height="24" VerticalAlignment="Top" Margin="5,80,5,0">
+                <Grid>
+                    <TextBox x:Name="Student_Subject" Text="{Binding EditingStudent.Subject}"
+                             Style="{StaticResource MaterialDesignTextBox}"
+                             materialDesign:HintAssist.Hint="Subject"/>
+                </Grid>
+            </Border>
+
+            <Border Background="White" CornerRadius="10" Height="24" VerticalAlignment="Top" Margin="5,110,5,0">
                 <Grid>
                     <TextBox x:Name="Student_Class" Text="{Binding EditingStudent.Class}"
                              Style="{StaticResource MaterialDesignTextBox}"
@@ -53,7 +61,8 @@
                 </Grid>
             </Border>
 
-            <Border Background="White" CornerRadius="10" Height="30" VerticalAlignment="Top" Margin="5,130,5,0">
+            <TextBlock Text="Grade (1..10)" HorizontalAlignment="Center" Margin="-40,134,0,0" Foreground="White" FontWeight="Bold"/>
+            <Border Background="White" CornerRadius="10" Height="24" VerticalAlignment="Top" Margin="5,150,5,0">
                 <Grid>
                     <TextBox x:Name="Student_Grade" Text="{Binding EditingStudent.Grade}"
                              Style="{StaticResource MaterialDesignTextBox}"
@@ -61,29 +70,32 @@
                 </Grid>
             </Border>
 
-            <Border Background="White" CornerRadius="10" Height="30" VerticalAlignment="Top" Margin="5,170,5,0">
+            <TextBlock Text="Absent" HorizontalAlignment="Center" Margin="-75,174,0,0" Foreground="White" FontWeight="Bold"/>
+            <Border Background="White" CornerRadius="10" Height="24" VerticalAlignment="Top" Margin="5,190,5,0">
                 <Grid>
                     <TextBox x:Name="Student_Absent" Text="{Binding EditingStudent.Absent}"
                              Style="{StaticResource MaterialDesignTextBox}"
-                             materialDesign:HintAssist.Hint="Absent Date"/>
+                             materialDesign:HintAssist.Hint="Absent date"/>
                 </Grid>
             </Border>
-
 
             <Button Content="Insert" 
                     VerticalAlignment="Top"
                     BorderThickness="0"
                     Foreground="White"
                     Command="{Binding AddCommand}"
-                    Margin="5,215,5,0"/>
+                    Margin="10,227,10,0" Height="32"/>
 
-
-
+            <!-- Update button  
+            
             <Button Content="Update" 
                     VerticalAlignment="Top"
                     BorderThickness="0"
                     Foreground="White"
-                    Margin="5,260,5,0"/>
+                    Margin="10,268,10,0" Height="26"
+                    Command="{Binding UpdateCommand}"/>
+             -->
+
         </Grid>
 
         <Grid  Grid.Column="1">
@@ -96,20 +108,21 @@
                     </Style>
                 </DataGrid.Resources>
                 <DataGrid.Columns>
-                    <DataGridTextColumn Header="ID" Width="*" Binding="{Binding ID}"/>
-                    <DataGridTextColumn Header="Student name" Width="*" Binding="{Binding Name}"/>
-                    <DataGridTextColumn Header="Class" Width="*" Binding="{Binding Class}"/>
-                    <DataGridTextColumn Header="Grade" Width="*" Binding="{Binding Grade}"/>
-                    <DataGridTextColumn Header="Absents" Width="*" Binding="{Binding Absent}"/>
-                    <DataGridTemplateColumn Header="Delete Students" Width="*">
+                    <DataGridTextColumn Header="ID" Width="60" Binding="{Binding ID, UpdateSourceTrigger=PropertyChanged}" SortDirection="Ascending"/>
+                    <DataGridTextColumn Header="Name" Width="*" Binding="{Binding Name, UpdateSourceTrigger=PropertyChanged}"/>
+                    <DataGridTextColumn Header="Subject" Width="*" Binding="{Binding Subject, UpdateSourceTrigger=PropertyChanged}"/>
+                    <DataGridTextColumn Header="Class" Width="*" Binding="{Binding Class, UpdateSourceTrigger=PropertyChanged}"/>
+                    <DataGridTextColumn Header="Grade" Width="*" Binding="{Binding Grade, UpdateSourceTrigger=PropertyChanged}"/>
+                    <DataGridTextColumn Header="Absents" Width="60" Binding="{Binding Absent, UpdateSourceTrigger=PropertyChanged}"/>
+                    <DataGridTemplateColumn Header="Delete students" Width="*">
                         <DataGridTemplateColumn.CellTemplate>
                             <DataTemplate >
                                 <Button Content="Delete"
-        Command="{Binding DataContext.RemoveCommand, ElementName=DataGrid_Students}"
-        CommandParameter="{Binding}"
-        Background="#42D9C8"
-        materialDesign:ShadowAssist.ShadowDepth="Depth0"
-        BorderThickness="0"/>
+                                Command="{Binding DataContext.RemoveCommand, ElementName=DataGrid_Students}"
+                                CommandParameter="{Binding}"
+                                Background="#42D9C8"
+                                materialDesign:ShadowAssist.ShadowDepth="Depth0"
+                                BorderThickness="0"/>   
                             </DataTemplate>
                         </DataGridTemplateColumn.CellTemplate>
                     </DataGridTemplateColumn>

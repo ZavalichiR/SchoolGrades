@@ -20,6 +20,15 @@ namespace SchoolGrades.ViewModels
             }
         }
 
+        private string _school_subject;
+        public string Subject
+        {
+            get { return _school_subject; }
+            set { _school_subject = value;
+                OnPropertyChanged();
+            }
+        }
+
         private string _class;
         public string Class
         {

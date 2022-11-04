@@ -1,0 +1,63 @@
+ <Border Background="White" CornerRadius="10" Height="30" VerticalAlignment="Top" Margin="5,7,5,0">
+                <Grid>
+                    <TextBox x:Name="Student_ID" Text="{Binding EditingStudent.ID}"
+                             Style="{StaticResource MaterialDesignTextBox}"
+                             materialDesign:HintAssist.Hint="ID Number"/>
+                </Grid>
+            </Border>
+
+
+            <Border Background="White" CornerRadius="10" Height="30" VerticalAlignment="Top" Margin="5,50,5,0">
+                <Grid>
+                    <TextBox x:Name="Student_Name" Text="{Binding EditingStudent.Name}"
+                             Style="{StaticResource MaterialDesignTextBox}"
+                             materialDesign:HintAssist.Hint="Name of student"/>
+                </Grid>
+            </Border>
+
+            <Border Background="White" CornerRadius="10" Height="30" VerticalAlignment="Top" Margin="5,90,5,0">
+                <Grid>
+                    <TextBox x:Name="Student_Class" Text="{Binding EditingStudent.Class}"
+                             Style="{StaticResource MaterialDesignTextBox}"
+                             materialDesign:HintAssist.Hint="Class"/>
+                </Grid>
+            </Border>
+
+            <Border Background="White" CornerRadius="10" Height="30" VerticalAlignment="Top" Margin="5,130,5,0">
+                <Grid>
+                    <TextBox x:Name="Student_Grade" Text="{Binding EditingStudent.Grade}"
+                             Style="{StaticResource MaterialDesignTextBox}"
+                             materialDesign:HintAssist.Hint="Grade (1..10)" />
+                </Grid>
+            </Border>
+
+            <Border Background="White" CornerRadius="10" Height="30" VerticalAlignment="Top" Margin="5,170,5,0">
+                <Grid>
+                    <TextBox x:Name="Student_Absent" Text="{Binding EditingStudent.Absent}"
+                             Style="{StaticResource MaterialDesignTextBox}"
+                             materialDesign:HintAssist.Hint="Absent Date"/>
+                </Grid>
+            </Border>
+
+
+
+
+
+
+
+	
+            <Button Content="Insert" 
+                    VerticalAlignment="Top"
+                    BorderThickness="0"
+                    Foreground="White"
+                    Command="{Binding AddCommand}"
+                    Margin="5,215,5,0"/>
+
+
+
+            <Button Content="Update" 
+                    VerticalAlignment="Top"
+                    BorderThickness="0"
+                    Foreground="White"
+                    Margin="5,260,5,0"
+                    Command="{Binding UpdateCommand}"/

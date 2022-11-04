@@ -17,9 +17,9 @@
             <Border>
                 <Border.Background>
                     <LinearGradientBrush>
-                        <GradientStop Color="LightCyan" Offset="0.4"/>
-                        <GradientStop Color="#42D9C8" Offset="2"/>
-                        <GradientStop Color="#42D9C8" Offset="-0.1"/>
+                        <GradientStop Color="#0bdbb6" Offset="0.4"/>
+                        <GradientStop Color="#00B6EC" Offset="1.2"/>
+                        <GradientStop Color="#00B6EC" Offset="-0.4"/>
                     </LinearGradientBrush>
                 </Border.Background>
             </Border>
