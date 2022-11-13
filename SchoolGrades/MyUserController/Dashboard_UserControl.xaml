@@ -75,7 +75,7 @@
         </Grid>
 
         <Grid Grid.Row="1">
-            <Image Source="https://i.imgur.com/L8rqqln.png" Stretch="Fill" Margin="259,0,0,0"/>
+            <Image Source="https://i.imgur.com/L8rqqln.png" Stretch="Fill" Margin="285,0,0,0"/>
 
             <TextBlock Text="EDUCATION  WORLDWIDE"
                        FontSize="23"

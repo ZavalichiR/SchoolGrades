@@ -15,6 +15,8 @@ using System.Windows.Shapes;
 using SchoolGrades.ViewModels;
 using System.Collections.ObjectModel;
 using System.Collections;
+using System.Data;
+using SchoolGrades.Student;
 
 namespace SchoolGrades.MyUserController
 {
@@ -28,8 +30,7 @@ namespace SchoolGrades.MyUserController
             InitializeComponent();
             StudentViewModel abc = new StudentViewModel();
             DataContext = abc;
-
+            
         }
-
     }
 }

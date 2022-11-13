@@ -50,59 +50,19 @@
                     VerticalAlignment="Top"  Margin="5,95,5,0"
                     BorderThickness="5,0,0,0" Height="32" RenderTransformOrigin="0.461,1.335" Click="Delete_Click"/>
 
-                <Button x:Name="Create" 
+            <Button x:Name="Create" 
                      Content="Create"
                     Foreground="White"
                     VerticalAlignment="Top"  Margin="5,175,5,0"
                     BorderThickness="5,0,0,0" Height="32" RenderTransformOrigin="0.461,1.335" Click="Submit_Click"/>
-           
+
         </Grid>
-        
+
         <Grid Grid.Column="1">
             
             
             
-            <Grid.RowDefinitions>
-                <RowDefinition Height="*"/>
-                <RowDefinition Height="*"/>
-                <RowDefinition Height="*"/>
-                <RowDefinition Height="*"/>
-            </Grid.RowDefinitions>
-
-            <Grid Grid.Row="0">
-                <Grid.ColumnDefinitions>
-                    <ColumnDefinition Width="*"/>
-                    <ColumnDefinition Width="*"/>
-                    <ColumnDefinition Width="*"/>
-                    <ColumnDefinition Width="*"/>
-                </Grid.ColumnDefinitions>
-
-                <Grid Grid.Column="0">
-                    <Border CornerRadius="10" Background="#0bdbb6" Margin="10,10,0,10" >
-                        <Grid>
-                            <TextBlock Text="Class A"  HorizontalAlignment="Left" VerticalAlignment="Top" FontSize="15" FontWeight="Bold" Foreground="White" Margin="20,0,0,0"/>
-                            <TextBlock Text="0" FontSize="22" HorizontalAlignment="Left" VerticalAlignment="Center" Margin="20,2,0,0" Foreground="White" FontWeight="ExtraBold"/>
-                            <TextBlock Text="STUDENTS" FontSize="10" HorizontalAlignment="Left" VerticalAlignment="Bottom" Foreground="White" Margin="20,0,0,2" FontWeight="Normal"/>
-                            <Image Source="https://i.imgur.com/aawb3V7.png" HorizontalAlignment="Right" VerticalAlignment="Center" />
-                        </Grid>
-                    </Border>
-                </Grid>
-
-                <Grid Grid.Column="1" Margin="10,0,0,0">
-                    <Border CornerRadius="10" Background="#0bdbb6" Margin="0,10,0,10" >
-                        <Grid>
-                            <TextBlock Text="Class B"  HorizontalAlignment="Left" VerticalAlignment="Top" FontSize="15" FontWeight="Bold" Foreground="White" Margin="20,0,0,0"/>
-                            <TextBlock Text="0" FontSize="22" HorizontalAlignment="Left" VerticalAlignment="Center" Margin="20,2,0,0" Foreground="White" FontWeight="ExtraBold"/>
-                            <TextBlock Text="STUDENTS" FontSize="10" HorizontalAlignment="Left" VerticalAlignment="Bottom" Foreground="White" Margin="20,0,0,2" FontWeight="Normal"/>
-                            <Image Source="https://i.imgur.com/aawb3V7.png" HorizontalAlignment="Right" VerticalAlignment="Center" />
-                        </Grid>
-                    </Border>
-
-                </Grid>
-                
-            </Grid>
-
-
         </Grid>
+
     </Grid>
 </UserControl>

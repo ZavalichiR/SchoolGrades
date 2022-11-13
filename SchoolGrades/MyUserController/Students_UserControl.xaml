@@ -5,8 +5,8 @@
              xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
              xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes"
              xmlns:local="clr-namespace:SchoolGrades.MyUserController"
-             xmlns:viewmodels="clr-namespace:SchoolGrades.ViewModels" 
-             d:DataContext="{d:DesignInstance Type=viewmodels:StudentViewModel}"
+             xmlns:Student="clr-namespace:SchoolGrades.Student" 
+             d:DataContext="{d:DesignInstance Type=Student:StudentViewModel}"
              mc:Ignorable="d" 
              d:DesignHeight="302.04" d:DesignWidth="800">
 
@@ -16,7 +16,7 @@
             <ColumnDefinition Width="*"/>
         </Grid.ColumnDefinitions>
 
-        <Grid Grid.Column="0">
+        <Grid Grid.Column="0" >
 
             <Border>
                 <Border.Background>
@@ -28,52 +28,46 @@
                 </Border.Background>
             </Border>
 
-            <TextBlock Text="ID" Foreground="White" FontWeight="Bold" HorizontalAlignment="Center" Height="20" Margin="-99,-277,0,0"/>
-            <Border Background="White" CornerRadius="10" Height="24" VerticalAlignment="Top" Margin="5,19,5,0">
-                <Grid>
-                    <TextBox x:Name="Student_ID" Text="{Binding EditingStudent.ID}"
-                             Style="{StaticResource MaterialDesignTextBox}"
-                             materialDesign:HintAssist.Hint="ID"/>
-                </Grid>
-            </Border>
+            
 
-            <Border Background="White" CornerRadius="10" Height="24" VerticalAlignment="Top" Margin="5,50,5,0">
+            <Border Background="White" CornerRadius="10" Height="24" VerticalAlignment="Top" Margin="5,15,5,0">
                 <Grid>
-                    <TextBox x:Name="Student_Name" Text="{Binding EditingStudent.Name}"
+                    <TextBox x:Name="Student_Name" Text="{Binding SelectedStudent.Name, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}"
                              Style="{StaticResource MaterialDesignTextBox}"
                              materialDesign:HintAssist.Hint="Student name"/>
                 </Grid>
             </Border>
 
-            <Border Background="White" CornerRadius="10" Height="24" VerticalAlignment="Top" Margin="5,80,5,0">
+            <Border Background="White" CornerRadius="10" Height="24" VerticalAlignment="Top" Margin="5,50,5,0">
                 <Grid>
-                    <TextBox x:Name="Student_Subject" Text="{Binding EditingStudent.Subject}"
+                    <TextBox x:Name="Student_Subject" Text="{Binding SelectedStudent.Subject, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}"
                              Style="{StaticResource MaterialDesignTextBox}"
                              materialDesign:HintAssist.Hint="Subject"/>
                 </Grid>
             </Border>
 
-            <Border Background="White" CornerRadius="10" Height="24" VerticalAlignment="Top" Margin="5,110,5,0">
+            <Border Background="White" CornerRadius="10" Height="24" VerticalAlignment="Top" Margin="5,85,5,0">
                 <Grid>
-                    <TextBox x:Name="Student_Class" Text="{Binding EditingStudent.Class}"
+                    <TextBox x:Name="Student_Class" Text="{Binding SelectedStudent.Class, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}"
                              Style="{StaticResource MaterialDesignTextBox}"
                              materialDesign:HintAssist.Hint="Class"/>
                 </Grid>
             </Border>
 
-            <TextBlock Text="Grade (1..10)" HorizontalAlignment="Center" Margin="-40,134,0,0" Foreground="White" FontWeight="Bold"/>
-            <Border Background="White" CornerRadius="10" Height="24" VerticalAlignment="Top" Margin="5,150,5,0">
+            <TextBlock Text="Grade (1..10)" HorizontalAlignment="Center" Margin="-40,110,0,0" Foreground="White" FontWeight="Bold"/>
+            <Border Background="White" CornerRadius="10" Height="24" VerticalAlignment="Top" Margin="5,130,5,0">
                 <Grid>
-                    <TextBox x:Name="Student_Grade" Text="{Binding EditingStudent.Grade}"
+                    <TextBox x:Name="Student_Grade" Text="{Binding SelectedStudent.Grade, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}"
                              Style="{StaticResource MaterialDesignTextBox}"
-                             materialDesign:HintAssist.Hint="Grade (1..10)" />
+                             materialDesign:HintAssist.Hint="Grade (1..10)"
+                             />
                 </Grid>
             </Border>
 
-            <TextBlock Text="Absent" HorizontalAlignment="Center" Margin="-75,174,0,0" Foreground="White" FontWeight="Bold"/>
-            <Border Background="White" CornerRadius="10" Height="24" VerticalAlignment="Top" Margin="5,190,5,0">
+            <TextBlock Text="Absent" HorizontalAlignment="Center" Margin="-75,160,0,0" Foreground="White" FontWeight="Bold"/>
+            <Border Background="White" CornerRadius="10" Height="24" VerticalAlignment="Top" Margin="5,180,5,0">
                 <Grid>
-                    <TextBox x:Name="Student_Absent" Text="{Binding EditingStudent.Absent}"
+                    <TextBox x:Name="Student_Absent" Text="{Binding SelectedStudent.Absent, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}"
                              Style="{StaticResource MaterialDesignTextBox}"
                              materialDesign:HintAssist.Hint="Absent date"/>
                 </Grid>
@@ -84,22 +78,21 @@
                     BorderThickness="0"
                     Foreground="White"
                     Command="{Binding AddCommand}"
-                    Margin="10,227,10,0" Height="32"/>
+                    Margin="10,220,10,0" Height="27"/>
 
-            <!-- Update button  
-            
-            <Button Content="Update" 
+            <Button Content="DeSelect" 
                     VerticalAlignment="Top"
                     BorderThickness="0"
                     Foreground="White"
-                    Margin="10,268,10,0" Height="26"
-                    Command="{Binding UpdateCommand}"/>
-             -->
-
+                    Command="{Binding UnSelectCommand}"
+                    Margin="10,260,10,0" Height="27"/>
         </Grid>
 
         <Grid  Grid.Column="1">
-            <DataGrid ItemsSource="{Binding Students}" x:Name="DataGrid_Students" AutoGenerateColumns="False" IsReadOnly="True">
+            <DataGrid SelectedItem="{Binding SelectedStudent, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}"
+                ItemsSource="{Binding Students}" x:Name="DataGrid_Students"
+                      AutoGenerateColumns="False" IsReadOnly="True"
+                      SelectionUnit="FullRow">
                 <DataGrid.Resources>
                     <Style TargetType="{x:Type DataGridColumnHeader}">
                         <Setter Property="Background" Value="LightCyan"/>
@@ -108,13 +101,13 @@
                     </Style>
                 </DataGrid.Resources>
                 <DataGrid.Columns>
-                    <DataGridTextColumn Header="ID" Width="60" Binding="{Binding ID, UpdateSourceTrigger=PropertyChanged}" SortDirection="Ascending"/>
+                    <DataGridTextColumn Header="ID" Width="*" Binding="{Binding ID, UpdateSourceTrigger=PropertyChanged}"/>
                     <DataGridTextColumn Header="Name" Width="*" Binding="{Binding Name, UpdateSourceTrigger=PropertyChanged}"/>
                     <DataGridTextColumn Header="Subject" Width="*" Binding="{Binding Subject, UpdateSourceTrigger=PropertyChanged}"/>
                     <DataGridTextColumn Header="Class" Width="*" Binding="{Binding Class, UpdateSourceTrigger=PropertyChanged}"/>
                     <DataGridTextColumn Header="Grade" Width="*" Binding="{Binding Grade, UpdateSourceTrigger=PropertyChanged}"/>
-                    <DataGridTextColumn Header="Absents" Width="60" Binding="{Binding Absent, UpdateSourceTrigger=PropertyChanged}"/>
-                    <DataGridTemplateColumn Header="Delete students" Width="*">
+                    <DataGridTextColumn Header="Absents" Width="*" Binding="{Binding Absent, UpdateSourceTrigger=PropertyChanged}"/>
+                    <DataGridTemplateColumn Header="Delete student" Width="*">
                         <DataGridTemplateColumn.CellTemplate>
                             <DataTemplate >
                                 <Button Content="Delete"
@@ -122,12 +115,11 @@
                                 CommandParameter="{Binding}"
                                 Background="#42D9C8"
                                 materialDesign:ShadowAssist.ShadowDepth="Depth0"
-                                BorderThickness="0"/>   
+                                BorderThickness="0"/>
                             </DataTemplate>
                         </DataGridTemplateColumn.CellTemplate>
                     </DataGridTemplateColumn>
                 </DataGrid.Columns>
-
             </DataGrid>
 
         </Grid>

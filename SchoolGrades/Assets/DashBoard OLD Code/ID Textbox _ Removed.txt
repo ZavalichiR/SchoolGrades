@@ -1,0 +1,8 @@
+<TextBlock Text="ID" Foreground="White" FontWeight="Bold" HorizontalAlignment="Center" Height="20" Margin="-99,-277,0,0"/>
+            <Border Background="White" CornerRadius="10" Height="24" VerticalAlignment="Top" Margin="5,19,5,0">
+                <Grid>
+                    <TextBox x:Name="Student_ID" Text="{Binding SelectedStudent.ID, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}"
+                             Style="{StaticResource MaterialDesignTextBox}"
+                             materialDesign:HintAssist.Hint="ID"/>
+                </Grid>
+            </Border>

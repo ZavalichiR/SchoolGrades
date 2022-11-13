@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 using SchoolGrades.MVVM;
 using SchoolGrades.ViewModels;
 
-namespace SchoolGrades.ViewModels
+namespace SchoolGrades.Student
 {
     public class Student : ViewModelBase
     {
@@ -42,7 +42,9 @@ namespace SchoolGrades.ViewModels
         public int ID
         {
             get { return _id; }
-            set { _id = value;
+            set
+            {
+                _id = value;
                 OnPropertyChanged();
             }
         }

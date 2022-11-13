@@ -17,8 +17,9 @@
             <!--2 -->
             <RowDefinition/>
             <!--3 -->
-            <RowDefinition Height="auto"/>
+            <RowDefinition Height="auto" MinHeight="0"/>
             <!--4 -->
+            <RowDefinition Height="0"/>
             <RowDefinition Height="60"/>
         </Grid.RowDefinitions>
 
@@ -53,7 +54,7 @@
                             Background="#47b1f0" Content="▢" Click="Maximize" 
                             />
                 </Grid>
-                
+
                 <Grid Grid.Column="2">
                     <Button Height="25"
                             materialDesign:ShadowAssist.ShadowDepth="Depth0"
@@ -79,10 +80,10 @@
                        Margin="126,13,445,7"/>
         </Grid>
 
-        <Grid Grid.Row="2" Background="#f6f5f8" x:Name="RenderPage">
+        <Grid Grid.Row="2" Background="#f6f5f8" x:Name="RenderPage" Margin="0,0,0,59" Grid.RowSpan="4">
         </Grid>
 
-        <Grid Grid.Row="4" Background="#47b1f0" Margin="0,1,0,0">
+        <Grid Grid.Row="5" Background="#47b1f0">
             <Grid.ColumnDefinitions>
                 <ColumnDefinition Width="*"/>
                 <ColumnDefinition Width="*"/>
