@@ -92,7 +92,6 @@
                     Margin="239,40,0,-26"
                     Grid.Row="4"
                     FontSize="14"
-                    FontWeight="Bold"
                     Content="Sign In"
                     Foreground="White"
                     Width="92" Height="Auto"

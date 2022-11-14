@@ -18,6 +18,7 @@ using System.Data;
 using System.Dynamic;
 using System.Windows.Markup;
 using SchoolGrades.Classes;
+using System.Threading;
 
 namespace SchoolGrades.Student
 {
@@ -78,39 +79,46 @@ namespace SchoolGrades.Student
         public ICollectionView View;
         private void Add()
         {
-            foreach (Student student in Students)
+            int i, k, l;
+            foreach(Student student in Students)
             {
-                SelectedStudent.ID = SelectedStudent.ID += 1; // Increase every new student by ID with +1
-                if (!Students.Any(p => p.Name == SelectedStudent.Name)) // check if student id already exist or not
+                if (string.IsNullOrEmpty(SelectedStudent.Name) || string.IsNullOrEmpty(SelectedStudent.Class) || string.IsNullOrEmpty(SelectedStudent.Subject))
                 {
-                    if (SelectedStudent.ID > 0 && SelectedStudent.ID < 34) // Check if ( 0 < SelectStudent.ID < 34 ) 
+                    MessageBox.Show("You can't leave the boxes empty!", "Error!");
+                    break;
+                }
+                else
+                {
+                    SelectedStudent.ID += 1;
+                    if (!Students.Any(p => p.ID == SelectedStudent.ID))
                     {
-                        if (string.IsNullOrEmpty(SelectedStudent.Name) || string.IsNullOrEmpty(SelectedStudent.Class) || string.IsNullOrEmpty(SelectedStudent.Subject))
+                        if (SelectedStudent.ID > 0 && SelectedStudent.ID < 34)
                         {
-                            MessageBox.Show("You can't leave the boxes empty!", "Error!");
+                            if(int.TryParse(SelectedStudent.Name, out i) || int.TryParse(SelectedStudent.Subject, out k) || int.TryParse(SelectedStudent.Class, out l))
+                            {
+                                MessageBox.Show("You cannot add a number as a name!", "Error!");
+                                SelectedStudent.Name = "";
+                                SelectedStudent.Class = "";
+                                SelectedStudent.Subject = "";
+                                SelectedStudent.ID -= 1; 
+                                break;
+                            } else
+                            {
+                                // Adding new student
+                                Students.Add(SelectedStudent);
+                                SelectedStudent = new Student();
+
+                                // Sort students by ID
+                                View = CollectionViewSource.GetDefaultView(Students);
+                                View.SortDescriptions.Add(new SortDescription("ID", ListSortDirection.Ascending));
+                                View.Refresh();
+                            }
+                        } else
+                        {
+                            MessageBox.Show("You cannot exceed the maximum number of students! {Max 34}", "Error!");
+                            SelectedStudent.ID -= 1;
                             break;
                         }
-                        else
-                        {
-                            // Adding new student
-                            Students.Add(SelectedStudent);
-                            SelectedStudent = new Student();
-
-                            // Sort students by ID
-                            View = CollectionViewSource.GetDefaultView(Students);
-                            View.SortDescriptions.Add(new SortDescription("ID", ListSortDirection.Ascending));
-                            View.Refresh();
-
-                        }
-                    } else if (SelectedStudent.ID > 34)
-                    {
-                        MessageBox.Show("You cannot exceed the maximum number of students! {Max 34}", "Error!");
-                        break;
-
-                    } else
-                    {
-                        MessageBox.Show("The student with this name:>> { " + SelectedStudent.Name + " } << already exists!", "Error"); ;
-                        break;
                     }
                 }
             }
@@ -122,8 +130,8 @@ namespace SchoolGrades.Student
                     MessageBoxButton.YesNo,
                     MessageBoxImage.Question) == MessageBoxResult.Yes)
             {
-                Students.Remove(student);
                 //Student has been removed
+                Students.Remove(student);
             }
             else
             {
