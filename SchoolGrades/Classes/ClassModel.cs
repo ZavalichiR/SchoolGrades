@@ -1,15 +1,9 @@
-﻿using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+﻿
 using SchoolGrades.MVVM;
-using SchoolGrades.ViewModels;
 
 namespace SchoolGrades.Classes
 {
-    public class Class : ViewModelBase
+    public class ClassModel : ViewModelBase
     {
         private string _name;
         public string Class_Name
@@ -22,32 +16,35 @@ namespace SchoolGrades.Classes
             }
         }
 
+        private string _class_owner;
+        public string Class_Owner
+        {
+            get { return _class_owner; }
+            set
+            {
+                _class_owner = value;
+                OnPropertyChanged();
+            }
+        }
 
         private int _id;
-        public int Class_ID
+        public int Class_Id
         {
             get { return _id; }
-            set
-            {
-                _id = value;
-                OnPropertyChanged();
-            }
+            set { _id = value; 
+                OnPropertyChanged(); }
         }
 
 
-        private int _students_limit;
+        private int _class_students_limit;
         public int Class_Students_Limit
         {
-            get { return _students_limit; }
+            get { return _class_students_limit; }
             set
             {
-                _students_limit = value;
+                _class_students_limit = value;
                 OnPropertyChanged();
             }
         }
-
-
-
-
     }
 }

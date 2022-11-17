@@ -13,6 +13,7 @@ using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
 using SchoolGrades.Views;
+using SchoolGrades.Classes;
 
 namespace SchoolGrades.MyUserController
 {
@@ -24,16 +25,9 @@ namespace SchoolGrades.MyUserController
         public Classes_UserControl()
         {
             InitializeComponent();
+            ClassViewModel abc = new ClassViewModel();
+            DataContext = abc;
         }
 
-        private void Submit_Click(object sender, RoutedEventArgs e)
-        {
-            MessageBox.Show("Excellent! The class has been successfully added!");   
-        }
-
-        private void Delete_Click(object sender, RoutedEventArgs e)
-        {
-
-        }
     }
 }

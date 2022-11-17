@@ -4,6 +4,7 @@ using System.ComponentModel;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Windows.Input;
 using SchoolGrades.MVVM;
 using SchoolGrades.ViewModels;
 
@@ -20,11 +21,11 @@ namespace SchoolGrades.Student
             }
         }
 
-        private string _school_subject;
-        public string Subject
+        private string _school_course;
+        public string Course
         {
-            get { return _school_subject; }
-            set { _school_subject = value;
+            get { return _school_course; }
+            set { _school_course = value;
                 OnPropertyChanged();
             }
         }
@@ -68,6 +69,12 @@ namespace SchoolGrades.Student
                 OnPropertyChanged();
             }
         }
+
+        public ICommand AddCommand { get; }
+        public ICommand RemoveCommand { get; }
+        public ICommand UnSelectCommand { get; }
+
+
 
     }
 }

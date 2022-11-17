@@ -1,24 +1,12 @@
 ﻿using GenericUi.Commands;
-using System;
-using System.Collections.Generic;
 using System.Collections.ObjectModel;
 using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Input;
 using SchoolGrades.MVVM;
 using SchoolGrades.MyUserController;
-using System.Security.Claims;
-using System.Xml.Linq;
 using System.Windows;
-using System.Windows.Controls;
 using System.ComponentModel;
 using System.Windows.Data;
-using System.Data;
-using System.Dynamic;
-using System.Windows.Markup;
-using SchoolGrades.Classes;
-using System.Threading;
 
 namespace SchoolGrades.Student
 {
@@ -70,19 +58,20 @@ namespace SchoolGrades.Student
             RemoveCommand = new RelayCommand(x => Delete((Student)x));
             UnSelectCommand = new RelayCommand(y => UnSelect((Student)y));
 
-            Students.Add(new Student() { Name = "Ex. Razvan", Subject = "Geography", Absent = 2, Class = "A", Grade = 10});
-            Students.Add(new Student() { Name = "Ex. Casian", Subject = "Math", Absent = 3, Class = "A", Grade = 10});
-            Students.Add(new Student() { Name = "Ex. Stefi", Subject = "History", Absent = 1, Class = "A", Grade = 10});
+            Students.Add(new Student() { Name = "Ex. Razvan", Course = "Geography", Absent = 2, Class = "A", Grade = 10});
+            Students.Add(new Student() { Name = "Ex. Casian", Course = "Math", Absent = 3, Class = "A", Grade = 10});
+            Students.Add(new Student() { Name = "Ex. Stefi", Course = "History", Absent = 1, Class = "A", Grade = 10});
         }
 
 
         public ICollectionView View;
         private void Add()
         {
+            Classes.ClassViewModel qwe = new Classes.ClassViewModel();
             int i, k, l;
             foreach(Student student in Students)
             {
-                if (string.IsNullOrEmpty(SelectedStudent.Name) || string.IsNullOrEmpty(SelectedStudent.Class) || string.IsNullOrEmpty(SelectedStudent.Subject))
+                if (string.IsNullOrEmpty(SelectedStudent.Name) || string.IsNullOrEmpty(SelectedStudent.Class) || string.IsNullOrEmpty(SelectedStudent.Course))
                 {
                     MessageBox.Show("You can't leave the boxes empty!", "Error!");
                     break;
@@ -91,15 +80,19 @@ namespace SchoolGrades.Student
                 {
                     SelectedStudent.ID += 1;
                     if (!Students.Any(p => p.ID == SelectedStudent.ID))
-                    {
-                        if (SelectedStudent.ID > 0 && SelectedStudent.ID < 34)
-                        {
-                            if(int.TryParse(SelectedStudent.Name, out i) || int.TryParse(SelectedStudent.Subject, out k) || int.TryParse(SelectedStudent.Class, out l))
+                    {   
+                            if (SelectedStudent.ID > 0 && SelectedStudent.ID < 34)
                             {
-                                MessageBox.Show("You cannot add a number as a name!", "Error!");
+                            if (!qwe.Classes.Any(p => p.Class_Name == qwe.SelectedClass.Class_Name))
+                            {
+
+                            }
+                                if (int.TryParse(SelectedStudent.Name, out i) || int.TryParse(SelectedStudent.Course, out k) || int.TryParse(SelectedStudent.Class, out l))
+                            {
+                                MessageBox.Show("You cannot add a number as a name, subject or class! Please try again!", "Error!");
                                 SelectedStudent.Name = "";
                                 SelectedStudent.Class = "";
-                                SelectedStudent.Subject = "";
+                                SelectedStudent.Course = "";   
                                 SelectedStudent.ID -= 1; 
                                 break;
                             } else

@@ -6,6 +6,8 @@
              xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes"
              xmlns:local="clr-namespace:SchoolGrades.MyUserController"
              mc:Ignorable="d" 
+             xmlns:Classes="clr-namespace:SchoolGrades.Classes" 
+             d:DataContext="{d:DesignInstance Type=Classes:ClassViewModel}"
              d:DesignHeight="302.04" d:DesignWidth="800">
     <Grid>
         <Grid.ColumnDefinitions>
@@ -24,43 +26,76 @@
                 </Border.Background>
             </Border>
 
-
-            <Border Background="White" CornerRadius="10" Height="30" VerticalAlignment="Top" Margin="5,15,5,0">
+            <TextBlock Text="New Class" Foreground="White" FontWeight="Bold" HorizontalAlignment="Center" FontSize="17" Margin="0,7,0,0" />
+            <Border Background="White" CornerRadius="10" Height="30" VerticalAlignment="Top" Margin="5,40,5,0">
                 <TextBox x:Name="Class_name"
                           Style="{StaticResource MaterialDesignTextBox}"
+                         Text="{Binding SelectedClass.Class_Name, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}"
                           materialDesign:HintAssist.Hint="Name of Class"/>
             </Border>
 
-            <Border Background="White" CornerRadius="10" Height="30" VerticalAlignment="Top" Margin="5,55,5,0">
+            <Border Background="White" CornerRadius="10" Height="30" VerticalAlignment="Top" Margin="5,85,5,0">
                 <TextBox  x:Name="Student_limit"
                           Style="{StaticResource MaterialDesignTextBox}"
-                          materialDesign:HintAssist.Hint="Nr. of students limit" FontSize="11"/>
+                         Text="{Binding SelectedClass.Class_Students_Limit, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}"
+                          materialDesign:HintAssist.Hint="Students limit" FontSize="11"/>
             </Border>
 
-            <Button x:Name="Delete" 
-                     Content="Delete"
+            <TextBlock Text="Class Owner" Foreground="White" HorizontalAlignment="Center" VerticalAlignment="Center" FontWeight="Bold" />
+            <Border Background="White" CornerRadius="10" Height="30" VerticalAlignment="Top" Margin="5,135,5,0">
+                <TextBox  x:Name="Class_Owner"
+                          Style="{StaticResource MaterialDesignTextBox}"
+                          Text="{Binding SelectedClass.Class_Owner, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}"
+                          materialDesign:HintAssist.Hint="Class Owner" FontSize="11"/>
+            </Border>
+
+            <Button x:Name="UnSelect" 
+                     Content="UnSelect"
+                    Command="{Binding UnSelectCommand}"
                     Foreground="White"
-                    VerticalAlignment="Top"  Margin="5,135,5,0"
-                    BorderThickness="5,0,0,0" Height="32" RenderTransformOrigin="0.461,1.335" Click="Delete_Click"/>
+                    VerticalAlignment="Top"  Margin="5,229.6,5,0"
+                    BorderThickness="5,0,0,0" Height="32" RenderTransformOrigin="0.461,1.335"/>
 
-
-            <Button x:Name="Edit" 
-                     Content="Edit"
-                    Foreground="White"
-                    VerticalAlignment="Top"  Margin="5,95,5,0"
-                    BorderThickness="5,0,0,0" Height="32" RenderTransformOrigin="0.461,1.335" Click="Delete_Click"/>
-
-            <Button x:Name="Create" 
+            <Button x:Name="Create"
+                    Command="{Binding AddCommand}"
                      Content="Create"
                     Foreground="White"
-                    VerticalAlignment="Top"  Margin="5,175,5,0"
-                    BorderThickness="5,0,0,0" Height="32" RenderTransformOrigin="0.461,1.335" Click="Submit_Click"/>
+                    VerticalAlignment="Top"  Margin="5,180,5,0"
+                    BorderThickness="5,0,0,0" Height="32" RenderTransformOrigin="0.461,1.335"/>
 
         </Grid>
 
         <Grid Grid.Column="1">
-            
-            
+            <DataGrid SelectedItem="{Binding SelectedClass, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}"
+                ItemsSource="{Binding Classes}" x:Name="DataGrid_Classes"
+                      AutoGenerateColumns="False" IsReadOnly="True"
+                      SelectionUnit="FullRow">
+                <DataGrid.Resources>
+                    <Style TargetType="{x:Type DataGridColumnHeader}">
+                        <Setter Property="Background" Value="LightCyan"/>
+                        <Setter Property="FontWeight" Value="SemiBold"/>
+                        <Setter Property="BorderThickness" Value="0,0,1,2"/>
+                    </Style>
+                </DataGrid.Resources>
+                <DataGrid.Columns>
+                    <DataGridTextColumn Header="ID" Width="50" Binding="{Binding Class_Id, UpdateSourceTrigger=PropertyChanged}"/>
+                    <DataGridTextColumn Header="Class Name" Width="130" Binding="{Binding Class_Name, UpdateSourceTrigger=PropertyChanged}"/>
+                    <DataGridTextColumn Header="Students Limit" Width="150  " Binding="{Binding Class_Students_Limit, UpdateSourceTrigger=PropertyChanged}"/>
+                    <DataGridTextColumn Header="Class Owner" Width="150  " Binding="{Binding Class_Owner, UpdateSourceTrigger=PropertyChanged}"/>
+                    <DataGridTemplateColumn Header="Delete Class" Width="*">
+                        <DataGridTemplateColumn.CellTemplate>
+                            <DataTemplate >
+                                <Button Content="Delete"
+                                Command="{Binding DataContext.RemoveCommand, ElementName=DataGrid_Classes}"
+                                CommandParameter="{Binding}"
+                                Background="#42D9C8"
+                                materialDesign:ShadowAssist.ShadowDepth="Depth0"
+                                BorderThickness="0"/>
+                            </DataTemplate>
+                        </DataGridTemplateColumn.CellTemplate>
+                    </DataGridTemplateColumn>
+                </DataGrid.Columns>
+            </DataGrid>
             
         </Grid>
 

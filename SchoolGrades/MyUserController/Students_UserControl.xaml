@@ -40,7 +40,7 @@
 
             <Border Background="White" CornerRadius="10" Height="24" VerticalAlignment="Top" Margin="5,50,5,0">
                 <Grid>
-                    <TextBox x:Name="Student_Subject" Text="{Binding SelectedStudent.Subject, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}"
+                    <TextBox x:Name="Student_Subject" Text="{Binding SelectedStudent.Course, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}"
                              Style="{StaticResource MaterialDesignTextBox}"
                              materialDesign:HintAssist.Hint="Subject"/>
                 </Grid>
@@ -64,7 +64,7 @@
                 </Grid>
             </Border>
 
-            <TextBlock Text="Absent" HorizontalAlignment="Center" Margin="-75,160,0,0" Foreground="White" FontWeight="Bold"/>
+            <TextBlock Text="Absent date" HorizontalAlignment="Center" Margin="-50,160,0,0" Foreground="White" FontWeight="Bold"/>
             <Border Background="White" CornerRadius="10" Height="24" VerticalAlignment="Top" Margin="5,180,5,0">
                 <Grid>
                     <TextBox x:Name="Student_Absent" Text="{Binding SelectedStudent.Absent, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}"
@@ -103,7 +103,7 @@
                 <DataGrid.Columns>
                     <DataGridTextColumn Header="ID" Width="50" Binding="{Binding ID, UpdateSourceTrigger=PropertyChanged}"/>
                     <DataGridTextColumn Header="Name" Width="130" Binding="{Binding Name, UpdateSourceTrigger=PropertyChanged}"/>
-                    <DataGridTextColumn Header="Subject" Width="110" Binding="{Binding Subject, UpdateSourceTrigger=PropertyChanged}"/>
+                    <DataGridTextColumn Header="Course" Width="110" Binding="{Binding Course, UpdateSourceTrigger=PropertyChanged}"/>
                     <DataGridTextColumn Header="Class" Width="80" Binding="{Binding Class, UpdateSourceTrigger=PropertyChanged}"/>
                     <DataGridTextColumn Header="Grade" Width="80" Binding="{Binding Grade, UpdateSourceTrigger=PropertyChanged}"/>
                     <DataGridTextColumn Header="Absents" Width="80" Binding="{Binding Absent, UpdateSourceTrigger=PropertyChanged}"/>

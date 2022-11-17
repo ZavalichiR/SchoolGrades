@@ -105,7 +105,8 @@
       <DependentUpon>App.xaml</DependentUpon>
       <SubType>Code</SubType>
     </Compile>
-    <Compile Include="Classes\Class.cs" />
+    <Compile Include="Classes\ClassModel.cs" />
+    <Compile Include="Classes\ClassViewModel.cs" />
     <Compile Include="Helpers\PasswordHelper.cs" />
     <Compile Include="MVVM\RelayCommand.cs" />
     <Compile Include="MVVM\ViewModelBase.cs" />
