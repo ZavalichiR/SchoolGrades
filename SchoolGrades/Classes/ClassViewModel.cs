@@ -67,26 +67,26 @@ namespace SchoolGrades.Classes
                     SelectedClass.Class_Id += 1;
                     if (!Classes.Any(p => p.Class_Id == SelectedClass.Class_Id))
                     {
-                            if (int.TryParse(SelectedClass.Class_Name, out i) || int.TryParse(SelectedClass.Class_Owner, out k))
-                            {
-                                MessageBox.Show("You cannot add a number as a name, subject or class! Please try again!", "Error!");
-                                SelectedClass.Class_Name = "";
-                                SelectedClass.Class_Owner= "";
-                                SelectedClass.Class_Id -= 1;
-                                break;
-                            }
-                            else
-                            {
-                                // Adding new student
-                                Classes.Add(SelectedClass);
-                                SelectedClass = new ClassModel();
-
-                                // Sort students by ID
-                                View = CollectionViewSource.GetDefaultView(Classes);
-                                View.SortDescriptions.Add(new SortDescription("ID", ListSortDirection.Ascending));
-                                View.Refresh();
-                            }
+                        if (int.TryParse(SelectedClass.Class_Name, out i) || int.TryParse(SelectedClass.Class_Owner, out k))
+                        {
+                            MessageBox.Show("You cannot add a number as a name, subject or class! Please try again!", "Error!");
+                            SelectedClass.Class_Name = "";
+                            SelectedClass.Class_Owner = "";
+                            SelectedClass.Class_Id -= 1;
+                            break;
                         }
+                        else
+                        {
+                            // Adding new student
+                            Classes.Add(SelectedClass);
+                            SelectedClass = new ClassModel();
+
+                            // Sort students by ID
+                            View = CollectionViewSource.GetDefaultView(Classes);
+                            View.SortDescriptions.Add(new SortDescription("ID", ListSortDirection.Ascending));
+                            View.Refresh();
+                        }
+                    } 
                     }
                 }
             }

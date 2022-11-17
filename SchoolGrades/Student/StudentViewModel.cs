@@ -69,7 +69,7 @@ namespace SchoolGrades.Student
         {
             Classes.ClassViewModel qwe = new Classes.ClassViewModel();
             int i, k, l;
-            foreach(Student student in Students)
+            foreach (Student student in Students)
             {
                 if (string.IsNullOrEmpty(SelectedStudent.Name) || string.IsNullOrEmpty(SelectedStudent.Class) || string.IsNullOrEmpty(SelectedStudent.Course))
                 {
@@ -80,37 +80,36 @@ namespace SchoolGrades.Student
                 {
                     SelectedStudent.ID += 1;
                     if (!Students.Any(p => p.ID == SelectedStudent.ID))
-                    {   
-                            if (SelectedStudent.ID > 0 && SelectedStudent.ID < 34)
+                    {
+                        if (SelectedStudent.ID > 0 && SelectedStudent.ID < 34)
+                        {
+                            if (int.TryParse(SelectedStudent.Name, out i) || int.TryParse(SelectedStudent.Course, out k) || int.TryParse(SelectedStudent.Class, out l))
                             {
-                            if (!qwe.Classes.Any(p => p.Class_Name == qwe.SelectedClass.Class_Name))
-                            {
-
-                            }
-                                if (int.TryParse(SelectedStudent.Name, out i) || int.TryParse(SelectedStudent.Course, out k) || int.TryParse(SelectedStudent.Class, out l))
-                            {
-                                MessageBox.Show("You cannot add a number as a name, subject or class! Please try again!", "Error!");
+                                MessageBox.Show("You cannot add a number as a name, subject or class! Keep trying!", "Error!");
                                 SelectedStudent.Name = "";
                                 SelectedStudent.Class = "";
-                                SelectedStudent.Course = "";   
-                                SelectedStudent.ID -= 1; 
+                                SelectedStudent.Course = "";
+                                SelectedStudent.ID -= 1;
                                 break;
                             } else
                             {
-                                // Adding new student
-                                Students.Add(SelectedStudent);
-                                SelectedStudent = new Student();
+                                if (!qwe.Classes.Any(z => z.Class_Name == SelectedStudent.Class))
+                                {
+                                    MessageBox.Show("The class you entered does not exist! Keep trying!", "Error");
+                                    SelectedStudent.Class = "";
+                                    SelectedStudent.ID -= 1;
+                                } else
+                                {
+                                    // Adding new student
+                                    Students.Add(SelectedStudent);
+                                    SelectedStudent = new Student();
 
-                                // Sort students by ID
-                                View = CollectionViewSource.GetDefaultView(Students);
-                                View.SortDescriptions.Add(new SortDescription("ID", ListSortDirection.Ascending));
-                                View.Refresh();
+                                    // Sort students by ID
+                                    View = CollectionViewSource.GetDefaultView(Students);
+                                    View.SortDescriptions.Add(new SortDescription("ID", ListSortDirection.Ascending));
+                                    View.Refresh();
+                                }
                             }
-                        } else
-                        {
-                            MessageBox.Show("You cannot exceed the maximum number of students! {Max 34}", "Error!");
-                            SelectedStudent.ID -= 1;
-                            break;
                         }
                     }
                 }

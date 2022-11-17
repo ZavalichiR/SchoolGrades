@@ -43,7 +43,9 @@
                             materialDesign:ShadowAssist.ShadowDepth="Depth0"
                             BorderThickness="0"
                             Foreground="White"
-                            Background="#47b1f0" Content="☰" Click="Minimize"/>
+                            Background="#47b1f0" Content="☰" Click="Minimize"
+                            ToolTipService.ShowDuration="2000" ToolTipService.BetweenShowDelay="10000"
+                            ToolTip="Minimize" />
                 </Grid>
 
                 <Grid Grid.Column="1">
@@ -52,6 +54,8 @@
                             BorderThickness="0"
                             Foreground="White"
                             Background="#47b1f0" Content="▢" Click="Maximize" 
+                            ToolTipService.ShowDuration="2000" ToolTipService.BetweenShowDelay="10000"
+                            ToolTip="Maximize" 
                             />
                 </Grid>
 
@@ -62,6 +66,8 @@
                             Foreground="White"
                             Background="#47b1f0"
                             Content="X" FontSize="15" Click="Application_Exit" x:Name="Exit"
+                            ToolTipService.ShowDuration="2000" ToolTipService.BetweenShowDelay="10000"
+                            ToolTip="Close" 
                             />
                 </Grid>
             </Grid>

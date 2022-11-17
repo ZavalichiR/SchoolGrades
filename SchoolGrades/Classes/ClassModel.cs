@@ -36,8 +36,8 @@ namespace SchoolGrades.Classes
         }
 
 
-        private int _class_students_limit;
-        public int Class_Students_Limit
+        private int? _class_students_limit;
+        public int?      Class_Students_Limit
         {
             get { return _class_students_limit; }
             set

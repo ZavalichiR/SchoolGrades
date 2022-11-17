@@ -27,7 +27,7 @@
             </Border>
 
             <TextBlock Text="New Class" Foreground="White" FontWeight="Bold" HorizontalAlignment="Center" FontSize="17" Margin="0,7,0,0" />
-            <Border Background="White" CornerRadius="10" Height="30" VerticalAlignment="Top" Margin="5,40,5,0">
+            <Border Background="White" CornerRadius="10" Height="30" VerticalAlignment="Top" Margin="5,35,5,0">
                 <TextBox x:Name="Class_name"
                           Style="{StaticResource MaterialDesignTextBox}"
                          Text="{Binding SelectedClass.Class_Name, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}"
@@ -50,11 +50,12 @@
             </Border>
 
             <Button x:Name="UnSelect" 
-                     Content="UnSelect"
+                     Content="DeSelect"
                     Command="{Binding UnSelectCommand}"
                     Foreground="White"
                     VerticalAlignment="Top"  Margin="5,229.6,5,0"
-                    BorderThickness="5,0,0,0" Height="32" RenderTransformOrigin="0.461,1.335"/>
+                    BorderThickness="5,0,0,0" Height="32" RenderTransformOrigin="0.461,1.335"
+                    materialDesign:ShadowAssist.ShadowDepth="Depth3"/>
 
             <Button x:Name="Create"
                     Command="{Binding AddCommand}"

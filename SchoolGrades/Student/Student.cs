@@ -50,8 +50,8 @@ namespace SchoolGrades.Student
             }
         }
 
-        private int _grade;
-        public int Grade
+        private int? _grade;
+        public int? Grade
         {
             get { return _grade; }
             set { _grade = value;
@@ -59,8 +59,8 @@ namespace SchoolGrades.Student
             }
         }
 
-        private int _absent;
-        public int Absent
+        private int? _absent;
+        public int? Absent
         {
             get { return _absent; }
             set

@@ -28,9 +28,9 @@
                 </Border.Background>
             </Border>
 
-            
 
-            <Border Background="White" CornerRadius="10" Height="24" VerticalAlignment="Top" Margin="5,15,5,0">
+            <TextBlock Text="New Student" Foreground="White" HorizontalAlignment="Center" VerticalAlignment="Top" FontSize="17" FontWeight="Bold"/>
+            <Border Background="White" CornerRadius="10" Height="24" VerticalAlignment="Top" Margin="5,25,5,0">
                 <Grid>
                     <TextBox x:Name="Student_Name" Text="{Binding SelectedStudent.Name, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}"
                              Style="{StaticResource MaterialDesignTextBox}"
@@ -38,7 +38,7 @@
                 </Grid>
             </Border>
 
-            <Border Background="White" CornerRadius="10" Height="24" VerticalAlignment="Top" Margin="5,50,5,0">
+            <Border Background="White" CornerRadius="10" Height="24" VerticalAlignment="Top" Margin="5,60,5,0">
                 <Grid>
                     <TextBox x:Name="Student_Subject" Text="{Binding SelectedStudent.Course, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}"
                              Style="{StaticResource MaterialDesignTextBox}"
@@ -46,16 +46,14 @@
                 </Grid>
             </Border>
 
-            <Border Background="White" CornerRadius="10" Height="24" VerticalAlignment="Top" Margin="5,85,5,0">
+            <Border Background="White" CornerRadius="10" Height="24" VerticalAlignment="Top" Margin="5,100,5,0">
                 <Grid>
                     <TextBox x:Name="Student_Class" Text="{Binding SelectedStudent.Class, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}"
                              Style="{StaticResource MaterialDesignTextBox}"
                              materialDesign:HintAssist.Hint="Class"/>
                 </Grid>
             </Border>
-
-            <TextBlock Text="Grade (1..10)" HorizontalAlignment="Center" Margin="-40,110,0,0" Foreground="White" FontWeight="Bold"/>
-            <Border Background="White" CornerRadius="10" Height="24" VerticalAlignment="Top" Margin="5,130,5,0">
+            <Border Background="White" CornerRadius="10" Height="24" VerticalAlignment="Top" Margin="5,140,5,0">
                 <Grid>
                     <TextBox x:Name="Student_Grade" Text="{Binding SelectedStudent.Grade, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}"
                              Style="{StaticResource MaterialDesignTextBox}"
@@ -63,8 +61,6 @@
                              />
                 </Grid>
             </Border>
-
-            <TextBlock Text="Absent date" HorizontalAlignment="Center" Margin="-50,160,0,0" Foreground="White" FontWeight="Bold"/>
             <Border Background="White" CornerRadius="10" Height="24" VerticalAlignment="Top" Margin="5,180,5,0">
                 <Grid>
                     <TextBox x:Name="Student_Absent" Text="{Binding SelectedStudent.Absent, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}"
