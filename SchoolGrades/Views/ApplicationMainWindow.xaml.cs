@@ -11,6 +11,7 @@ using System.Windows.Input;
 using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Shapes;
+using System.Threading;
 
 namespace SchoolGrades.Views
 {
@@ -54,7 +55,9 @@ namespace SchoolGrades.Views
         /*Button - Log OUT */
         private void Button_Click_3(object sender, RoutedEventArgs e)
         {
-            Application.Current.Shutdown();
+            MainWindow nw = new MainWindow();
+            nw.Show();
+            this.Hide();
         }
 
         /*Application Move*/
@@ -67,6 +70,7 @@ namespace SchoolGrades.Views
         private void Application_Exit(object sender, RoutedEventArgs e)
         {
             this.Close();
+            Application.Current.MainWindow.Show();
         }
 
         /*Maximize*/
@@ -87,5 +91,11 @@ namespace SchoolGrades.Views
             this.WindowState = WindowState.Minimized;
         }
 
+        /*Button - Teachers */
+        private void Button_Click_4(object sender, RoutedEventArgs e)
+        {
+            RenderPage.Children.Clear();
+            RenderPage.Children.Add(new MyUserController.Teacher_UserControl());
+        }
     }
 }

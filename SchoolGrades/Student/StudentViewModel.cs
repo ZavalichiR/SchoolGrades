@@ -58,9 +58,9 @@ namespace SchoolGrades.Student
             RemoveCommand = new RelayCommand(x => Delete((Student)x));
             UnSelectCommand = new RelayCommand(y => UnSelect((Student)y));
 
-            Students.Add(new Student() { Name = "Ex. Razvan", Course = "Geography", Absent = 2, Class = "A", Grade = 10});
-            Students.Add(new Student() { Name = "Ex. Casian", Course = "Math", Absent = 3, Class = "A", Grade = 10});
-            Students.Add(new Student() { Name = "Ex. Stefi", Course = "History", Absent = 1, Class = "A", Grade = 10});
+            Students.Add(new Student() { Name = "Ex. Razvan", Address = "Geography", Class = "A", Username = "Razvan", Password = "123"});
+            Students.Add(new Student() { Name = "Ex. Casian", Address = "Math", Class = "A", Username = "Casian", Password = "123" });
+            Students.Add(new Student() { Name = "Ex. Stefi", Address = "History", Class = "A", Username = "Stefi", Password = "123" });
         }
 
 
@@ -68,48 +68,36 @@ namespace SchoolGrades.Student
         private void Add()
         {
             Classes.ClassViewModel qwe = new Classes.ClassViewModel();
-            int i, k, l;
+            //int i, k, l;
             foreach (Student student in Students)
             {
-                if (string.IsNullOrEmpty(SelectedStudent.Name) || string.IsNullOrEmpty(SelectedStudent.Class) || string.IsNullOrEmpty(SelectedStudent.Course))
+                if (string.IsNullOrEmpty(SelectedStudent.Name) || string.IsNullOrEmpty(SelectedStudent.Class) || string.IsNullOrEmpty(SelectedStudent.Address))
                 {
-                    MessageBox.Show("You can't leave the boxes empty!", "Error!");
+                    SelectedStudent.ErrorMessage = "⚠️" + "You can't leave the boxes empty!";
                     break;
                 }
                 else
                 {
                     SelectedStudent.ID += 1;
-                    if (!Students.Any(p => p.ID == SelectedStudent.ID))
+                    if (SelectedStudent.ID > 0 && SelectedStudent.ID < 34)
                     {
-                        if (SelectedStudent.ID > 0 && SelectedStudent.ID < 34)
+                        if (!qwe.Classes.Any(z => z.Class_Name == SelectedStudent.Class))
                         {
-                            if (int.TryParse(SelectedStudent.Name, out i) || int.TryParse(SelectedStudent.Course, out k) || int.TryParse(SelectedStudent.Class, out l))
-                            {
-                                MessageBox.Show("You cannot add a number as a name, subject or class! Keep trying!", "Error!");
-                                SelectedStudent.Name = "";
-                                SelectedStudent.Class = "";
-                                SelectedStudent.Course = "";
-                                SelectedStudent.ID -= 1;
-                                break;
-                            } else
-                            {
-                                if (!qwe.Classes.Any(z => z.Class_Name == SelectedStudent.Class))
-                                {
-                                    MessageBox.Show("The class you entered does not exist! Keep trying!", "Error");
-                                    SelectedStudent.Class = "";
-                                    SelectedStudent.ID -= 1;
-                                } else
-                                {
-                                    // Adding new student
-                                    Students.Add(SelectedStudent);
-                                    SelectedStudent = new Student();
+                            SelectedStudent.ErrorMessage = "⚠️" +"The class you entered does not exist! Keep trying!";
+                            SelectedStudent.Class = "";
+                            SelectedStudent.ID -= 1;
+                        }
+                        else
+                        {
+                            // Adding new student
+                            Students.Add(SelectedStudent);
+                            SelectedStudent = new Student();
 
-                                    // Sort students by ID
-                                    View = CollectionViewSource.GetDefaultView(Students);
-                                    View.SortDescriptions.Add(new SortDescription("ID", ListSortDirection.Ascending));
-                                    View.Refresh();
-                                }
-                            }
+                            // Sort students by ID
+                            View = CollectionViewSource.GetDefaultView(Students);
+                            View.SortDescriptions.Add(new SortDescription("ID", ListSortDirection.Ascending));
+                            View.Refresh();
+
                         }
                     }
                 }

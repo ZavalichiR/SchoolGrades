@@ -91,8 +91,9 @@
 
         <Grid Grid.Row="5" Background="#47b1f0">
             <Grid.ColumnDefinitions>
-                <ColumnDefinition Width="*"/>
-                <ColumnDefinition Width="*"/>
+                <ColumnDefinition Width="*"/> 
+                <ColumnDefinition Width="*"/> 
+                <ColumnDefinition Width="*"/> 
                 <ColumnDefinition Width="*"/>
                 <ColumnDefinition Width="*"/>
             </Grid.ColumnDefinitions>
@@ -100,7 +101,8 @@
 
             <!--Dashboard - Button -->
             <Grid Grid.Column="0">
-                <Button Content="Dashboard" 
+                <Button Content="Home" 
+                        FontSize="18"
                         Height="60"
                         materialDesign:ShadowAssist.ShadowDepth="Depth0"
                         BorderThickness="0"
@@ -110,6 +112,7 @@
             <!-- Classes - Button-->
             <Grid Grid.Column="1">
                 <Button Content="Classes" 
+                        FontSize="18"
                         Height="60"
                         materialDesign:ShadowAssist.ShadowDepth="Depth0"
                         BorderThickness="0"
@@ -118,21 +121,33 @@
             </Grid>
             <!-- Students Button-->
             <Grid Grid.Column="2">
-                <Button Content="Students" 
+                <Button Content="Students"
+                        FontSize="18"
                         Height="60"
                         materialDesign:ShadowAssist.ShadowDepth="Depth0"
                         BorderThickness="0"
                         Foreground="White"
                         Background="#47b1f0" Click="Button_Click_2"  />
             </Grid>
-            <!-- Log out Button-->
+            <!-- Subjects -->
             <Grid Grid.Column="3">
+                <Button Content="Teachers" 
+                        FontSize="18"
+                        Height="60"
+                        materialDesign:ShadowAssist.ShadowDepth="Depth0"
+                        BorderThickness="0"
+                        Foreground="White"
+                        Background="#42D9C8" Click="Button_Click_4"/>
+            </Grid>
+            
+            <!-- Log out Button-->
+            <Grid Grid.Column="4">
                 <Button Content="Log out" 
                         Height="60"
                         materialDesign:ShadowAssist.ShadowDepth="Depth0"
                         BorderThickness="0"
                         Foreground="White"
-                        Background="#42D9C8" Click="Button_Click_3" />
+                        Background="#47b1f0" Click="Button_Click_3" />
             </Grid>
 
 

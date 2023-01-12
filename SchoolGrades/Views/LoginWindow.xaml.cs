@@ -46,6 +46,10 @@ namespace SchoolGrades.Views
             PasswordHidden.Visibility = Visibility.Visible;
             PasswordHidden.Password = PasswordUnmask.Text;
         }
-    
+
+        private void Login_Button_Click(object sender, RoutedEventArgs e)
+        {
+
+        }
     }
 }

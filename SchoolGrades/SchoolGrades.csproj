@@ -93,6 +93,10 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
+    <Page Include="MyUserController\Teacher_UserControl.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="Views\ApplicationMainWindow.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
@@ -119,6 +123,11 @@
     <Compile Include="MyUserController\Students_UserControl.xaml.cs">
       <DependentUpon>Students_UserControl.xaml</DependentUpon>
     </Compile>
+    <Compile Include="MyUserController\Teacher_UserControl.xaml.cs">
+      <DependentUpon>Teacher_UserControl.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Teacher\Teacher.cs" />
+    <Compile Include="Teacher\Teacher_ViewModel.cs" />
     <Compile Include="ViewModels\LoginViewModel.cs" />
     <Compile Include="Student\Student.cs" />
     <Compile Include="Student\StudentViewModel.cs" />

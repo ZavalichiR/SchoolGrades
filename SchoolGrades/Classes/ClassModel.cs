@@ -5,6 +5,20 @@ namespace SchoolGrades.Classes
 {
     public class ClassModel : ViewModelBase
     {
+
+
+        private string _error_message;
+        public string ErrorMessage
+        {
+            get { return _error_message; }
+            set
+            {
+                _error_message = value;
+                OnPropertyChanged();
+            }
+        }
+
+
         private string _name;
         public string Class_Name
         {

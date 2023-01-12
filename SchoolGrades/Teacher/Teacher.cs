@@ -1,17 +1,20 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.ComponentModel;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
-using System.Windows.Input;
 using SchoolGrades.MVVM;
-using SchoolGrades.ViewModels;
-
-namespace SchoolGrades.Student
+namespace SchoolGrades.Teacher
 {
-    public class Student : ViewModelBase
+    public class Teacher : ViewModelBase
     {
+        private int _id;
+        public int ID
+        {
+            get { return _id; }
+            set { _id = value; 
+            OnPropertyChanged();}
+        }
 
 
         private string _error_message;
@@ -25,44 +28,27 @@ namespace SchoolGrades.Student
             }
         }
 
+
         private string _name;
-        public string Name
+        public string First_Name
         {
             get { return _name; }
             set { _name = value;
-            OnPropertyChanged();
+                OnPropertyChanged();
             }
+            
         }
 
-        private string _school_Address;
-        public string Address
+        private string _name2;
+        public string Last_Name
         {
-            get { return _school_Address; }
+            get { return _name2; }
             set
             {
-                _school_Address = value;
+                _name2 = value;
                 OnPropertyChanged();
             }
-        }
 
-        private string _class;
-        public string Class
-        {
-            get { return _class; }
-            set { _class = value;
-                OnPropertyChanged();
-            }
-        }
-
-        private int _id;
-        public int ID
-        {
-            get { return _id; }
-            set
-            {
-                _id = value;
-                OnPropertyChanged();
-            }
         }
 
         private string _username;
@@ -73,6 +59,7 @@ namespace SchoolGrades.Student
                 OnPropertyChanged();
             }
         }
+
 
         private string _password;
         public string Password

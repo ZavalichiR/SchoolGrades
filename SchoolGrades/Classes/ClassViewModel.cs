@@ -59,7 +59,7 @@ namespace SchoolGrades.Classes
             {
                 if (string.IsNullOrEmpty(SelectedClass.Class_Name) || string.IsNullOrEmpty(SelectedClass.Class_Owner))
                 {
-                    MessageBox.Show("You can't leave the boxes empty!", "Error!");
+                    SelectedClass.ErrorMessage = "⚠️" + "You can't leave the boxes empty!";
                     break;
                 }
                 else
@@ -69,7 +69,7 @@ namespace SchoolGrades.Classes
                     {
                         if (int.TryParse(SelectedClass.Class_Name, out i) || int.TryParse(SelectedClass.Class_Owner, out k))
                         {
-                            MessageBox.Show("You cannot add a number as a name, subject or class! Please try again!", "Error!");
+                            SelectedClass.ErrorMessage = "⚠️" + "You cannot add a number as a name, subject or class! Please try again!";
                             SelectedClass.Class_Name = "";
                             SelectedClass.Class_Owner = "";
                             SelectedClass.Class_Id -= 1;
@@ -86,10 +86,13 @@ namespace SchoolGrades.Classes
                             View.SortDescriptions.Add(new SortDescription("ID", ListSortDirection.Ascending));
                             View.Refresh();
                         }
-                    } 
+                    } else
+                    {
+                        SelectedClass.ErrorMessage = "⚠️" + "Ops..The entered class does not exist!";
                     }
                 }
             }
+        }
 
         private void Delete(ClassModel __class)
         {

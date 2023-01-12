@@ -1,4 +1,4 @@
-﻿using GenericUi.Commands;
+﻿    using GenericUi.Commands;
 using SchoolGrades.MVVM;
 using System;
 using System.Windows;
@@ -34,6 +34,16 @@ namespace SchoolGrades.ViewModels
             OnPropertyChanged();}
         }
 
+        private string _errorMessage;
+        public string ErrorMessage
+        {
+            get { return _errorMessage; }
+            set
+            {
+                _errorMessage = value;
+                OnPropertyChanged();
+            }
+        }
 
         #endregion
 
@@ -51,20 +61,29 @@ namespace SchoolGrades.ViewModels
         }
 
         #region Private Methods
+        
 
         private void Login()
         {
-
-            if (Username == "student" && Password == "password")
+            ApplicationMainWindow nw = new ApplicationMainWindow();
+            if (string.IsNullOrEmpty(Username) && string.IsNullOrEmpty(Password))
             {
-                ApplicationMainWindow nw = new ApplicationMainWindow();
-                nw.Show();
-                Application.Current.MainWindow.Close();
+                ErrorMessage = "⚠️" + "Username or password can't be null!";
             } else
             {
-                MessageBox.Show("Username or password is invalid!", "Try again!", MessageBoxButton.OK, MessageBoxImage.Error);
-                Username = "";
-                Password = "";
+                if (Username == "student" && Password == "password")
+                {
+                    nw.Show();
+                    Application.Current.MainWindow.Hide();
+                    Username = "";
+                    Password = "";
+                }
+                else
+                {
+                    ErrorMessage = "⚠️" + "Username or password is invalid";
+                    Username = "";
+                    Password = "";
+                }
             }
         }
         private void Reset()
