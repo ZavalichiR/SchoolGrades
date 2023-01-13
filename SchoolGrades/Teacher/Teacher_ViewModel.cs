@@ -52,6 +52,10 @@ namespace SchoolGrades.Teacher
             Teachers.Add(new Teacher() { First_Name = "Ex. Razvan", Last_Name = "Zavalichi", ID = 0, Username = "Razvan", Password = "123" });
             Teachers.Add(new Teacher() { First_Name = "Ex. Casian", Last_Name = "Amihaiesei", ID = 0, Username = "Casian", Password = "123" });
             Teachers.Add(new Teacher() { First_Name = "Ex. Stefi", Last_Name = "Amihaiesei", ID = 0, Username = "Stefi", Password = "123" });
+            Teachers.Add(new Teacher() { First_Name = "Vasile", Last_Name = "Bordura", ID = 0, Username = "Vasile", Password = "123" });
+
+
+            SelectedTeacher.TeacherCount = Teachers.Count;
         }
 
         public ICollectionView View;

@@ -1,10 +1,20 @@
-﻿
-using SchoolGrades.MVVM;
+﻿using SchoolGrades.MVVM;
 
 namespace SchoolGrades.Classes
 {
     public class ClassModel : ViewModelBase
     {
+
+        private int _classescount;
+        public int ClassesCount
+        {
+            get { return _classescount; }
+            set
+            {
+                _classescount = value;
+                OnPropertyChanged();
+            }
+        }
 
 
         private string _error_message;

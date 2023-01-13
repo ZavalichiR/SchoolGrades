@@ -8,6 +8,16 @@ namespace SchoolGrades.Teacher
 {
     public class Teacher : ViewModelBase
     {
+        private int _teacherCount;
+        public int TeacherCount
+        {
+            get { return _teacherCount; }
+            set { _teacherCount = value;
+                OnPropertyChanged();
+            }
+        }
+
+
         private int _id;
         public int ID
         {

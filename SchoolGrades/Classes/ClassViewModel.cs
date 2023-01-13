@@ -49,6 +49,11 @@ namespace SchoolGrades.Classes
             Classes.Add(new ClassModel() { Class_Name = "Class A", Class_Owner = "Razvan", Class_Students_Limit = 30 });
             Classes.Add(new ClassModel() { Class_Name = "Class B", Class_Owner = "Casian", Class_Students_Limit = 30});
             Classes.Add(new ClassModel() { Class_Name = "Class C", Class_Owner = "Stefy", Class_Students_Limit = 10});
+            Classes.Add(new ClassModel() { Class_Name = "Class D", Class_Owner = "Vasile", Class_Students_Limit = 20 });
+            Classes.Add(new ClassModel() { Class_Name = "Class D", Class_Owner = "Pavela", Class_Students_Limit = 29 });
+
+            SelectedClass.ClassesCount = Classes.Count();
+
         }
 
         public ICollectionView View;

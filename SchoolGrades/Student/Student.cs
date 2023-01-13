@@ -13,6 +13,16 @@ namespace SchoolGrades.Student
     public class Student : ViewModelBase
     {
 
+        private int _studentscount;
+        public int StudentsCount
+        {
+            get { return _studentscount; }
+            set { _studentscount = value;
+                OnPropertyChanged();
+            }
+           
+        }
+
 
         private string _error_message;
         public string ErrorMessage

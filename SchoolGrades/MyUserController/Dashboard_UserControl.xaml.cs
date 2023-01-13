@@ -1,5 +1,5 @@
 ﻿using System.Windows.Controls;
-
+using SchoolGrades.ViewModels;
 
 namespace SchoolGrades.MyUserController
 {
@@ -11,8 +11,8 @@ namespace SchoolGrades.MyUserController
         public Dashboard_UserControl()
         {
             InitializeComponent();
-            
-
+            DataContextVieWModel qwe = new DataContextVieWModel();
+            DataContext = qwe;
         }
     }
 }

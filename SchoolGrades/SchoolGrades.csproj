@@ -128,6 +128,7 @@
     </Compile>
     <Compile Include="Teacher\Teacher.cs" />
     <Compile Include="Teacher\Teacher_ViewModel.cs" />
+    <Compile Include="ViewModels\DataContextVieWModel.cs" />
     <Compile Include="ViewModels\LoginViewModel.cs" />
     <Compile Include="Student\Student.cs" />
     <Compile Include="Student\StudentViewModel.cs" />

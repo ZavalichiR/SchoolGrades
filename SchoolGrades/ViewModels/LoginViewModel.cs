@@ -1,4 +1,4 @@
-﻿    using GenericUi.Commands;
+﻿using GenericUi.Commands;
 using SchoolGrades.MVVM;
 using System;
 using System.Windows;

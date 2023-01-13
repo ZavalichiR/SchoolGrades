@@ -12,17 +12,6 @@ namespace SchoolGrades.Student
 {
     public class StudentViewModel : ViewModelBase
     {
-        /*public Student _editingStudent = new Student();
-        public Student EditingStudent
-        {
-            get { return _editingStudent; }
-            set
-            {
-                _editingStudent = value;
-                OnPropertyChanged();
-            }
-        }*/
-
         private ObservableCollection<Student> _students = new ObservableCollection<Student>();
         public ObservableCollection<Student> Students
         {
@@ -61,6 +50,8 @@ namespace SchoolGrades.Student
             Students.Add(new Student() { Name = "Ex. Razvan", Address = "Geography", Class = "A", Username = "Razvan", Password = "123"});
             Students.Add(new Student() { Name = "Ex. Casian", Address = "Math", Class = "A", Username = "Casian", Password = "123" });
             Students.Add(new Student() { Name = "Ex. Stefi", Address = "History", Class = "A", Username = "Stefi", Password = "123" });
+
+            SelectedStudent.StudentsCount = Students.Count();
         }
 
 
