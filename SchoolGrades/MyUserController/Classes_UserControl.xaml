@@ -69,7 +69,7 @@
         <Grid Grid.Column="1">
             <Grid.RowDefinitions>
                 <RowDefinition Height="*"/>
-                <RowDefinition Height="20"/>
+                <RowDefinition Height="30"/>
             </Grid.RowDefinitions>
 
 
@@ -112,6 +112,32 @@
             </DataGrid>
 
             <Grid Grid.Row="1" Background="White">
+
+                <!--Save Button-->
+                <Button Width="90"
+                        Content="Save"
+                        Foreground="White"
+                        HorizontalAlignment="Right"
+                        Margin="0,0,115,0"
+                        Command="{Binding SaveCommand}"
+                        Background="#00B6EC "
+                        Height="25"
+                        BorderThickness="0"
+                        materialDesign:ShadowAssist.ShadowDepth="Depth0"/>
+
+                
+                <!--Delete Button-->
+                <Button Content="Load"
+                        Background="#42D9C8"
+                        Height="25"
+                        HorizontalAlignment="Right"
+                        Foreground="white"
+                        Width="90" Margin="0,0,15,0"
+                        Command="{Binding LoadCommand}"
+                        BorderThickness="0"
+                        materialDesign:ShadowAssist.ShadowDepth="Depth0"/>
+
+
 
                 <!--Dummy Error Message Textblock-->
                 <TextBlock 

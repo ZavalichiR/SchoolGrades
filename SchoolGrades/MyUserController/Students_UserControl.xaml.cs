@@ -13,7 +13,7 @@ namespace SchoolGrades.MyUserController
             InitializeComponent();
             StudentViewModel abc = new StudentViewModel();
             DataContext = abc;
-            
+
         }
     }
 }

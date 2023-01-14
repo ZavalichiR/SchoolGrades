@@ -1,6 +1,6 @@
 ﻿using System.Windows.Controls;
 using SchoolGrades.Teacher;
-
+using SchoolGrades.ViewModels;
 
 namespace SchoolGrades.MyUserController
 {
