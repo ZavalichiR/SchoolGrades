@@ -115,7 +115,7 @@
                     <DataGridTextColumn Header="Class" Width="80" Binding="{Binding Class, UpdateSourceTrigger=PropertyChanged}"/>
                     <DataGridTextColumn Header="Username" Width="80" Binding="{Binding Username, UpdateSourceTrigger=PropertyChanged}"/>
                     <DataGridTextColumn Header="Password" Width="80" Binding="{Binding Password , UpdateSourceTrigger=PropertyChanged}"/>
-                    <DataGridTemplateColumn Header=" " Width="140">
+                    <DataGridTemplateColumn Header=" " Width="*">
                         <DataGridTemplateColumn.CellTemplate>
                             <DataTemplate >
                                 <Button Content="X"

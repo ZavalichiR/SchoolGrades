@@ -57,7 +57,7 @@ namespace SchoolGrades.Student
             Students.Add(new Student() { Name = "Ex. Casian", Address = "Math", Class = "A", Username = "Casian", Password = "123" });
             Students.Add(new Student() { Name = "Ex. Stefi", Address = "History", Class = "A", Username = "Stefi", Password = "123" });
 
-            // SelectedStudent.StudentsCount = Students.Count();
+            SelectedStudent.StudentsCount = Students.Count();
         }
 
 

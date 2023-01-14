@@ -89,6 +89,10 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
+    <Page Include="MyUserController\Loading_UserController.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="MyUserController\Students_UserControl.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
@@ -119,6 +123,9 @@
     </Compile>
     <Compile Include="MyUserController\Dashboard_UserControl.xaml.cs">
       <DependentUpon>Dashboard_UserControl.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="MyUserController\Loading_UserController.xaml.cs">
+      <DependentUpon>Loading_UserController.xaml</DependentUpon>
     </Compile>
     <Compile Include="MyUserController\Students_UserControl.xaml.cs">
       <DependentUpon>Students_UserControl.xaml</DependentUpon>

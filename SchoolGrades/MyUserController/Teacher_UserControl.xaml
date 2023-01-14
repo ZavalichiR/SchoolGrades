@@ -109,7 +109,7 @@
                     <DataGridTextColumn Header="Last Name" Width="120" Binding="{Binding Last_Name, UpdateSourceTrigger=PropertyChanged}"/>
                     <DataGridTextColumn Header="Username" Width="90" Binding="{Binding Username, UpdateSourceTrigger=PropertyChanged}"/>
                     <DataGridTextColumn Header="Password" Width="70" Binding="{Binding Password, UpdateSourceTrigger=PropertyChanged}"/>
-                    <DataGridTemplateColumn Header=" " Width="140">
+                    <DataGridTemplateColumn Header=" " Width="*">
                         <DataGridTemplateColumn.CellTemplate>   
                             <DataTemplate >
                                 <Button Content="X"

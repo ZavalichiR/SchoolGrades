@@ -13,8 +13,6 @@ namespace SchoolGrades.ViewModels
     {
         #region Login Credentials
 
-        
-
         private string _userName;
         public string Username
         {

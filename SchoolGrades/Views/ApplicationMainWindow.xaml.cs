@@ -12,6 +12,9 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Shapes;
 using System.Threading;
+using SchoolGrades.MyUserController;
+using System.Windows.Threading;
+using System.Timers;
 
 namespace SchoolGrades.Views
 {
@@ -20,15 +23,40 @@ namespace SchoolGrades.Views
     /// </summary>
     public partial class ApplicationMainWindow : Window
     {
+        Dashboard_UserControl DashboardController = new Dashboard_UserControl();
+        Loading_UserController LoadingController = new Loading_UserController();
         public ApplicationMainWindow()
         {
             InitializeComponent();
+
+            RenderPage.Children.Add(new Loading_UserController());
+
+            var timer = new DispatcherTimer();
+            timer.Interval = TimeSpan.FromSeconds(2);
+            timer.Tick += Timer_Tick;
+            timer.Start();
+
+        }
+
+        private void Timer_Tick(object sender, EventArgs e)
+        {
+            (sender as DispatcherTimer).Stop();
+            SwitchToDashboard();
+        }
+
+        private void SwitchToDashboard()
+        {
+            RenderPage.Children.RemoveAt(0);
+            RenderPage.Children.Add(new Dashboard_UserControl());
         }
 
         private void Window_Loaded(object sender, RoutedEventArgs e)
         {
-            RenderPage.Children.Clear();
-            RenderPage.Children.Add(new MyUserController.Dashboard_UserControl());
+            /*RenderPage.Children.Clear();
+            RenderPage.Children.Add(new MyUserController.Loading_UserController());
+            System.Threading.Thread.Sleep(1000);
+
+            RenderPage.Children.Add(new MyUserController.Dashboard_UserControl());*/
         }
 
         /*Button - Dashboard */
