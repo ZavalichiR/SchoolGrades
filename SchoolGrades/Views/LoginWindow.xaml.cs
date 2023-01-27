@@ -1,15 +1,22 @@
-﻿using System.Windows;
+﻿using SchoolGrades.MyUserController;
+using System;
+using System.Windows;
+using System.Windows.Controls;
 
 namespace SchoolGrades.Views
 {
     public partial class MainWindow
     {
+
+        public UIElement _previousContent;
         public MainWindow()
         {
             InitializeComponent();
+            _previousContent = RenderPage.Children[2];
             ViewModels.LoginViewModel obj = new ViewModels.LoginViewModel();
             DataContext = obj;
         }
+
 
         // Movable Window
         private void Move_Window(object sender, System.Windows.Input.MouseEventArgs e)
@@ -47,9 +54,11 @@ namespace SchoolGrades.Views
             PasswordHidden.Password = PasswordUnmask.Text;
         }
 
-        private void Login_Button_Click(object sender, RoutedEventArgs e)
+        private void ResetPassword_Button_Click(object sender, RoutedEventArgs e)
         {
-
+            RenderPage.Children[0].Visibility = Visibility.Collapsed;
+            Title_Login.Visibility = Visibility.Collapsed;
+            RenderPage.Children.Add(new resetPasswordController());
         }
     }
 }

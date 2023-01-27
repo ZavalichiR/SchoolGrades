@@ -3,17 +3,18 @@
              xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
              xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
-             xmlns:local="clr-namespace:SchoolGrades.MyUserController"
              mc:Ignorable="d" 
-             d:DesignHeight="302.04" d:DesignWidth="800">
-    <Grid>
-        <Image x:Name="GifImage" Stretch="Fill" />
-        <TextBlock Foreground="White"
-                   Text="Welcome back 👋 !"
-                   HorizontalAlignment="Center"
-                   VerticalAlignment="Center"
-                   FontSize="22"
-                   FontWeight="Bold" Margin="0,170,0,0"/>
+             d:DesignHeight="302.04" d:DesignWidth="800" Loaded="UserControl_Loaded">
 
+    <Grid Background="#74d4fc">
+        <Image x:Name="loadingGif" Visibility="Collapsed" 
+               HorizontalAlignment="Stretch"  VerticalAlignment="Stretch" Stretch="Fill"/>
+
+        <TextBlock x:Name="Welcome_Message"
+                   Text="Welcome to SchoolGrades!"
+                   Foreground="White"
+                   HorizontalAlignment="Center"
+                   VerticalAlignment="Bottom"
+                   FontSize="23" Margin="0,0,0,20"/>
     </Grid>
 </UserControl>

@@ -5,7 +5,8 @@
              xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
              xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes"
              xmlns:local="clr-namespace:SchoolGrades.MyUserController"
-             xmlns:Student="clr-namespace:SchoolGrades.Student" 
+             xmlns:Student="clr-namespace:SchoolGrades.Student"
+             xmlns:utils="clr-namespace:SchoolGrades.Models"
              d:DataContext="{d:DesignInstance Type=Student:StudentViewModel}"
              mc:Ignorable="d" 
              d:DesignHeight="302.04" d:DesignWidth="800">
@@ -103,7 +104,7 @@
                 
                 <DataGrid.Resources>
                     <Style TargetType="{x:Type DataGridColumnHeader}">
-                        <Setter Property="Background" Value="LightCyan"/>
+                        <Setter Property="Background" Value="WhiteSmoke"/>
                         <Setter Property="FontWeight" Value="SemiBold"/>
                         <Setter Property="BorderThickness" Value="0,0,1,2"/>
                     </Style>

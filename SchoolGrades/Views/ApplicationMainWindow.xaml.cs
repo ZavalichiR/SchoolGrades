@@ -31,6 +31,7 @@ namespace SchoolGrades.Views
 
             RenderPage.Children.Add(new Loading_UserController());
 
+            // LoadingScreen (0)
             var timer = new DispatcherTimer();
             timer.Interval = TimeSpan.FromSeconds(2);
             timer.Tick += Timer_Tick;
@@ -38,12 +39,14 @@ namespace SchoolGrades.Views
 
         }
 
+        // Working for LoadingScreen (1)
         private void Timer_Tick(object sender, EventArgs e)
         {
             (sender as DispatcherTimer).Stop();
             SwitchToDashboard();
         }
 
+        // Working for LoadingScreen (2)
         private void SwitchToDashboard()
         {
             RenderPage.Children.RemoveAt(0);
@@ -52,32 +55,34 @@ namespace SchoolGrades.Views
 
         private void Window_Loaded(object sender, RoutedEventArgs e)
         {
+            #region old_code
             /*RenderPage.Children.Clear();
             RenderPage.Children.Add(new MyUserController.Loading_UserController());
             System.Threading.Thread.Sleep(1000);
 
             RenderPage.Children.Add(new MyUserController.Dashboard_UserControl());*/
+            #endregion
         }
 
         /*Button - Dashboard */
         private void Button_Click(object sender, RoutedEventArgs e)
         {
             RenderPage.Children.Clear();
-            RenderPage.Children.Add(new MyUserController.Dashboard_UserControl());
+            RenderPage.Children.Add(new Dashboard_UserControl());
         }
 
         /*Button - Classes*/
         private void Button_Click_1(object sender, RoutedEventArgs e)
         {
             RenderPage.Children.Clear();
-            RenderPage.Children.Add(new MyUserController.Classes_UserControl());
+            RenderPage.Children.Add(new Classes_UserControl());
         }
 
         /*Button - Students*/
         private void Button_Click_2(object sender, RoutedEventArgs e)
         {
             RenderPage.Children.Clear();
-            RenderPage.Children.Add(new MyUserController.Students_UserControl());
+            RenderPage.Children.Add(new Students_UserControl());
         }
 
         /*Button - Log OUT */
@@ -104,13 +109,13 @@ namespace SchoolGrades.Views
         /*Maximize*/
         private void Maximize(object sender, RoutedEventArgs e)
         {
-            if (this.WindowState == System.Windows.WindowState.Normal)
+            if (this.WindowState == WindowState.Normal)
             {
-                this.WindowState = System.Windows.WindowState.Maximized;
+                this.WindowState = WindowState.Maximized;
             }
             else
             {
-                this.WindowState = System.Windows.WindowState.Normal;
+                this.WindowState = WindowState.Normal;
             }
         }
         /*Minimize*/
@@ -123,7 +128,7 @@ namespace SchoolGrades.Views
         private void Button_Click_4(object sender, RoutedEventArgs e)
         {
             RenderPage.Children.Clear();
-            RenderPage.Children.Add(new MyUserController.Teacher_UserControl());
+            RenderPage.Children.Add(new Teacher_UserControl());
         }
     }
 }

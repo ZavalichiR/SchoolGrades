@@ -93,6 +93,10 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
+    <Page Include="MyUserController\ResetPassword_UserControl.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="MyUserController\Students_UserControl.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
@@ -126,6 +130,9 @@
     </Compile>
     <Compile Include="MyUserController\Loading_UserController.xaml.cs">
       <DependentUpon>Loading_UserController.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="MyUserController\ResetPassword_UserControl.xaml.cs">
+      <DependentUpon>ResetPassword_UserControl.xaml</DependentUpon>
     </Compile>
     <Compile Include="MyUserController\Students_UserControl.xaml.cs">
       <DependentUpon>Students_UserControl.xaml</DependentUpon>

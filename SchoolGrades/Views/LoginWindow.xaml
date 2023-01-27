@@ -16,8 +16,8 @@
         <local:App x:Key="LoginViewModel"/>
     </Window.Resources>
 
-    <Border Background="White" CornerRadius="23" MouseMove="Move_Window">
-        <Grid>
+    <Border Background="White" CornerRadius="23" MouseMove="Move_Window" >
+        <Grid x:Name="RenderPage">
             <Grid.RowDefinitions>
                 <RowDefinition Height="Auto" MinHeight="34"/>
                 <RowDefinition Height="Auto" MinHeight="47.203"/>
@@ -28,7 +28,9 @@
             </Grid.RowDefinitions>
 
             <!--Exit Button -->
-            <Button Content="X"
+            <Button x:Name="Exit"
+                    Visibility="Visible"
+                    Content="X"
                     Grid.Row="0"
                     FontSize="19" 
                     FontWeight="Bold" Background="{x:Null}" BorderBrush="{x:Null}"
@@ -39,12 +41,11 @@
                     Click="Close_Application" HorizontalAlignment="Right" VerticalAlignment="Top" Foreground="#FF1A1A1A" />
 
             <!--Login Title-->
-            <TextBlock Text="Login" 
+            <TextBlock x:Name="Title_Login"
+                       Text="Login" 
                        FontSize="40" FontWeight="ExtraBold" 
                        RenderTransformOrigin="0.439,0.877" HorizontalAlignment="Center" Foreground="#47b1f0" Margin="0,28,0,0" Width="110" Grid.RowSpan="2"/>
 
-            
-           
             <!-- #FF7D39F5 - PURPLE -->
 
             <!--Username TextBOX-->
@@ -126,7 +127,7 @@
                     Background="#47b1f0"
                     BorderBrush="Transparent"
                     Command="{Binding LoginCommand}"
-                    Opacity="0.995" HorizontalAlignment="Left" RenderTransformOrigin="0.373,0.123" Click="Login_Button_Click"/>
+                    Opacity="0.995" HorizontalAlignment="Left" RenderTransformOrigin="0.373,0.123"/>
 
             <!-- ResetPassword Button -->
             <Button x:Name="ResetPassword_Button" 
@@ -139,8 +140,11 @@
                     Effect="{DynamicResource MaterialDesignShadowDepth1}" 
                     Background="#47b1f0"
                     BorderBrush="Transparent"
-                    Command="{Binding ResetPasswordCommand}"
-                    Opacity="0.995" HorizontalAlignment="Left" RenderTransformOrigin="0.373,0.123"/>
+                    Opacity="0.995" HorizontalAlignment="Left" 
+                    RenderTransformOrigin="0.373,0.123" 
+                    Click="ResetPassword_Button_Click"/>
+            
+            
             <Label Content="Show password" HorizontalAlignment="Left" Margin="68,9,0,14" Grid.Row="4" Width="72" FontWeight="ExtraLight" FontSize="10" RenderTransformOrigin="0.499,1.2" VerticalContentAlignment="Center"/>
         </Grid>
     </Border>

@@ -98,7 +98,7 @@
                       SelectionUnit="FullRow">
                 <DataGrid.Resources>
                     <Style TargetType="{x:Type DataGridColumnHeader}">
-                        <Setter Property="Background" Value="LightCyan"/>
+                        <Setter Property="Background" Value="WhiteSmoke"/>
                         <Setter Property="FontWeight" Value="SemiBold"/>
                         <Setter Property="BorderThickness" Value="0,0,1,2"/>
                     </Style>
