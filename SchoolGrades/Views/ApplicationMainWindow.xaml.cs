@@ -15,6 +15,8 @@ using System.Threading;
 using SchoolGrades.MyUserController;
 using System.Windows.Threading;
 using System.Timers;
+using System.Collections.Specialized;
+using SchoolGrades.Classes;
 
 namespace SchoolGrades.Views
 {
@@ -25,11 +27,26 @@ namespace SchoolGrades.Views
     {
         Dashboard_UserControl DashboardController = new Dashboard_UserControl();
         Loading_UserController LoadingController = new Loading_UserController();
+
+        private bool isDashboardOrLoading = false;
+        private bool isClassesOrStudentsOrTeachers = false;
+
+
         public ApplicationMainWindow()
         {
             InitializeComponent();
 
             RenderPage.Children.Add(new Loading_UserController());
+            
+
+            /*RenderPage.Loaded += OnRenderPageLoaded;
+            RenderPage.Unloaded += OnRenderPageUnloaded;
+*/
+
+            RenderPage.LayoutUpdated += OnRenderPageChildrenChanged;
+
+
+
 
             // LoadingScreen (0)
             var timer = new DispatcherTimer();
@@ -130,5 +147,81 @@ namespace SchoolGrades.Views
             RenderPage.Children.Clear();
             RenderPage.Children.Add(new Teacher_UserControl());
         }
+
+
+
+        private void OnRenderPageChildrenChanged(object sender, EventArgs e)
+        {
+            bool isDashboardOrLoading = false;
+            bool isClassesOrStudentsOrTeachers = false;
+            Grid renderPageGrid = RenderPage;
+
+            foreach (UIElement child in renderPageGrid.Children)
+            {
+                if (child is Dashboard_UserControl || child is Loading_UserController)
+                {
+                    isDashboardOrLoading = true;
+                    Grid.SetRowSpan(renderPageGrid, 2);
+                    break;
+
+                }
+                else if (child is Students_UserControl || child is Teacher_UserControl || child is Classes_UserControl || child is StudentAddGrade_UserController)
+                {
+                    isClassesOrStudentsOrTeachers = true;
+                    Grid.SetRowSpan(RenderPage, 1);
+                    break;
+                }
+            }
+
+            SetGridMenuHeight();
+
+            Grid_Menu.Visibility = isDashboardOrLoading ? Visibility.Collapsed : Visibility.Visible;
+            Grid_Menu.Visibility = isClassesOrStudentsOrTeachers ? Visibility.Visible : Visibility.Collapsed;
+
+            
+        }
+
+        private void SetGridMenuHeight()
+        {
+            if (isDashboardOrLoading)
+            {
+                Grid_Menu.Height = 0;
+            }
+            else if (isClassesOrStudentsOrTeachers)
+            {
+                Grid_Menu.Height = 60;
+            }
+        }
+
+
+        #region LoadUserControl_Dashboard
+        public void LoadUserControl_Classes()
+        {
+            Grid renderPage = (Grid)this.RenderPage;
+            renderPage.Children.Clear();
+            renderPage.Children.Add(new Classes_UserControl());
+        }
+
+        public void LoadUserControl_Students()
+        {
+            Grid renderPage = (Grid)this.RenderPage;
+            renderPage.Children.Clear();
+            renderPage.Children.Add(new Students_UserControl());
+        }
+
+        public void LoadUserControl_Teachers()
+        {
+            Grid renderPage = (Grid)this.RenderPage;
+            renderPage.Children.Clear();
+            renderPage.Children.Add(new Teacher_UserControl());
+        }
+
+        public void LoadUserControl_AddStudentsGrade()
+        {
+            Grid renderPage = (Grid)this.RenderPage;
+            renderPage.Children.Clear();
+            renderPage.Children.Add(new StudentAddGrade_UserController());
+        }
+        #endregion
     }
 }

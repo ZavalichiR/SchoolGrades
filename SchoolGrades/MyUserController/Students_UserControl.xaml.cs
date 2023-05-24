@@ -1,5 +1,9 @@
-﻿using System.Windows.Controls;
+﻿using System;
+using System.Windows;
+using System.Windows.Controls;
 using SchoolGrades.Student;
+using SchoolGrades.ViewModels;
+using SchoolGrades.Views;
 
 namespace SchoolGrades.MyUserController
 {
@@ -11,9 +15,23 @@ namespace SchoolGrades.MyUserController
         public Students_UserControl()
         {
             InitializeComponent();
-            StudentViewModel abc = new StudentViewModel();
+            DataContextVieWModel abc = new DataContextVieWModel();
             DataContext = abc;
 
+        }
+
+        private void ChangeUserController(object sender, RoutedEventArgs e)
+        {
+            ApplicationMainWindow mainWindow = (ApplicationMainWindow)Window.GetWindow(this);
+            mainWindow.LoadUserControl_AddStudentsGrade();
+        }
+
+
+        public event EventHandler<string> TextBoxTextChanged;
+        private void Student_Name_TextChanged(object sender, TextChangedEventArgs e)
+        {
+            string newText = Student_Name.Text;
+            TextBoxTextChanged?.Invoke(this, newText);
         }
     }
 }

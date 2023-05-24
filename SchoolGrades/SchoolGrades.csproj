@@ -97,6 +97,10 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
+    <Page Include="MyUserController\StudentAddGrade_UserController.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="MyUserController\Students_UserControl.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
@@ -134,12 +138,17 @@
     <Compile Include="MyUserController\ResetPassword_UserControl.xaml.cs">
       <DependentUpon>ResetPassword_UserControl.xaml</DependentUpon>
     </Compile>
+    <Compile Include="MyUserController\StudentAddGrade_UserController.xaml.cs">
+      <DependentUpon>StudentAddGrade_UserController.xaml</DependentUpon>
+    </Compile>
     <Compile Include="MyUserController\Students_UserControl.xaml.cs">
       <DependentUpon>Students_UserControl.xaml</DependentUpon>
     </Compile>
     <Compile Include="MyUserController\Teacher_UserControl.xaml.cs">
       <DependentUpon>Teacher_UserControl.xaml</DependentUpon>
     </Compile>
+    <Compile Include="Student\AddGradeViewModel.cs" />
+    <Compile Include="Student\StudentGrade.cs" />
     <Compile Include="Teacher\Teacher.cs" />
     <Compile Include="Teacher\Teacher_ViewModel.cs" />
     <Compile Include="ViewModels\DataContextVieWModel.cs" />

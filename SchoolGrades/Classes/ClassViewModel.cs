@@ -54,11 +54,11 @@ namespace SchoolGrades.Classes
             LoadCommand = new RelayCommand(v => LoadFile((ClassModel)v));
 
 
-            Classes.Add(new ClassModel() { Class_Name = "Class A", Class_Owner = "Razvan", Class_Students_Limit = 30 });
-            Classes.Add(new ClassModel() { Class_Name = "Class B", Class_Owner = "Casian", Class_Students_Limit = 30 });
-            Classes.Add(new ClassModel() { Class_Name = "Class C", Class_Owner = "Stefy", Class_Students_Limit = 10 });
-            Classes.Add(new ClassModel() { Class_Name = "Class D", Class_Owner = "Vasile", Class_Students_Limit = 20 });
-            Classes.Add(new ClassModel() { Class_Name = "Class E", Class_Owner = "Pavela", Class_Students_Limit = 29 });
+            Classes.Add(new ClassModel() { Class_Name = "Class A", Class_Owner = "Mr. Zavalichi Razvan", Class_Students_Limit = 30 });
+            Classes.Add(new ClassModel() { Class_Name = "Class B", Class_Owner = "Mr. Casian Amihaiesei", Class_Students_Limit = 30 });
+            Classes.Add(new ClassModel() { Class_Name = "Class C", Class_Owner = "Mr. Stefy Pavela", Class_Students_Limit = 10 });
+            Classes.Add(new ClassModel() { Class_Name = "Class D", Class_Owner = "Mr. Vasile Bordura", Class_Students_Limit = 20 });
+
 
             SelectedClass.ClassesCount = Classes.Count();
 
@@ -77,31 +77,24 @@ namespace SchoolGrades.Classes
                 }
                 else
                 {
-                    SelectedClass.Class_Id += 1;
-                    if (!Classes.Any(p => p.Class_Id == SelectedClass.Class_Id))
-                    {
-                        if (int.TryParse(SelectedClass.Class_Name, out i) || int.TryParse(SelectedClass.Class_Owner, out k))
-                        {
-                            SelectedClass.ErrorMessage = "⚠️" + "You cannot add a number as a name, subject or class! Please try again!";
-                            SelectedClass.Class_Name = "";
-                            SelectedClass.Class_Owner = "";
-                            SelectedClass.Class_Id -= 1;
-                            break;
-                        }
-                        else
-                        {
-                            // Adding new student
-                            Classes.Add(SelectedClass);
-                            SelectedClass = new ClassModel();
 
-                            // Sort students by ID
-                            View = CollectionViewSource.GetDefaultView(Classes);
-                            View.SortDescriptions.Add(new SortDescription("ID", ListSortDirection.Ascending));
-                            View.Refresh();
-                        }
-                    } else
+                    if (int.TryParse(SelectedClass.Class_Name, out i) || int.TryParse(SelectedClass.Class_Owner, out k))
                     {
-                        SelectedClass.ErrorMessage = "⚠️" + "Ops..The entered class does not exist!";
+                        SelectedClass.ErrorMessage = "⚠️" + "You cannot add a number as a name, subject or class! Please try again!";
+                        SelectedClass.Class_Name = "";
+                        SelectedClass.Class_Owner = "";
+                        break;
+                    }
+                    else
+                    {
+                        // Adding new student
+                        Classes.Add(SelectedClass);
+                        SelectedClass = new ClassModel();
+
+                        // Sort students by ID
+                        View = CollectionViewSource.GetDefaultView(Classes);
+                        View.SortDescriptions.Add(new SortDescription("ID", ListSortDirection.Ascending));
+                        View.Refresh();
                     }
                 }
             }
@@ -148,7 +141,7 @@ namespace SchoolGrades.Classes
                     string Owner = parts[2];
                     var Students_Limit = int.Parse(parts[3]);
                     
-                    if (Classes.Any(s => s.Class_Id == id && s.Class_Name == Name && s.Class_Owner == Owner && s.Class_Students_Limit == Students_Limit))
+                    if (Classes.Any(s => s.Class_Name == Name && s.Class_Owner == Owner && s.Class_Students_Limit == Students_Limit))
                     {
                         SelectedClass.ErrorMessage = "⚠️" + " Duplicates has been found!";
                     }
@@ -156,10 +149,9 @@ namespace SchoolGrades.Classes
                     {
                         Classes.Add(new ClassModel 
                         {
-                            Class_Id = int.Parse(parts[0]),
-                            Class_Name = parts[1],
-                            Class_Owner = parts[2],
-                            Class_Students_Limit = int.Parse(parts[3]),
+                            Class_Name = parts[0],
+                            Class_Owner = parts[1],
+                            Class_Students_Limit = int.Parse(parts[2]),
                             
                         });
                     }
@@ -185,8 +177,7 @@ namespace SchoolGrades.Classes
                     foreach (var save_class in Classes)
                     {
                         _class = save_class;
-                        sw.WriteLine(_class.Class_Id + ","
-                            + _class.Class_Name + ","
+                        sw.WriteLine( _class.Class_Name + ","
                             + _class.Class_Owner + ","
                             + _class.Class_Students_Limit + ",");
                     }

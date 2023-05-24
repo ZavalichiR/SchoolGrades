@@ -1,5 +1,7 @@
 ﻿using System.Windows.Controls;
 using SchoolGrades.ViewModels;
+using SchoolGrades.Views;
+using System.Windows;
 
 namespace SchoolGrades.MyUserController
 {
@@ -13,6 +15,24 @@ namespace SchoolGrades.MyUserController
             InitializeComponent();
             DataContextVieWModel qwe = new DataContextVieWModel();
             DataContext = qwe;
+        }
+
+        private void Btn_Classes(object sender, RoutedEventArgs e)
+        {
+            ApplicationMainWindow mainWindow = (ApplicationMainWindow)Window.GetWindow(this);
+            mainWindow.LoadUserControl_Classes();
+        }
+
+        private void Btn_AddStudents(object sender, RoutedEventArgs e)
+        {
+            ApplicationMainWindow mainWindow = (ApplicationMainWindow)Window.GetWindow(this);
+            mainWindow.LoadUserControl_Students();
+        }
+
+        private void Btn_MenuTeacher(object sender, RoutedEventArgs e)
+        {
+            ApplicationMainWindow mainWindow = (ApplicationMainWindow)Window.GetWindow(this);
+            mainWindow.LoadUserControl_Teachers();
         }
     }
 }

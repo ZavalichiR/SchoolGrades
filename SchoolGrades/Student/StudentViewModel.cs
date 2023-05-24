@@ -11,6 +11,9 @@ using System.IO;
 using Microsoft.Win32;
 using System;
 using System.Windows.Controls;
+using SchoolGrades.Classes;
+using SchoolGrades.Views;
+using System.Security.Claims;
 
 namespace SchoolGrades.Student
 {
@@ -53,9 +56,11 @@ namespace SchoolGrades.Student
             SaveCommand = new RelayCommand(z => SaveToFile((Student)z));
             LoadCommand = new RelayCommand(v => LoadFile((Student)v));
 
-            Students.Add(new Student() { Name = "Ex. Razvan", Address = "Geography", Class = "A", Username = "Razvan", Password = "123" });
-            Students.Add(new Student() { Name = "Ex. Casian", Address = "Math", Class = "A", Username = "Casian", Password = "123" });
-            Students.Add(new Student() { Name = "Ex. Stefi", Address = "History", Class = "A", Username = "Stefi", Password = "123" });
+
+            Students.Add(new Student() { Name = "Ex. Razvan", Email = "@mail.com", Address = "Geography", Class = " Class A" });
+            Students.Add(new Student() { Name = "Ex. Casian", Email = "@mail.com", Address = "Math", Class = "Class B" });
+            Students.Add(new Student() { Name = "Ex. Stefi", Email = "@mail.com", Address = "History", Class = "Class C" });
+            Students.Add(new Student() { Name = "Ex. Vasile", Email = "@mail.com", Address = "History", Class = "Class D" });
 
             SelectedStudent.StudentsCount = Students.Count();
         }
@@ -64,42 +69,33 @@ namespace SchoolGrades.Student
         public ICollectionView View;
         private void Add()
         {
-            Classes.ClassViewModel qwe = new Classes.ClassViewModel();
-            //int i, k, l;
             foreach (Student student in Students)
             {
-                if (string.IsNullOrEmpty(SelectedStudent.Name) || string.IsNullOrEmpty(SelectedStudent.Class) || string.IsNullOrEmpty(SelectedStudent.Address) || string.IsNullOrEmpty(SelectedStudent.Username) || string.IsNullOrEmpty(SelectedStudent.Password))
+                Classes.ClassViewModel qwe = new Classes.ClassViewModel();
+                if (string.IsNullOrEmpty(SelectedStudent.Name) || string.IsNullOrEmpty(SelectedStudent.Address) || string.IsNullOrEmpty(SelectedStudent.Email) || string.IsNullOrEmpty(SelectedStudent.Class))
                 {
                     SelectedStudent.ErrorMessage = "⚠️" + "You can't leave the boxes empty!";
-                    break;
+                    return;
                 }
-                else
+                
+                
+                
+                if (!qwe.Classes.Any(z => z.Class_Name == SelectedStudent.Class))
                 {
-                    SelectedStudent.ID += 1;
-                    if (!Students.Any(p => p.ID == SelectedStudent.ID))
-                    {
-                        if (SelectedStudent.ID > 0 && SelectedStudent.ID < 34)
-                        {
-                            if (!qwe.Classes.Any(z => z.Class_Name == SelectedStudent.Class))
-                            {
-                                SelectedStudent.ErrorMessage = "⚠️" + "The class you entered does not exist! Keep trying!";
-                                SelectedStudent.Class = "";
-                                SelectedStudent.ID -= 1;
-                            } else  {
-                                // Adding new student
-                                Students.Add(SelectedStudent);
-                                SelectedStudent = new Student();
+                    SelectedStudent.ErrorMessage = "⚠️" + "The class you entered does not exist! Keep trying!";
+                    SelectedStudent.Class = "";
+                    return;
+                }
 
-                                // Sort students by ID
-                                View = CollectionViewSource.GetDefaultView(Students);
-                                View.SortDescriptions.Add(new SortDescription("ID", ListSortDirection.Ascending));
-                                View.Refresh();
-                            }
-                        }
-                    }
+                // Adauga Student nou
+
+                    Students.Add(SelectedStudent);
+                    SelectedStudent = new Student();
+                                    
+                    View = CollectionViewSource.GetDefaultView(Students);
+                    View.SortDescriptions.Add(new SortDescription("Name", ListSortDirection.Ascending));
                 }
             }
-        }
 
         private void Delete(Student student)
         {
@@ -138,12 +134,9 @@ namespace SchoolGrades.Student
                     foreach (var save_student in Students)
                     {
                         student = save_student;
-                        sw.WriteLine(student.ID + ","
-                            + student.Name + ","
+                        sw.WriteLine( student.Name + ","
                             + student.Address + ","
-                            + student.Class + ","
-                            + student.Username + ","
-                            + student.Password);
+                            + student.Class + ",");
                     }
                 }
             }
@@ -171,21 +164,16 @@ namespace SchoolGrades.Student
                     string name = parts[1];
                     string address = parts[2];
                     string Class = parts[3];
-                    string username = parts[4];
-                    string password = parts[5];
 
-                    if (Students.Any(s => s.ID == id && s.Name == name && s.Address == address && s.Class == Class && s.Username == username && s.Password == password))
+                    if (Students.Any(s => s.Name == name && s.Address == address && s.Class == Class))
                     {
-                        SelectedStudent.ErrorMessage = "⚠️" + " Duplicates has been found!";
+                    SelectedStudent.ErrorMessage = "⚠️" + " Duplicates has been found!";
                     } else {
                         Students.Add(new Student
                         {
-                            ID = int.Parse(parts[0]),
-                            Name = parts[1],
-                            Address = parts[2],
-                            Class = parts[3],
-                            Username = parts[4],
-                            Password = parts[5]
+                            Name = parts[0],
+                            Address = parts[1],
+                            Class = parts[2],
                         });
                     }
                 }

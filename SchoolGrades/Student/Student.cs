@@ -5,6 +5,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Input;
+using SchoolGrades.Classes;
 using SchoolGrades.MVVM;
 using SchoolGrades.ViewModels;
 
@@ -20,18 +21,20 @@ namespace SchoolGrades.Student
             set { _studentscount = value;
                 OnPropertyChanged();
             }
-           
+
         }
 
-
-        private string _error_message;
-        public string ErrorMessage
+        private ClassViewModel _selectedClass;
+        public ClassViewModel SelectedClass
         {
-            get { return _error_message; }
+            get { return _selectedClass; }
             set
             {
-                _error_message = value;
-                OnPropertyChanged();
+                if (_selectedClass != value)
+                {
+                    _selectedClass = value;
+                    OnPropertyChanged("SelectedClass");
+                }
             }
         }
 
@@ -40,7 +43,18 @@ namespace SchoolGrades.Student
         {
             get { return _name; }
             set { _name = value;
-            OnPropertyChanged();
+                OnPropertyChanged();
+            }
+        }
+
+        private string _email;
+        public string Email
+        {
+            get { return _email; }
+            set
+            {
+                _email = value;
+                OnPropertyChanged();
             }
         }
 
@@ -55,42 +69,24 @@ namespace SchoolGrades.Student
             }
         }
 
-        private string _class;
+        private string _Class;
         public string Class
         {
-            get { return _class; }
-            set { _class = value;
-                OnPropertyChanged();
-            }
-        }
-
-        private int _id;
-        public int ID
-        {
-            get { return _id; }
+            get { return _Class; }
             set
             {
-                _id = value;
+                _Class = value;
                 OnPropertyChanged();
             }
         }
 
-        private string _username;
-        public string Username
+        private string _error_message;
+        public string ErrorMessage
         {
-            get { return _username; }
-            set { _username = value;
-                OnPropertyChanged();
-            }
-        }
-
-        private string _password;
-        public string Password
-        {
-            get { return _password; }
+            get { return _error_message; }
             set
             {
-                _password = value;
+                _error_message = value;
                 OnPropertyChanged();
             }
         }

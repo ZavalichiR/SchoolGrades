@@ -51,17 +51,8 @@ namespace SchoolGrades.Classes
             }
         }
 
-        private int _id;
-        public int Class_Id
-        {
-            get { return _id; }
-            set { _id = value; 
-                OnPropertyChanged(); }
-        }
-
-
         private int? _class_students_limit;
-        public int?      Class_Students_Limit
+        public int?  Class_Students_Limit
         {
             get { return _class_students_limit; }
             set

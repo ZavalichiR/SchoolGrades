@@ -59,16 +59,39 @@ namespace SchoolGrades.ViewModels
         }
 
 
-        private string _errorMessage;
-        public string ErrorMessage
+        private string _Error_Message_login;
+        public string ErrorMessage_Login
         {
-            get { return _errorMessage; }
+            get { return _Error_Message_login; }
             set
             {
-                _errorMessage = value;
+                _Error_Message_login = value;
                 OnPropertyChanged();
             }
         }
+
+        private string _Error_Message_reset;
+        public string ErrorMessage_Reset
+        {
+            get { return _Error_Message_reset; }
+            set
+            {
+                _Error_Message_reset = value;
+                OnPropertyChanged();
+            }
+        }
+
+        private string _succesMessage;
+        public string SuccesMessage
+        {
+            get { return _succesMessage; }
+            set
+            {
+                _succesMessage = value;
+                OnPropertyChanged();
+            }
+        }
+
 
         #endregion
 
@@ -84,6 +107,8 @@ namespace SchoolGrades.ViewModels
             UserPasswords = new Dictionary<string, string>()
             {
                 {"student", "password" },
+                {"student1", "password" },
+                {"student2", "password" },
                 {"teacher", "password" }
             };
 
@@ -100,7 +125,7 @@ namespace SchoolGrades.ViewModels
             ApplicationMainWindow nw = new ApplicationMainWindow();
             if (string.IsNullOrEmpty(Username) && string.IsNullOrEmpty(Password))
             {
-                ErrorMessage = "⚠️" + "Username or password can't be null!";
+                ErrorMessage_Login = "⚠️" + "Complete the fields!";
             }
             else
             {
@@ -113,7 +138,7 @@ namespace SchoolGrades.ViewModels
                 }
                 else
                 {
-                    ErrorMessage = "⚠️" + "Username or password is invalid";
+                    ErrorMessage_Login = "⚠️" + "Username or password is invalid";
                     Username = "";
                     Password = "";
                 }
@@ -127,18 +152,24 @@ namespace SchoolGrades.ViewModels
             {
                 if (UserPasswords[Username] == Password)
                 {
-                    //Display success message
                     UserPasswords[Username] = NewPassword;
-                    ErrorMessage = "⚠️" + "Password has been changed!";
+
+                    //Display success message
+                    ErrorMessage_Reset = "";
+                    SuccesMessage = "⚠️" + "Password has been changed!";
+                    
                 }
                 else
                 {
-                    ErrorMessage = "⚠️" + "The password does not match the account password";
+                    //Display error message
+                    SuccesMessage = "";
+                    ErrorMessage_Reset = "⚠️" + "Wrong old password";
                 }
             }
             else
             {
-                ErrorMessage = "⚠️ " + "This account does not exist.";
+                SuccesMessage = "";
+                ErrorMessage_Reset = "⚠️ " + "This account does not exist.";
             }
         }
         #endregion

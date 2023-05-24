@@ -16,7 +16,8 @@
         <local:App x:Key="LoginViewModel"/>
     </Window.Resources>
 
-    <Border Background="White" CornerRadius="23" MouseMove="Move_Window" >
+    <Border Background="White" CornerRadius="23" MouseMove="Move_Window" 
+            BorderBrush="Cyan" BorderThickness="2">
         <Grid x:Name="RenderPage">
             <Grid.RowDefinitions>
                 <RowDefinition Height="Auto" MinHeight="34"/>
@@ -42,15 +43,13 @@
 
             <!--Login Title-->
             <TextBlock x:Name="Title_Login"
-                       Text="Login" 
-                       FontSize="40" FontWeight="ExtraBold" 
-                       RenderTransformOrigin="0.439,0.877" HorizontalAlignment="Center" Foreground="#47b1f0" Margin="0,28,0,0" Width="110" Grid.RowSpan="2"/>
-
-            <!-- #FF7D39F5 - PURPLE -->
+                       Text="Sign in" 
+                       FontSize="40" FontWeight="SemiBold" 
+                       RenderTransformOrigin="0.439,0.877" HorizontalAlignment="Center" Foreground="#47b1f0" Margin="0,28,0,0" Width="126" Grid.RowSpan="2"/>
 
             <!--Username TextBOX-->
             <TextBox x:Name="UserName_TextBOX" 
-                     materialDesign:HintAssist.Hint="User Name"
+                     materialDesign:HintAssist.Hint="Username"
                      Margin="31,5,31,1"
                      Grid.Row="2"
                      Style="{StaticResource MaterialDesignTextBox}"
@@ -88,64 +87,64 @@
              Style="{StaticResource MaterialDesignSwitchDarkToggleButton}"
              ToolTipService.ShowDuration="2000" ToolTipService.BetweenShowDelay="10000"
              ToolTip="Show"
-             IsChecked="False" Margin="30,10,0,14" RenderTransformOrigin="-0.454,1.033" Width="41" />
+             IsChecked="False" Margin="31,12,0,12" RenderTransformOrigin="-0.454,1.033" Width="41" />
 
-            
+
             <!--Dummy Error Message Textblock-->
             <TextBlock 
                  Grid.Row="4"
-                 x:Name="errorMessage"
-                 Text="{Binding ErrorMessage}"
+                 x:Name="errorMessage_Login"
+                 Text="{Binding ErrorMessage_Login}"
                  Foreground="Red"
                  FontWeight="ExtraLight"
                  Visibility="Visible"
                 HorizontalAlignment="Right"
-                VerticalAlignment="Center" Margin="0,0,20,10">
+                VerticalAlignment="Center" Margin="0,0,30,10">
                 <TextBlock.Style>
                     <Style TargetType="TextBlock">
                         <Style.Triggers>
-                            <DataTrigger Binding="{Binding ErrorMessage}" Value="">
+                            <DataTrigger Binding="{Binding ErrorMessage_Login}" Value="">
                                 <Setter Property="Visibility" Value="Collapsed"/>
                             </DataTrigger>
-                            <DataTrigger Binding="{Binding ErrorMessage}" Value="{x:Null}">
+                            <DataTrigger Binding="{Binding ErrorMessage_Login}" Value="{x:Null}">
                                 <Setter Property="Visibility" Value="Visible"/>
                             </DataTrigger>
                         </Style.Triggers>
                     </Style>
                 </TextBlock.Style>
             </TextBlock>
-            
+
             <!--Login Button-->
             <Button x:Name="Login_Button" 
-                    Margin="239,40,0,-26"
+                    Margin="233,38,0,-21"
                     Grid.Row="4"
-                    FontSize="14"
+                    FontSize="12"
                     Content="Sign In"
                     Foreground="White"
-                    Width="92" Height="Auto"
+                    Width="92" Height="29"
                     Effect="{DynamicResource MaterialDesignShadowDepth2}" 
                     Background="#47b1f0"
                     BorderBrush="Transparent"
                     Command="{Binding LoginCommand}"
-                    Opacity="0.995" HorizontalAlignment="Left" RenderTransformOrigin="0.373,0.123"/>
+                    HorizontalAlignment="Left" RenderTransformOrigin="0.373,0.123"/>
 
             <!-- ResetPassword Button -->
             <Button x:Name="ResetPassword_Button" 
-                    Margin="109,40,0,-26"
+                    Margin="91,38,0,-21"
                     Grid.Row="4"
                     FontSize="12" 
-                    Content="Reset Password"
+                    Content="Change Password"
                     Foreground="White"
-                    Width="116" Height="Auto"
-                    Effect="{DynamicResource MaterialDesignShadowDepth1}" 
+                    Width="128" Height="29"
+                    Effect="{DynamicResource MaterialDesignShadowDepth2}" 
                     Background="#47b1f0"
                     BorderBrush="Transparent"
-                    Opacity="0.995" HorizontalAlignment="Left" 
+                    HorizontalAlignment="Left" 
                     RenderTransformOrigin="0.373,0.123" 
                     Click="ResetPassword_Button_Click"/>
-            
-            
-            <Label Content="Show password" HorizontalAlignment="Left" Margin="68,9,0,14" Grid.Row="4" Width="72" FontWeight="ExtraLight" FontSize="10" RenderTransformOrigin="0.499,1.2" VerticalContentAlignment="Center"/>
+
+
+            <Label Content="Show password" HorizontalAlignment="Left" Margin="67,10,0,13" Grid.Row="4" Width="113" FontWeight="ExtraLight" FontSize="10" RenderTransformOrigin="0.499,1.2" VerticalContentAlignment="Center"/>
         </Grid>
     </Border>
 </Window>

@@ -23,7 +23,7 @@
             <Border>
                 <Border.Background>
                     <LinearGradientBrush>
-                        <GradientStop Color="#0bdbb6" Offset="0.2"/>
+                        <GradientStop Color="WhiteSmoke" Offset="0.8"/>
                         <GradientStop Color="#00B6EC" Offset="1"/>
                         <GradientStop Color="#00B6EC" Offset="-0.4"/>
                     </LinearGradientBrush>
@@ -31,7 +31,7 @@
             </Border>
 
 
-            <TextBlock Text="Teachers management" Foreground="White" HorizontalAlignment="Center" VerticalAlignment="Top" FontSize="12" FontWeight="Bold" Margin="0,3,0,0"/>
+            <TextBlock Text="Teachers Management" Foreground="White" HorizontalAlignment="Center" VerticalAlignment="Top" FontSize="12" FontWeight="Bold" Margin="0,3,0,0"/>
             <Border Background="White" CornerRadius="10" Height="24" VerticalAlignment="Top" Margin="5,25,5,0">
                 <Grid>
                     <TextBox x:Name="Teacher_FirstName" Text="{Binding SelectedTeacher.First_Name, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}"
@@ -50,23 +50,12 @@
                 </Grid>
             </Border>
 
-            <Border Background="White" CornerRadius="10" Height="24" VerticalAlignment="Top" Margin="5,100,5,0">
-                <Grid>
-                    <TextBox x:Name="Teacher_Username" Text="{Binding SelectedTeacher.Username, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}"
+            <Border Background="White" CornerRadius="10" Height="24" VerticalAlignment="Top" Margin="5,95,5,0">
+                <TextBox x:Name="Teacher_Class_Owner" Text="{Binding SelectedTeacher.Class_Owner, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}"
                              Style="{StaticResource MaterialDesignTextBox}"
-                             materialDesign:HintAssist.Hint="Login Username"  SelectionOpacity="7"
+                             materialDesign:HintAssist.Hint="Last Name"  SelectionOpacity="7"
                              materialDesign:TextFieldAssist.DecorationVisibility="Hidden" BorderThickness="0"/>
-                </Grid>
             </Border>
-            <Border Background="White" CornerRadius="10" Height="24" VerticalAlignment="Top" Margin="5,140,5,0">
-                <Grid>
-                    <TextBox x:Name="Password_Password" Text="{Binding SelectedTeacher.Password, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}"
-                             Style="{StaticResource MaterialDesignTextBox}"
-                             materialDesign:HintAssist.Hint="Login Password"  SelectionOpacity="7"
-                             materialDesign:TextFieldAssist.DecorationVisibility="Hidden" BorderThickness="0"/>
-                </Grid>
-            </Border>
-            
 
             <Button Content="Insert" 
                     VerticalAlignment="Top"
@@ -104,15 +93,12 @@
                     </Style>
                 </DataGrid.Resources>
                 <DataGrid.Columns>
-                    <DataGridTextColumn Header="ID" HeaderStyle="{StaticResource MaterialDesignToolButton}" Width="50" Binding="{Binding ID, UpdateSourceTrigger=PropertyChanged}"/>
                     <DataGridTextColumn Header="First Name" Width="120" Binding="{Binding First_Name, UpdateSourceTrigger=PropertyChanged}"/>
                     <DataGridTextColumn Header="Last Name" Width="120" Binding="{Binding Last_Name, UpdateSourceTrigger=PropertyChanged}"/>
-                    <DataGridTextColumn Header="Username" Width="90" Binding="{Binding Username, UpdateSourceTrigger=PropertyChanged}"/>
-                    <DataGridTextColumn Header="Password" Width="70" Binding="{Binding Password, UpdateSourceTrigger=PropertyChanged}"/>
                     <DataGridTemplateColumn Header=" " Width="*">
                         <DataGridTemplateColumn.CellTemplate>   
                             <DataTemplate >
-                                <Button Content="X"
+                                <Button Content="Delete"
                                 Command="{Binding DataContext.RemoveCommand, ElementName=DataGrid_Teachers}"
                                 CommandParameter="{Binding}"
                                 Background="#42D9C8"
@@ -121,7 +107,7 @@
                                 Width="120"
                                 HorizontalAlignment="Right"
                                 Foreground="White"
-                                FontWeight="Bold"
+                                FontWeight="DemiBold"
                                 FontSize="14"/>
                             </DataTemplate>
                         </DataGridTemplateColumn.CellTemplate>

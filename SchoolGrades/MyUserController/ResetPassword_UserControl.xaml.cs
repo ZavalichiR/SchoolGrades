@@ -1,4 +1,5 @@
-﻿using SchoolGrades.Views;
+﻿using SchoolGrades.ViewModels;
+using SchoolGrades.Views;
 using System;
 using System.Windows;
 using System.Windows.Controls;
