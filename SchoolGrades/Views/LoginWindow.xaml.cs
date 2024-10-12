@@ -1,64 +1,49 @@
-﻿using SchoolGrades.MyUserController;
+﻿using SchoolGrades.MyUserController.LoginWindow_UserControllers;
+using SchoolGrades.ViewModels.LoginWindow_ViewModels;
 using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
 using System.Windows;
 using System.Windows.Controls;
+using System.Windows.Data;
+using System.Windows.Documents;
+using System.Windows.Input;
+using System.Windows.Media;
+using System.Windows.Media.Imaging;
+using System.Windows.Shapes;
 
 namespace SchoolGrades.Views
 {
-    public partial class MainWindow
+    /// <summary>
+    /// Interaction logic for LoginWindow.xaml
+    /// </summary>
+    public partial class LoginWindow : Window
     {
-
-        public UIElement _previousContent;
-        public MainWindow()
+        public LoginWindow()
         {
             InitializeComponent();
-            _previousContent = RenderPage.Children[2];
-            ViewModels.LoginViewModel obj = new ViewModels.LoginViewModel();
-            DataContext = obj;
+            LoginViewModel viewModel = new LoginViewModel();
+            this.DataContext = viewModel;
         }
 
-
-        // Movable Window
-        private void Move_Window(object sender, System.Windows.Input.MouseEventArgs e)
+        private void Change_To_LoginUserControl(object sender, RoutedEventArgs e)
         {
-            if (e.LeftButton == System.Windows.Input.MouseButtonState.Pressed)
-            {
-                DragMove();
-            }
+            RenderPage.Children.Clear();
+            RenderPage.Children.Add(new LoginUserControl());
         }
 
-        //Shutdown Application
-        private void Close_Application(object sender, RoutedEventArgs e)
+        public void Change_To_RegisterUserControl()
         {
-            Application.Current.Shutdown();
+            RenderPage.Children.Clear();
+            RenderPage.Children.Add(new RegisterUserControl());
         }
 
-        // Show Password    
-        private void MyCheckBox_Checked(object sender, RoutedEventArgs e)
+        public void Change_To_LoginUserControl()
         {
-            if (ShowPassword.IsChecked == true)
-            {
-                PasswordUnmask.Visibility = Visibility.Visible;
-                PasswordHidden.Visibility = Visibility.Hidden;
-                PasswordUnmask.Text = PasswordHidden.Password;
-
-            }
-        }
-
-        // Return the password to passwordchar
-        private void MyCheckBox_UnChecked(object sender, RoutedEventArgs e)
-        {
-            PasswordUnmask.Visibility = Visibility.Hidden;
-            PasswordHidden.Visibility = Visibility.Visible;
-            PasswordHidden.Visibility = Visibility.Visible;
-            PasswordHidden.Password = PasswordUnmask.Text;
-        }
-
-        private void ResetPassword_Button_Click(object sender, RoutedEventArgs e)
-        {
-            RenderPage.Children[0].Visibility = Visibility.Collapsed;
-            Title_Login.Visibility = Visibility.Collapsed;
-            RenderPage.Children.Add(new resetPasswordController());
+            RenderPage.Children.Clear();
+            RenderPage.Children.Add(new LoginUserControl());
         }
     }
 }

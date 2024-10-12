@@ -1,0 +1,168 @@
+﻿<UserControl x:Class="SchoolGrades.MyUserController.MainWindow_UserControllers.For_Students.StudentsDashboard_UserController"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             xmlns:local="clr-namespace:SchoolGrades.MyUserController.MainWindow_UserControllers.For_Students"
+             mc:Ignorable="d" 
+             d:DesignHeight="350" d:DesignWidth="800">
+    <Grid SnapsToDevicePixels="True">
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="45"/>
+            <ColumnDefinition Width="*"/>
+        </Grid.ColumnDefinitions>
+
+        <!-- Dashboard for students -->
+        <Grid Grid.Column="0">
+            <Grid.RowDefinitions>
+                <RowDefinition Height="30"/>
+                <RowDefinition Height="50"/>
+                <RowDefinition Height="50"/>
+                <RowDefinition Height="50"/>
+                <RowDefinition Height="*"/>
+            </Grid.RowDefinitions>
+
+            <Grid Grid.Row="0" Background="#8c93e5"/>
+            <Grid Grid.Row="1" Background="#8c93e5"/>
+            <Border Background="White" BorderThickness="0"
+                    CornerRadius="10" Grid.Row="1" Margin="5,0,0,5">
+                <Grid>
+                    <Rectangle Fill="White" HorizontalAlignment="Right" Width="8"/>
+                    <TextBlock Text="📖" HorizontalAlignment="Center" VerticalAlignment="Center"
+                               FontWeight="Bold" FontSize="19" Width="25" TextAlignment="Center" Margin="0,0,0,15" Foreground="#8c93e5"/>
+                    <TextBlock Text="Grades" HorizontalAlignment="Center" VerticalAlignment="Bottom"
+                               FontWeight="SemiBold" Foreground="#8c93e5" FontSize="10" Margin="0,0,0,4"/>
+                </Grid>
+            </Border>
+            <Grid Grid.Row="2" Background="#8c93e5">
+                <TextBlock Foreground="#b8b8b8" Text="👤"
+                           HorizontalAlignment="Center" VerticalAlignment="Top"
+                           FontSize="19" Margin="0,5,0,0"/>
+                <TextBlock Text="Account" Foreground="#b8b8b8"
+                           HorizontalAlignment="Center" VerticalAlignment="Bottom" FontSize="10" Margin="0,0,0,10"/>
+            </Grid>
+
+            <Grid Grid.Row="3" Background="#8c93e5">
+                <TextBlock Text="💳" Foreground="#b8b8b8"
+                           HorizontalAlignment="Center" VerticalAlignment="Top"
+                           FontSize="19" Margin="0,5,0,0"/>
+                <TextBlock Text="Plati taxe" Foreground="#b8b8b8"
+                           HorizontalAlignment="Center" VerticalAlignment="Bottom" FontSize="9" Margin="0,0,0,9"/>
+            </Grid>
+
+            <Grid Grid.Row="4">
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="160"/>
+                    <RowDefinition Height="*"/>
+                </Grid.RowDefinitions>
+
+                <Border Background="#8c93e5"
+                        BorderThickness="0"
+                        CornerRadius="14"
+                        Grid.Row="0">
+                    <Grid>
+                        <Rectangle Fill="#8c93e5" HorizontalAlignment="Center" VerticalAlignment="Top"
+                                   Width="45" Height="20"/>
+                        <Rectangle Fill="#8c93e5" HorizontalAlignment="Left" VerticalAlignment="Bottom"
+                                   Width="22" Height="20"/>
+                    </Grid>
+                </Border>
+
+            </Grid>
+
+        </Grid>
+
+        <Grid Grid.Column="1" Background="White">
+            <!-- Body Content -->
+            <Grid.RowDefinitions>
+                <RowDefinition Height="115"/>
+                <RowDefinition Height="*"/>
+            </Grid.RowDefinitions>
+
+
+
+            <Grid Grid.Row="0">
+                <!-- Student Details -->
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="25"/>
+                    <ColumnDefinition Width="*"/>
+                    <ColumnDefinition Width="25"/>
+                </Grid.ColumnDefinitions>
+
+                <Grid Grid.Column="1">
+                    <Border Background="#8c93e5" BorderThickness="0" CornerRadius="20">
+                        <Grid>
+                            <!-- Top - Left-->
+                            <Rectangle Fill="#8c93e5" HorizontalAlignment="Left" VerticalAlignment="Top"
+                                       Height="20" Width="20"/>
+                            <!--Top - Right-->
+                            <Rectangle Fill="#8c93e5" HorizontalAlignment="Right" VerticalAlignment="Top"
+           Height="20" Width="20"/>
+                            <!-- Bottom - Left -->
+                            <Rectangle Fill="#8c93e5" HorizontalAlignment="Left" VerticalAlignment="Bottom" 
+                                       Width="20" Height="20" Margin="10,0,0,0"/>
+                            <Rectangle Fill="#8c93e5" HorizontalAlignment="Right" VerticalAlignment="Bottom" 
+           Width="20" Height="20" Margin="0,0,10,0"/>
+                            <TextBlock Text="Numele studentului:"
+                                       Foreground="White" HorizontalAlignment="Left" VerticalAlignment="Center" Margin="10,0,0,50"/>
+                            <TextBlock Text="Nume liceu:"
+                                       Foreground="White" HorizontalAlignment="Left" VerticalAlignment="Center" Margin="10,0,0,5"/>
+                            <TextBlock Text="Nume specializare:"
+           Foreground="White" HorizontalAlignment="Left" VerticalAlignment="Center" Margin="10,0,0,-40"/>
+                        </Grid>
+                    </Border>
+                </Grid>
+            </Grid>
+
+            <Grid Grid.Row="1">
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="25"/>
+                    <ColumnDefinition Width="*"/>
+                    <ColumnDefinition Width="25"/>
+                </Grid.ColumnDefinitions>
+
+                <Grid Grid.Column="1">
+                    <!-- Content for DataGrid -->
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="20"/>
+                        <RowDefinition Height="*"/>
+                    </Grid.RowDefinitions>
+
+                    <Border Grid.Row="0"
+                        Background="#164378" CornerRadius="10" BorderThickness="0" Margin="10,0,10,0">
+                        <Grid>
+                            <Rectangle Fill="#164378" HorizontalAlignment="Left" VerticalAlignment="Top" Height="10" Width="10"/>
+                            <Rectangle Fill="#164378" HorizontalAlignment="Right" VerticalAlignment="Top" Height="10" Width="10"/>
+                            <TextBlock Text="Note din sesiunea curenta"
+                                       HorizontalAlignment="Center"
+                                       VerticalAlignment="Center"
+                                       FontSize="12"
+                                       Foreground="White"/>
+                        </Grid>
+                    </Border>
+
+                    <Grid Grid.Row="1">
+                        <!-- DataGRID Student -->
+                        <DataGrid Background="Transparent"
+                                  CanUserAddRows="False"
+                                  CanUserDeleteRows="False"
+                                  CanUserReorderColumns="False"
+                                  CanUserResizeColumns="False"
+                                  CanUserSortColumns="False">
+                            <DataGrid.Columns>
+                                <DataGridTextColumn Header="Clasa"  Width="70" FontSize="12" FontWeight="SemiBold"/>
+                                <DataGridTextColumn Header="Semestru"  Width="100" FontSize="12" FontWeight="SemiBold"/>
+                                <DataGridTextColumn Header="Disciplina"  Width="190" FontSize="12" FontWeight="SemiBold"/>
+                                <DataGridTextColumn Header="Tip de notare" Width="120" FontSize="12" FontWeight="SemiBold"/>
+                                <DataGridTextColumn Header="Data" Width="80" FontSize="12" FontWeight="SemiBold"/>
+                                <DataGridTextColumn Header="Nota/Calificativ" Width="200" FontSize="12" FontWeight="SemiBold"/>
+                            </DataGrid.Columns>
+                        </DataGrid>
+                    </Grid>
+
+                </Grid>
+            </Grid>
+        </Grid>
+
+    </Grid>
+</UserControl>

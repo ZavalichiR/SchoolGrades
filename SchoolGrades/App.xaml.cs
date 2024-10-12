@@ -10,8 +10,8 @@ namespace SchoolGrades
     {
         private void OnStartup(object sender, StartupEventArgs e)
         {
-            MainWindow = new MainWindow();
-            MainWindow.Show();
+            LoginWindow loginWindow = new LoginWindow();
+            loginWindow.Show();
   
         }
     }

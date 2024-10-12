@@ -1,0 +1,177 @@
+﻿<UserControl x:Class="SchoolGrades.MyUserController.MainWindow_UserControllers.For_Students.StudentAccountManager_UserController"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             xmlns:local="clr-namespace:SchoolGrades.MyUserController.MainWindow_UserControllers.For_Students"
+             mc:Ignorable="d" 
+             d:DesignHeight="350" d:DesignWidth="800">
+    <Grid SnapsToDevicePixels="True">
+        <Grid>
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="45"/>
+                <ColumnDefinition Width="*"/>
+            </Grid.ColumnDefinitions>
+
+            <Grid Grid.Column="0">
+                <!-- LeftBAR menu -->
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="30"/>
+                    <RowDefinition Height="50"/>
+                    <RowDefinition Height="50"/>
+                    <RowDefinition Height="50"/>
+                    <RowDefinition Height="*"/>
+                </Grid.RowDefinitions>
+
+                <Grid Grid.Row="0" Background="#8c93e5"/>
+                <Grid Grid.Row="1" Background="#8c93e5">
+                    <TextBlock Text="📖" HorizontalAlignment="Center" VerticalAlignment="Center"
+                   FontWeight="Bold" FontSize="19" Width="25" TextAlignment="Center" Margin="0,0,0,15" Foreground="#b8b8b8"/>
+                    <TextBlock Text="Grades" HorizontalAlignment="Center" VerticalAlignment="Bottom"
+                   FontWeight="SemiBold" Foreground="#b8b8b8" FontSize="10" Margin="0,0,0,4"/>
+                </Grid>
+
+                <Grid Grid.Row="2" Background="#8c93e5"/>
+                <Border Background="White" BorderThickness="0"
+                        CornerRadius="10" Grid.Row="2" Margin="5,0,0,0">
+                    <Grid>
+                        <Rectangle Fill="White" 
+                                   VerticalAlignment="Top"
+                                   HorizontalAlignment="Right"
+                                   Width="10" Height="10"/>
+
+                        <Rectangle Fill="White" 
+                                   VerticalAlignment="Bottom"
+                                   HorizontalAlignment="Right"
+                                   Width="10" Height="10"/>
+
+                        <TextBlock Foreground="#8c93e5" Text="👤"
+					   HorizontalAlignment="Center" VerticalAlignment="Top"
+					   FontSize="17" Margin="0,5,0,0"/>
+
+                        <TextBlock Text="Account" Foreground="#8c93e5"
+					   HorizontalAlignment="Center" VerticalAlignment="Bottom" 
+					   FontSize="8" Margin="0,0,0,10"/>
+                    </Grid>
+                </Border>
+
+
+                <Grid Grid.Row="3" Background="#8c93e5">
+                    <TextBlock Text="💳" Foreground="#b8b8b8"
+               HorizontalAlignment="Center" VerticalAlignment="Top"
+               FontSize="19" Margin="0,5,0,0"/>
+                    <TextBlock Text="Plati taxe" Foreground="#b8b8b8"
+               HorizontalAlignment="Center" VerticalAlignment="Bottom" FontSize="9" Margin="0,0,0,9"/>
+                </Grid>
+
+
+                <Grid Grid.Row="4">
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="160"/>
+                        <RowDefinition Height="*"/>
+                    </Grid.RowDefinitions>
+
+                    <Border Background="#8c93e5"
+				BorderThickness="0"
+				CornerRadius="14"
+				Grid.Row="0">
+                        <Grid>
+                            <Rectangle Fill="#8c93e5" HorizontalAlignment="Center" VerticalAlignment="Top"
+						   Width="45" Height="20"/>
+                            <Rectangle Fill="#8c93e5" HorizontalAlignment="Left" VerticalAlignment="Bottom"
+						   Width="22" Height="20"/>
+                        </Grid>
+                    </Border>
+
+                </Grid>
+            </Grid>
+
+
+            <Grid Grid.Column="1" Background="White">
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="70"/>
+                    <RowDefinition Height="*"/>
+                    <RowDefinition Height="80"/>
+                </Grid.RowDefinitions>
+
+                <Grid Grid.Row="1">
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="130"/>
+                        <ColumnDefinition Width="*"/>
+                        <ColumnDefinition Width="130"/>
+                    </Grid.ColumnDefinitions>
+
+                    <Border Background="#8c93e5" CornerRadius="20" Grid.Column="1">
+                        <Grid>
+                            <!-- Here will be Content -->
+                            <Grid.RowDefinitions>
+                                <RowDefinition Height="*"/>
+                                <RowDefinition Height="*"/> <!-- Account FullName -->
+                                <RowDefinition Height="*"/>
+                                <RowDefinition Height="*"/> <!-- County -->
+                                <RowDefinition Height="*"/> <!-- City -->
+                                <RowDefinition Height="*"/> <!-- Address -->
+                                <RowDefinition Height="*"/> <!-- PhoneNumber -->
+                            </Grid.RowDefinitions>
+
+                            <Grid Grid.Row="0">
+                                <TextBlock Text="Personal informations"
+                                           Foreground="White" 
+                                           FontSize="13" FontWeight="Bold"
+                                           Margin="20,0,0,0" VerticalAlignment="Center"/>
+                            </Grid>
+                            
+                            <Grid Grid.Row="1">
+                                <TextBlock Text="Name: "
+                                           Foreground="White"
+                                           HorizontalAlignment="Left"
+                                           VerticalAlignment="Center"
+                                           FontSize="12"
+                                           Margin="20,0,0,0"/>
+                            </Grid>
+
+                            <Grid Grid.Row="2">
+                                <TextBlock Text="Stable domicile:"
+                                           Margin="20,0,0,0"
+                                           FontSize="13"
+                                           Foreground="White"
+                                           VerticalAlignment="Center"
+                                           FontWeight="Bold"/>
+                            </Grid>
+
+                            <Grid Grid.Row="3">
+                                <TextBlock Text="County"
+                                           Foreground="White"
+                                           FontSize="12"
+                                           VerticalAlignment="Center"
+                                           Margin="20,0,0,0"/>
+                            </Grid>
+
+                            <Grid Grid.Row="4">
+                                <TextBlock Text="City"
+                                           Foreground="White"
+                                           FontSize="12"
+                                           VerticalAlignment="Center"
+                                           Margin="20,0,0,0"/>
+                            </Grid>
+
+                            <Grid Grid.Row="5">
+                                <TextBlock Text="Phone Number"
+                                           Foreground="White"
+                                           VerticalAlignment="Center"
+                                           FontSize="12"
+                                           Margin="20,0,0,0"/>
+                            </Grid>
+
+                        </Grid>
+                    </Border>
+
+
+                </Grid>
+
+            </Grid>
+
+        </Grid>
+
+    </Grid>
+</UserControl>
